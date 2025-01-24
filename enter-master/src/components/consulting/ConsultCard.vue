@@ -1,5 +1,6 @@
 <template>
   <div class="consult_wrap">
+    <!-- 产品第二部分切换按钮 -->
     <div class="consult_btn">
       <div
         class="consult_item"
@@ -11,6 +12,7 @@
         {{ item.tit }}
       </div>
     </div>
+    <!-- 产品第二部分body -->
     <div class="consult_content">
       <div class="content_right">
         <img :src="consultImg" alt="" />

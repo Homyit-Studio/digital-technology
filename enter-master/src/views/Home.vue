@@ -2,18 +2,22 @@
   <div>
     <PCNavbar selectIndex="1"/>
     <MobileNavBar :currentActive="0"/>
+    <!-- 轮播图 -->
     <CarouselHome />
+    <!-- 企业优势 -->
     <TodoShow/>
-    <div class="bottom_circle">
+    <!-- <div class="bottom_circle">
       <h1>产业大脑将会是所有城市园区产业发展的标准配置</h1>
       <div class="circle_img">
-        <img src="@/assets/img/lineimg.9cc3174a.png" alt="" class="hidden-xs-only"/>
-        <img src="@/assets/img/lineimg.9cc3174a.png" alt="" class="hidden-sm-and-up"/>
+        <img src="@/assets/img/lineimg.9cc3174a.png" alt="" class="hidden-xs-only"/> -->
+        <!-- 移动端时出现 -->
+        <!-- <img src="@/assets/img/lineimg.9cc3174a.png" alt="" class="hidden-sm-and-up"/>
       </div>
-    </div>
+    </div> -->
+    <!-- 核心能力 -->
     <CoreCompetence/>
+    <!-- 合作伙伴 -->
     <CooperationCustomer/>
-    <NewsInfomation/>
     <CallMe/>
     <MobileCallme/>
   </div>
@@ -26,7 +30,6 @@ import CarouselHome from '@/components/carousel_home/index'
 import TodoShow from '@/components/todo_show/index'
 import CoreCompetence from '@/components/core_competence/index'
 import CooperationCustomer from '@/components/cooperation_customer/index'
-import NewsInfomation from '@/components/news_infomation/index'
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 export default {
@@ -37,7 +40,6 @@ export default {
     TodoShow,
     CoreCompetence,
     CooperationCustomer,
-    NewsInfomation,
     CallMe,
     MobileCallme
   },

@@ -9,6 +9,7 @@
         </div>
       </el-carousel-item>
     </el-carousel>
+    <!-- 移动端时出现 -->
     <el-carousel height="50vw" loop arrow="never" class="hidden-sm-and-up">
       <el-carousel-item v-for="(item, index) in imgList" :key="index">
         <img :src="item.src" alt="" class="img_item" />
@@ -27,6 +28,7 @@ export default {
     return {
       imgList: [
         {
+          // require 被用来引入本地静态资源
           src: require('@/assets/img/banner1.jpg'),
           line1: '产业大脑',
           line2: '赋能产业高质量发展',

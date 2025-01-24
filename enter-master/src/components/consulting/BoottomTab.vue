@@ -1,4 +1,5 @@
 <template>
+  <!-- 底部蓝色部分 -->
   <div class="bottom_tab hidden-sm-and-up">
     <img src="../../assets/img/home/logo.svg" alt="" style="width:40%;"/>
     <img src="../../assets/img/qr-hscz.922c1e6.png" alt="" />

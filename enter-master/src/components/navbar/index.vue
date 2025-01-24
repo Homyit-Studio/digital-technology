@@ -15,7 +15,7 @@
           @select="changeCurrentPage"
         >
           <el-menu-item index="1" class="menu_item">首页</el-menu-item>
-          <el-submenu index="2">
+          <!-- <el-submenu index="2">
             <template slot="title">产品</template>
             <el-menu-item index="2-1" class="menu_item">产业大脑</el-menu-item>
             <el-menu-item index="2-2" class="menu_item">云招商</el-menu-item>
@@ -23,7 +23,8 @@
               >企业创新服务</el-menu-item
             >
             <el-menu-item index="2-4" class="menu_item">产业咨询</el-menu-item>
-          </el-submenu>
+          </el-submenu> -->
+          <el-menu-item index="2-4" class="menu_item">产品</el-menu-item>
           <el-menu-item index="3" class="menu_item">云逸研究院</el-menu-item>
           <el-submenu index="4" class="menu_item">
             <template slot="title">内容中心</template>
@@ -83,15 +84,15 @@ export default {
         case '1':
           this.$router.push('/home').catch((v) => {})
           break
-        case '2-1':
-          this.$router.push('/production/1').catch((v) => {})
-          break
-        case '2-2':
-          this.$router.push('/production/2').catch((v) => {})
-          break
-        case '2-3':
-          this.$router.push('/production/3').catch((v) => {})
-          break
+        // case '2-1':
+        //   this.$router.push('/production/1').catch((v) => {})
+        //   break
+        // case '2-2':
+        //   this.$router.push('/production/2').catch((v) => {})
+        //   break
+        // case '2-3':
+        //   this.$router.push('/production/3').catch((v) => {})
+        //   break
         case '2-4':
           this.$router.push('/production/4').catch((v) => {})
           break
