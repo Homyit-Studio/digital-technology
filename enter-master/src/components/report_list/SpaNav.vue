@@ -15,16 +15,16 @@
 <el-menu-item index="2-3" class="menu_item">企业创新服务</el-menu-item>
 <el-menu-item index="2-4" class="menu_item">产业咨询</el-menu-item>
 </el-submenu> -->
-          <el-menu-item index="2-4" class="menu_item">产品</el-menu-item>
+          <el-menu-item index="2" class="menu_item">产品</el-menu-item>
           <el-menu-item index="3" class="menu_item">新闻资讯</el-menu-item>
-          <el-menu-item index="4-3" class="menu_item">发展历程</el-menu-item>
+          <el-menu-item index="4" class="menu_item">发展历程</el-menu-item>
           <!-- <el-submenu index="4" class="menu_item">
             <template slot="title">内容中心</template>
             <el-menu-item index="4-1" class="menu_item">行业报告</el-menu-item>
             <el-menu-item index="4-2" class="menu_item">精选文章</el-menu-item>
             <el-menu-item index="4-3" class="menu_item">媒体报道</el-menu-item>
           </el-submenu> -->
-          <el-menu-item index="5-4" class="menu_item">联系我们</el-menu-item>
+          <el-menu-item index="5" class="menu_item">联系我们</el-menu-item>
           <!-- <el-submenu index="5"> -->
           <!-- <template slot="title">了解云逸</template> -->
           <!-- <el-menu-item index="5-1" class="menu_item">云逸介绍</el-menu-item> -->
@@ -73,44 +73,44 @@ export default {
       this.activeIndex = index
       switch (this.activeIndex) {
         case '1':
-          this.$router.push('/home').catch((v) => { })
+          this.$router.push('/home').catch(() => { })
           break
-        case '2-1':
-          this.$router.push('/production/1').catch((v) => { })
+        case '2':
+          this.$router.push('/production/1').catch(() => { })
           break
-        case '2-2':
-          this.$router.push('/production/2').catch((v) => { })
-          break
-        case '2-3':
-          this.$router.push('/production/3').catch((v) => { })
-          break
-        case '2-4':
-          this.$router.push('/production/4').catch((v) => { })
-          break
+        // case '2-2':
+        //   this.$router.push('/production/2').catch((v) => { })
+        //   break
+        // case '2-3':
+        //   this.$router.push('/production/3').catch((v) => { })
+        //   break
+        // case '2-4':
+        //   this.$router.push('/production/4').catch((v) => { })
+        //   break
         case '3':
-          this.$router.push('/threenav').catch((v) => { })
+          this.$router.push('/threenav').catch(() => { })
           break
-        case '4-1':
-          this.$router.push('/fournav/1').catch((v) => { })
+        case '4':
+          this.$router.push('/fournav/2').catch(() => { })
           break
-        case '4-2':
-          this.$router.push('/fournav/2').catch((v) => { })
+        // case '4-2':
+        //   this.$router.push('/fournav/2').catch((v) => { })
+        //   break
+        // case '4-3':
+        //   this.$router.push('/fournav/3').catch((v) => { })
+        //   break
+        case '5':
+          this.$router.push('/fivenav/2').catch(() => { })
           break
-        case '4-3':
-          this.$router.push('/fournav/3').catch((v) => { })
-          break
-        case '5-1':
-          this.$router.push('/fivenav/1').catch((v) => { })
-          break
-        case '5-2':
-          this.$router.push('/fivenav/2').catch((v) => { })
-          break
-        case '5-3':
-          this.$router.push('/fivenav/3').catch((v) => { })
-          break
-        case '5-4':
-          this.$router.push('/fivenav/2').catch((v) => { })
-          break
+        // case '5-2':
+        //   this.$router.push('/fivenav/2').catch((v) => { })
+        //   break
+        // case '5-3':
+        //   this.$router.push('/fivenav/3').catch((v) => { })
+        //   break
+        // case '5-4':
+        //   this.$router.push('/fivenav/2').catch((v) => { })
+        //   break
         default:
           break
       }
