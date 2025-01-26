@@ -179,7 +179,7 @@
 
 <script>
 import CallMe from '@/components/callme/index'
-import MobileCallme from '@/components/callme/MobileCallme.vue'
+// import MobileCallme from '@/components/callme/MobileCallme.vue'
 import BoottomTab from '@/components/consulting/BoottomTab.vue'
 export default {
   data() {
@@ -217,7 +217,7 @@ export default {
   },
   components: {
     CallMe,
-    MobileCallme,
+    // MobileCallme,
     BoottomTab
   },
 }
@@ -338,8 +338,8 @@ export default {
     }
     .research_card_right {
       margin-left: 50px;
-      img {
-      }
+      // img {
+      // }
     }
   }
   .research_card_mobile{
