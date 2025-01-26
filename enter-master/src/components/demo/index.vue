@@ -123,7 +123,7 @@
             v-model="formTopMobile.input"
             placeholder="请输入您的姓名"
             size="large"
-            style="height: 150px !imporant"
+            style="height: 150px"
           ></Input>
         </FormItem>
         <FormItem label="手机号" class="form_item2" required>
@@ -278,8 +278,7 @@ export default {
     }
     .demo_form_item1 {
       margin-top: 40px;
-      .form_item1 {
-      }
+      
     }
     .form_bottom {
       position: relative;

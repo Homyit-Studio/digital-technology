@@ -1,7 +1,7 @@
 <template>
   <div class="data_brain_wrap">
-    <div class="brain_title">云逸产业大脑</div>
-    <div class="brain_desc">数智赋能、高效协同，助力实现产业高质量发展</div>
+    <div class="brain_title">子午数智硬件优势</div>
+    <div class="brain_desc">高精度数字化，守护文物未来</div>
 
     <el-row class="card_wrap" type="flex">
       <el-col
@@ -14,7 +14,7 @@
       >
         <div class="item_title">{{ item.title }}</div>
         <div class="item_desc">{{ item.desc }}</div>
-        <div class="item_navigate" @click="handleNavigate">了解详情 >></div>
+        <!-- <div class="item_navigate" @click="handleNavigate">了解详情 >></div> -->
         <div class="item_bg"></div>
       </el-col>
     </el-row>
@@ -27,37 +27,33 @@ export default {
     return {
       cardList: [
         {
-          title: '产业链数据中心',
-          desc: '通过大数据与人工智能，实现区域内各个产业要素的数字孪生，数据贯通，为智能化分析和产业决策提供数字化支撑量发展',
+          title: '机载激光扫描仪',
+          desc: '能够高效、准确地获取大范围文物的三维数据，尤其适用于文物顶面数据、复杂地形和大型遗址的扫描，为文物的整体数字化保护提供了有力支持',
         },
         {
-          title: '产业链监测',
-          desc: '从宏观、中观、微观三个层面，实现产业链图谱的洞察与监测，为产业管理部门提供产业选择的支撑工具。',
+          title: '地面站激光扫描仪',
+          desc: '适用于近距离、高精度的文物扫描，能够捕捉到文物表面的微小细节，为文物的精细修复和数字化建模提供关键数据',
         },
         {
-          title: '产业评价',
-          desc: '通过对企业和土地的评价，实现地块的产出效率最大化，实现优质企业服务支持、低效企业帮扶。',
+          title: '手持激光扫描仪',
+          desc: '灵活便携，适用于现场快速扫描，尤其适合在文物保护现场进行即时数据采集，为文物的应急保护和数字化记录提供了便捷手段',
         },
         {
-          title: '产业地图',
-          desc: '全方位、多维度、实时动态的产业数据展示和分析。呈现区域规划差异和发展成果，快速建立地区产业品牌形象',
+          title: '全景相机',
+          desc: '能够拍摄全方位、高分辨率的文物照片，为文物的视觉呈现和数字化展示提供了丰富素材',
         },
         {
-          title: '智能招商云平台',
-          desc: '数据智能融入招商全流程，为政府和园区提供招商策略研究、大数据招商平台、招商云服务和产业品牌活动等一站式精准招商服务',
-        },
-        {
-          title: '企业服务',
-          desc: '面向企业需求建设运营产业互联网，实现产业资源、创新要素和企业服务需求的精准匹配，提高企业创新发展能效',
+          title: '专业测绘无人机',
+          desc: '结合GPS导航和遥感技术，能够高效完成空中文物测绘任务，为文物的空间布局和地形地貌分析提供了重要依据',
         },
       ],
     }
   },
-  methods:{
-    handleNavigate(){
-      this.$router.push('/production/1').catch((v) => {})
-    }
-  }
+  // methods:{
+  //   handleNavigate(){
+  //     this.$router.push('/production/1').catch((v) => {})
+  //   }
+  // }
 }
 </script>
 
