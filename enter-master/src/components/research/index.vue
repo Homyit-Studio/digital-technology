@@ -342,8 +342,8 @@ export default {
 
     .research_card_right {
       margin-left: 50px;
-
-      img {}
+      // img {
+      // }
     }
   }
 

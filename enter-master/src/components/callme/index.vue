@@ -140,7 +140,7 @@ export default {
 
   .callme_top_wrap {
     width: 100%;
-    height: 300px;
+    height: 310px;
     background: url('../../assets/img/cydcbg.80d9b0b.jpg') 0 0 no-repeat;
     background-size: 100% 100%;
     font-size: 3vw;

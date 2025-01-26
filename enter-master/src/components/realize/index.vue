@@ -33,7 +33,7 @@
               匠心筑史，科技维新
             </el-form-item>
             <el-form-item label="愿景：" class="table_form_item">
-              我们致力于运用前沿的三维扫描、建模、修复技术，精准捕捉并复原文物的每一寸细节，让历史的痕迹在数字世界中得以永恒留存。结合VR大空间技术，让文物在虚拟世界中“活起来”。
+              我们深信，每一件文物都是历史的见证者，承载着丰富的文化信息和民族记忆。因此，我们致力于运用前沿的三维扫描、建模、修复技术，精准捕捉并复原文物的每一寸细节，让历史的痕迹在数字世界中得以永恒留存。结合VR大空间技术，让文物在虚拟世界中“活起来”。通过构建高精度的数字模型，我们不仅实现了文物的数字化存档，更为学术研究、公众教育及创意产业提供了丰富的资源。
             </el-form-item>
             <el-form-item label="价值观：" class="table_form_item">
               尊重历史，创新未来。
@@ -43,15 +43,15 @@
         </div>
         <div class="table_wrap_mobile hidden-sm-and-up">
           <p>
-            云逸创造（杭州费尔斯通科技有限公司）创立于2015年8月，是全球领先的产业大数据及人工智能科技公司。云逸创造致力于数据驱动产业发展，形成“T”字型战略布局：通过“产业大脑”，支撑多产业发展全场景数字化应用，赋能政府侧、服务市场侧，提升产业治理水平和产业协同能效，助力实现产业高质量发展；通过“生物医药产业互联网平台”，基于数据智能和网络协同实现供需精准匹配，帮助企业创新提质、降本增效。
-            迄今，公司已成功服务北京、上海、广州、杭州等20多个核心城市，中关村生命园、苏州工业园、上海浦东新区、成都高新区等150余个产业园区和数万家企业。
+            为实现文物数字化保护、修复以及活化，我们公司秉承“尊重历史，创新未来”的价值观，以“匠心筑史，科技维新”为核心企业文化。通过构建高精度的数字模型，我们实现了文物的数字化存档，为学术研究、公众教育及创意产业提供了丰富的资源。
           </p>
           <div class="table_form">
             <div class="table_form_item">
               <span>使命:</span>匠心筑史，科技维新
             </div>
             <div class="table_form_item">
-              <span>愿景:</span>我们致力于运用前沿的三维扫描、建模、修复技术，精准捕捉并复原文物的每一寸细节，让历史的痕迹在数字世界中得以永恒留存。结合VR大空间技术，让文物在虚拟世界中“活起来”。
+              <span>愿景:</span>
+              我们深信，每一件文物都是历史的见证者，承载着丰富的文化信息和民族记忆。因此，我们致力于运用前沿的三维扫描、建模、修复技术，精准捕捉并复原文物的每一寸细节，让历史的痕迹在数字世界中得以永恒留存。结合VR大空间技术，让文物在虚拟世界中“活起来”。
             </div>
             <div class="table_form_item">
               <span>价值观:</span>
@@ -86,20 +86,36 @@
           </el-col>
         </el-row>
       </div>
-      <div class="production_title_wrap">
-        <div class="production_inner">
-          <div class="inner_left">
-            <img src="../../assets/img/tupianright.png" alt="" />
-          </div>
-          <div class="inner_center">
-            <div class="production_title">我们的合作伙伴</div>
-          </div>
-          <div class="inner_right">
-            <img src="../../assets/img/tupianleft.png" alt="" />
+      <!-- 合作伙伴 -->
+      <div class="product_shows_wrap1">
+        <div class="production_title_wrap">
+          <div class="production_inner">
+            <div class="inner_left">
+              <img src="../../assets/img/tupianright.png" alt="" />
+            </div>
+            <div class="inner_center">
+              <div class="production_title">我们的合作伙伴</div>
+            </div>
+            <div class="inner_right">
+              <img src="../../assets/img/tupianleft.png" alt="" />
+            </div>
           </div>
         </div>
+        <div class="card_fan_list">
+          <el-row class="card_fan_wrap" type="flex" justify="space-between">
+            <el-col class="card_fan_item" :span="11" v-for="(item, index) in cardList" :key="index">
+              <!-- <div class="card_left hidden-xs-only">
+              <img :src="item.img" alt="" />
+            </div> -->
+              <div class="card_right">
+                <h1>{{ item.name }}</h1>
+                <!-- <p>{{ item.desc }}</p> -->
+              </div>
+            </el-col>
+          </el-row>
+        </div>
       </div>
-      <PersonCard />
+      <!-- <PersonCard /> -->
       <!-- <div class="production_title_wrap">
         <div class="production_inner">
           <div class="inner_left">
@@ -222,7 +238,7 @@
 </template>
 
 <script>
-import PersonCard from './PersonCard.vue'
+//import PersonCard from './PersonCard.vue'
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 import ReailzeCard from './ReailzeCard.vue'
@@ -345,7 +361,7 @@ export default {
       contactMsg: [
         {
           tit: '市场合作',
-          desc: '邮箱待补充',
+          desc: 'jxzwshuzi@163.com',
           icon: require('../../assets/img/61.png'),
         },
         {
@@ -411,6 +427,28 @@ export default {
       //     desc: '云逸创始人杨红飞荣获"2019年中国B2B领域卓越创业家"荣誉称号'
       //   },
       // ]
+      cardList: [
+        {
+          name: '子午舆图数码科技（江西）有限公司',
+          // desc: '北京市十四五生物医药产业战略规划',
+          // img: require('../../assets/img/researchInstitute/icon1.png')
+        },
+        {
+          name: '三维数字科技（江西）有限公司',
+          // desc: '产业新基建战略白皮书',
+          // img: require('../../assets/img/researchInstitute/icon2.png')
+        },
+        {
+          name: '思看科技（杭州）股份有限公司',
+          // desc: '中国生物医药产业发展指数CBIB',
+          // img: require('../../assets/img/researchInstitute/icon3.png')
+        },
+        {
+          name: '深圳市其域创新科技有限公司',
+          // desc: '政策/资本研究数字化工具数鉴.生物医药(2019)',
+          // img: require('../../assets/img/researchInstitute/icon4.png')
+        },
+      ],
     }
   },
   methods: {
@@ -419,7 +457,7 @@ export default {
     },
   },
   components: {
-    PersonCard,
+    //PersonCard,
     CallMe,
     MobileCallme,
     ReailzeCard,
@@ -566,7 +604,7 @@ export default {
       position: absolute;
       top: 23%;
       left: 20%;
-      width: 400px;
+      width: 500px;
 
       .table_form {
         .table_form_item {
@@ -883,6 +921,79 @@ export default {
           width: 30px;
           height: 5px;
           background: #13519f;
+        }
+      }
+    }
+  }
+
+  .product_shows_wrap1 {
+    width: 100%;
+    background: #f4f9fc;
+    background-size: cover;
+    padding: 10px 0 100px 0;
+    box-sizing: border-box;
+    margin-top: 60px;
+    margin-bottom: 10px;
+
+    .card_fan_list {
+      width: 70%;
+      margin: 0 auto;
+
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
+
+      .card_fan_wrap {
+        flex-wrap: wrap;
+        margin-top: 50px;
+      }
+
+      .card_fan_item {
+        display: flex;
+        align-items: center;
+        background: #fff;
+        margin-top: 40px;
+        padding: 20px;
+        box-shadow: 10px 10px 20px rgba($color: #000, $alpha: 0.1);
+
+        @media screen and (max-width: 768px) {
+          background: url('../../assets/img/icon2.png') 0 0 no-repeat;
+          background-position: 100% 100%;
+          background-size: 35%;
+          height: 100px;
+
+          &:nth-child(n+3) {
+            margin-top: 25px;
+          }
+        }
+
+        .card_left {
+          width: 20%;
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .card_right {
+          margin-left: 15px;
+
+          h1 {
+            font-size: 25px;
+
+            @media screen and (max-width: 768px) {
+              font-size: 14px;
+            }
+          }
+
+          p {
+            font-size: 18px;
+            margin-top: 10px;
+
+            @media screen and (max-width: 768px) {
+              font-size: 12px;
+            }
+          }
         }
       }
     }

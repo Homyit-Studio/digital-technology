@@ -9,7 +9,7 @@
 <script>
 // import PCNavbar from '@/components/navbar/index'
 import MobileNavBar from '@/components/navbar/MobileNavBar.vue'
-import SpaNav from '@/components/report_list/SpaNav.vue'
+import SpaNav from '@/components/navbar/index'
 export default {
   components: {
     // PCNavbar,

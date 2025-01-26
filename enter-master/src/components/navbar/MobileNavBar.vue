@@ -2,8 +2,7 @@
   <div style="margin-bottom:56px;" class="hidden-sm-and-up">
     <div class="mobile_nav_wrap hidden-sm-and-up">
       <div class="navbar_left" @click="gobackHome">
-        子午数智
-        <!-- <img src="@/assets/img/home/logo_color.svg" alt="云逸创造..." /> -->
+        <img src="@/assets/img/home/JXZWSZ_logo_M.png" alt="子午数智..." />
       </div>
       <div class="navbar_right">
         <!-- <div class="nav_tiyan" @click="gotoExperience">立即体验</div> -->
@@ -107,14 +106,16 @@ export default {
   .navbar_left {
     flex: 1;
     background: #fff;
-    width: 20vw !important;
-    font-size: x-large !important;
+    width: 26vw !important;
+    height: 80px;
+    font-size: 5em;
     letter-spacing: 0.1em;
     font-weight: 700;
     color: #666;
-    // img {
-    //   width: 100%;
-    // }
+
+    img {
+      width: 100%;
+    }
   }
 
   .navbar_right {
@@ -157,7 +158,7 @@ export default {
 .nav_menu {
   position: absolute;
   width: 100%;
-  height: 450PX;
+  height: 300PX;
   list-style: none;
   left: 0;
   right: 0;
