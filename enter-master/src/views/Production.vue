@@ -1,6 +1,6 @@
 <template>
   <div>
-    <PCNavbar selectIndex="2-1"/>
+    <PCNavbar selectIndex="2" />
     <MobileNavBar :currentActive="1" />
     <router-view></router-view>
   </div>
@@ -17,5 +17,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>

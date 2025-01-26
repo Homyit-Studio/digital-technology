@@ -2,7 +2,7 @@
   <div class="report_wrap" ref="turtor">
     <div class="repost_mobile_shiying">
       <div class="report_img">
-        <div class="img_tit">内容中心</div>
+        <div class="img_tit">发展历程</div>
       </div>
       <div class="report_options">
         <el-row class="option" type="flex" justify="space-between">
@@ -757,7 +757,7 @@ export default {
         height: 50vw;
       }
 
-      background: url('../../assets/img/newbg.22e89fc.jpg') 0 0 no-repeat;
+      background: url('../../assets/img/cydcbg.80d9b0b.jpg') 0 0 no-repeat;
       background-size: 100% 100%;
       color: #fff;
       display: flex;

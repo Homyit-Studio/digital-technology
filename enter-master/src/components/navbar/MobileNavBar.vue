@@ -2,10 +2,11 @@
   <div style="margin-bottom:56px;" class="hidden-sm-and-up">
     <div class="mobile_nav_wrap hidden-sm-and-up">
       <div class="navbar_left" @click="gobackHome">
-        <img src="@/assets/img/home/logo_color.svg" alt="云逸创造..." />
+        子午数智
+        <!-- <img src="@/assets/img/home/logo_color.svg" alt="云逸创造..." /> -->
       </div>
       <div class="navbar_right">
-        <div class="nav_tiyan" @click="gotoExperience">立即体验</div>
+        <!-- <div class="nav_tiyan" @click="gotoExperience">立即体验</div> -->
         <div class="nav_btns" @click="moveMenu">
           <i class="el-icon-menu"></i>
         </div>
@@ -13,56 +14,28 @@
     </div>
     <Affix>
       <div class="nav_menu" ref="menu">
-        <router-link
-          class="menu_item"
-          to="/home"
-          :class="currentActive === 0 ? 'active' : ''"
-          >首页</router-link
-        >
-        <div
-          class="menu_item"
-          @click="changeProductShow"
-          :class="currentActive === 1 ? 'active' : ''"
-        >
-          产品
-        </div>
-        <div class="item_options" v-show="productShow">
+        <router-link class="menu_item" to="/home" :class="currentActive === 0 ? 'active' : ''">首页</router-link>
+        <router-link class="menu_item" to="/production/1" :class="currentActive === 1 ? 'active' : ''">产品</router-link>
+        <!-- <div class="item_options" v-show="productShow">
           <a href="/production/1">产业大脑</a>
           <a href="/production/2">云招商</a>
           <a href="/production/3">企业创新服务</a>
           <a href="/production/4">产业咨询</a>
-        </div>
-        <router-link
-          class="menu_item"
-          to="/threenav"
-          :class="currentActive === 2 ? 'active' : ''"
-          >云逸研究院</router-link
-        >
-        <div
-          class="menu_item"
-          @click="changeCenterShow"
-          :class="currentActive === 3 ? 'active' : ''"
-        >
-          内容中心
-        </div>
-        <div class="item_options" v-show="centerShow">
+        </div> -->
+        <router-link class="menu_item" to="/threenav" :class="currentActive === 2 ? 'active' : ''">新闻资讯</router-link>
+        <router-link class="menu_item" to="/fournav/2" :class="currentActive === 3 ? 'active' : ''">发展历程</router-link>
+        <!-- <div class="item_options" v-show="centerShow">
           <a href="/fournav/1" style="height: 33.3%">行业报告</a>
           <a href="/fournav/2" style="height: 33.3%">精选文章</a>
           <a href="/fournav/3" style="height: 33.3%">媒体报道</a>
-        </div>
-        <div
-          class="menu_item"
-          @click="changefireShow"
-          :class="currentActive === 4 ? 'active' : ''"
-        >
-          了解云逸
-        </div>
-        <div class="item_options" v-show="fireShow">
-          <a href="/fivenav/1">云逸介绍</a>
-          <!-- <a href="/fivenav/2">发展历程</a> -->
-          <!-- <a href="/fivenav/3">荣誉资质</a> -->
-          <a href="/fivenav/2">联系云逸</a>
-        </div>
+        </div> -->
+        <router-link class="menu_item" to="/fivenav/2" :class="currentActive === 4 ? 'active' : ''">联系我们</router-link>
+        <!-- <div class="item_options" v-show="fireShow"> -->
+        <!-- <a href="/fivenav/1">云逸介绍</a> -->
+        <!-- <a href="/fivenav/2">发展历程</a> -->
+        <!-- <a href="/fivenav/3">荣誉资质</a> -->
+        <!-- <a href="/fivenav/2">联系云逸</a> -->
+        <!-- </div> -->
       </div>
     </Affix>
   </div>
@@ -93,26 +66,26 @@ export default {
         this.$refs.menu.style.top = '-1000PX'
       }
     },
-    changeProductShow() {
-      this.productShow = !this.productShow
-      this.centerShow = false
-      this.fireShow = false
-    },
-    changeCenterShow() {
-      this.centerShow = !this.centerShow
-      this.fireShow = false
-      this.productShow = false
-    },
-    changefireShow() {
-      this.fireShow = !this.fireShow
-      this.centerShow = false
-      this.productShow = false
-    },
+    // changeProductShow() {
+    //   this.productShow = !this.productShow
+    //   this.centerShow = false
+    //   this.fireShow = false
+    // },
+    // changeCenterShow() {
+    //   this.centerShow = !this.centerShow
+    //   this.fireShow = false
+    //   this.productShow = false
+    // },
+    // changefireShow() {
+    //   this.fireShow = !this.fireShow
+    //   this.centerShow = false
+    //   this.productShow = false
+    // },
     gotoExperience() {
-      this.$router.push('/demo').catch((v) => {})
+      this.$router.push('/demo').catch(() => { })
     },
-    gobackHome(){
-      this.$router.replace('/home').catch((v) => {})
+    gobackHome() {
+      this.$router.replace('/home').catch(() => { })
     }
   },
 }
@@ -130,19 +103,27 @@ export default {
   align-items: center;
   position: fixed;
   top: 0;
+
   .navbar_left {
     flex: 1;
     background: #fff;
-    img {
-      width: 100%;
-    }
+    width: 20vw !important;
+    font-size: x-large !important;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: #666;
+    // img {
+    //   width: 100%;
+    // }
   }
+
   .navbar_right {
     flex: 2;
     height: 56PX;
     display: flex;
     justify-content: flex-end;
-    background: #fff; 
+    background: #fff;
+
     .nav_tiyan {
       width: 88PX;
       height: 100%;
@@ -160,53 +141,59 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      i{
+
+      i {
         font-size: 30PX;
       }
     }
   }
 }
-.active{
+
+.active {
   color: #F39C00 !important;
   font-weight: bold;
 }
-.nav_menu{
-    position: absolute;
+
+.nav_menu {
+  position: absolute;
+  width: 100%;
+  height: 450PX;
+  list-style: none;
+  left: 0;
+  right: 0;
+  top: -1000PX;
+  padding-bottom: 0;
+  box-sizing: border-box;
+  background: #EFF0F1;
+  box-shadow: 0 10PX 20PX rgba(0, 0, 0, .1);
+  z-index: 10;
+  transition: all 0.8s;
+
+  .menu_item {
     width: 100%;
-    height: 450PX;
-    list-style: none;
-    left: 0;
-    right: 0;
-    top: -1000PX;
-    padding-bottom: 0;
-    box-sizing: border-box;
+    height: 40PX;
+    font-size: 16PX;
     background: #EFF0F1;
-    box-shadow: 0 10PX 20PX rgba(0,0,0,.1);
-    z-index: 10;
-    transition: all 0.8s;
-    .menu_item{
+    color: #1c212d;
+    padding: 30PX;
+    display: flex;
+    align-items: center;
+  }
+
+  .item_options {
+    width: 100%;
+    padding: 5PX 10PX;
+    height: 150PX;
+    font-size: 14PX;
+    background: #fff;
+
+    a {
+      display: inline-block;
       width: 100%;
-      height: 40PX;
-      font-size: 16PX;
-      background: #EFF0F1;
-      color: #1c212d;
-      padding: 30PX;
-      display: flex;
-      align-items: center;
-    }
-    .item_options{
-      width: 100%;
-      padding: 5PX 10PX;
-      height: 150PX;
-      font-size: 14PX;
-      background: #fff;
-      a{
-        display: inline-block;
-        width: 100%;
-        color: #666;
-        height: 25%;
-        padding: 20px 30PX;
-      }
+      color: #666;
+      height: 25%;
+      padding: 20px 30PX;
     }
   }
+}
 </style>

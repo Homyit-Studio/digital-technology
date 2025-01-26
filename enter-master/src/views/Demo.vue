@@ -1,9 +1,9 @@
 <template>
   <div>
-    <PCNavbar selectIndex="5"/>
-    <MobileNavBar/>
-    <DemoForm/>
-    <CallMe/>
+    <PCNavbar selectIndex="5" />
+    <MobileNavBar />
+    <DemoForm />
+    <CallMe />
   </div>
 </template>
 
@@ -22,5 +22,4 @@ export default {
 }
 </script>
 
-<style>
-</style>
+<style></style>
