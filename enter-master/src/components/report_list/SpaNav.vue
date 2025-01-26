@@ -2,7 +2,8 @@
   <div class="navbar_wrap hidden-xs-only">
     <div class="navbar_container">
       <div class="navbar_left">
-        <img src="@/assets/img/home/logo_color.svg" alt="云逸创造..." />
+        子午数智
+        <!-- <img src="@/assets/img/home/logo_color.svg" alt="云逸创造..." /> -->
       </div>
       <div class="navbar_right">
         <el-menu :default-active="activeIndex" class="el_menu_demo" mode="horizontal" background-color="#fff"
@@ -37,7 +38,7 @@
         <!-- <a href="#">立即体验</a> -->
         <span class="right_phone">
           <i class="el-icon-phone"></i>
-          <span> 000-000-0000 </span>
+          <span> 联系电话待补充2 </span>
         </span>
       </div>
     </div>
@@ -146,11 +147,16 @@ export default {
       display: flex;
       align-items: center;
       height: 100%;
+      width: 20vw !important;
+      font-size: x-large !important;
+      letter-spacing: 0.2em;
+      font-weight: 700;
+      color: #000;
 
-      img {
-        width: 160px;
-        cursor: pointer;
-      }
+      // img {
+      //   width: 160px;
+      //   cursor: pointer;
+      // }
     }
 
     .navbar_right {

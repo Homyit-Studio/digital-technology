@@ -1,24 +1,14 @@
 <template>
   <div class="realize_wrap">
     <div class="realize_img">
-      <div class="img_tit">为人人享有健康生活而奋斗</div>
+      <div class="img_tit">匠心筑史，科技维新</div>
     </div>
     <div class="realize_nav_wrap">
       <el-row class="realize_nav" type="flex" justify="center">
-        <el-col
-          v-for="(tab, index) in tabList"
-          :key="index"
-          class="realize_item"
-          :class="tabSelectIndex === index ? 'active' : ''"
-          :span="2"
-          :xs="6"
-          @click.native="changeTabIndex(index)"
-        >
+        <el-col v-for="(tab, index) in tabList" :key="index" class="realize_item"
+          :class="tabSelectIndex === index ? 'active' : ''" :span="2" :xs="6" @click.native="changeTabIndex(index)">
           <div class="nav_top">{{ tab.tit }}</div>
-          <div
-            class="nav_bottom"
-            :style="tabSelectIndex === index ? '' : 'background:#fff'"
-          ></div>
+          <div class="nav_bottom" :style="tabSelectIndex === index ? '' : 'background:#fff'"></div>
         </el-col>
       </el-row>
     </div>
@@ -40,16 +30,14 @@
         <div class="table_wrap hidden-xs-only">
           <el-form label-position="left" label-width="70px" class="table_form">
             <el-form-item label="使命：" class="table_form_item">
-              为人人享有健康生活而奋斗
+              匠心筑史，科技维新
             </el-form-item>
             <el-form-item label="愿景：" class="table_form_item">
-              成为数据驱动产业发展的引领者。
-              每一个发展产业的政府都有一个云逸产业大脑伴随式全程赋能。
-              到2025年，服务100个城市、1000个园区、100000家企业。
+              我们致力于运用前沿的三维扫描、建模、修复技术，精准捕捉并复原文物的每一寸细节，让历史的痕迹在数字世界中得以永恒留存。结合VR大空间技术，让文物在虚拟世界中“活起来”。
             </el-form-item>
             <el-form-item label="价值观：" class="table_form_item">
-              存在的理由是持续为用户创造独特价值； 学习和创造是我们的信仰；
-              坚持就是胜利； 真诚而专业； 成就伙伴，成就自我。
+              尊重历史，创新未来。
+              在这里，每一位成员都是文化的守护者与科技的探索者，我们携手并进，在尊重与创新的双重驱动下，共同书写文物保护与传承的新篇章。
             </el-form-item>
           </el-form>
         </div>
@@ -60,17 +48,14 @@
           </p>
           <div class="table_form">
             <div class="table_form_item">
-              <span>使命:</span>为人人享有健康生活而奋斗
+              <span>使命:</span>匠心筑史，科技维新
             </div>
             <div class="table_form_item">
-              <span>愿景:</span>成为数据驱动产业发展的引领者。
-              每一个发展产业的政府都有一个云逸产业大脑伴随式全程赋能。
-              到2025年，服务100个城市、1000个园区、100000家企业。
+              <span>愿景:</span>我们致力于运用前沿的三维扫描、建模、修复技术，精准捕捉并复原文物的每一寸细节，让历史的痕迹在数字世界中得以永恒留存。结合VR大空间技术，让文物在虚拟世界中“活起来”。
             </div>
             <div class="table_form_item">
-              <span>价值观:</span>存在的理由是持续为用户创造独特价值；
-              学习和创造是我们的信仰； 坚持就是胜利； 真诚而专业；
-              成就伙伴，成就自我。
+              <span>价值观:</span>
+              在这里，每一位成员都是文化的守护者与科技的探索者，我们携手并进，在尊重与创新的双重驱动下，共同书写文物保护与传承的新篇章。
             </div>
           </div>
         </div>
@@ -81,7 +66,7 @@
             <img src="../../assets/img/tupianright.png" alt="" />
           </div>
           <div class="inner_center">
-            <div class="production_title">云逸的优势</div>
+            <div class="production_title">我们的优势</div>
           </div>
           <div class="inner_right">
             <img src="../../assets/img/tupianleft.png" alt="" />
@@ -90,22 +75,12 @@
       </div>
       <div class="advantage_out_wrap">
         <el-row class="advantage_wrap">
-          <el-col
-            class="advantage_item"
-            v-for="(item, index) in advantageList"
-            :key="index"
-            :span="7"
-            :xs="11"
-          >
+          <el-col class="advantage_item" v-for="(item, index) in advantageList" :key="index" :span="7" :xs="11">
             <div class="item_top">
               <div class="icon hidden-xs-only"><i :class="item.icon"></i></div>
               <div class="tit">{{ item.title }}</div>
             </div>
-            <ul
-              class="item_desc"
-              v-for="(desc, index2) in item.desc"
-              :key="index2"
-            >
+            <ul class="item_desc" v-for="(desc, index2) in item.desc" :key="index2">
               <li>{{ desc }}</li>
             </ul>
           </el-col>
@@ -117,7 +92,7 @@
             <img src="../../assets/img/tupianright.png" alt="" />
           </div>
           <div class="inner_center">
-            <div class="production_title">云逸合伙人</div>
+            <div class="production_title">我们的合作伙伴</div>
           </div>
           <div class="inner_right">
             <img src="../../assets/img/tupianleft.png" alt="" />
@@ -125,7 +100,7 @@
         </div>
       </div>
       <PersonCard />
-      <div class="production_title_wrap">
+      <!-- <div class="production_title_wrap">
         <div class="production_inner">
           <div class="inner_left">
             <img src="../../assets/img/tupianright.png" alt="" />
@@ -140,12 +115,12 @@
             <img src="../../assets/img/tupianleft.png" alt="" />
           </div>
         </div>
-      </div>
-      <div class="china_map">
+      </div> -->
+      <!-- <div class="china_map">
         <img src="../../assets/img/coor1.png" alt="" />
         <img src="../../assets/img/coor2.png" alt="" />
         <img src="../../assets/img/coor3.png" alt="" />
-      </div>
+      </div> -->
     </div>
     <!-- <div class="show_box_index" v-if="tabSelectIndex === 1">
       <div class="timeline_wrap">
@@ -182,12 +157,7 @@
     <div class="show_box_index" v-if="tabSelectIndex === 1">
       <div class="four_wrap">
         <el-row type="flex" justify="center" class="out_card" :gutter="10">
-          <el-col
-            :span="7"
-            v-for="(item, index) in contactMsg"
-            :key="index"
-            class="card_item"
-          >
+          <el-col :span="7" v-for="(item, index) in contactMsg" :key="index" class="card_item">
             <el-card :body-style="{ padding: '0px' }" class="card_content">
               <div style="padding: 14px">
                 <img :src="item.icon" class="image" />
@@ -204,7 +174,7 @@
           </el-col>
         </el-row>
       </div>
-      <div class="production_title_wrap">
+      <!-- <div class="production_title_wrap">
         <div class="production_inner">
           <div class="inner_left">
             <img src="../../assets/img/tupianright.png" alt="" />
@@ -241,7 +211,7 @@
             <h1>000-000-0000</h1>
           </el-col>
         </el-row>
-      </div>
+      </div> -->
       <div class="real_wrap">
         <ReailzeCard :reailzeList="reailzeList" class="hidden-sm-and-up" />
       </div>
@@ -256,14 +226,14 @@ import PersonCard from './PersonCard.vue'
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 import ReailzeCard from './ReailzeCard.vue'
-import TimeLineYunYi from './TimeLineYunYi.vue'
-import TimeLineMobile from './TimeLineMobile.vue'
+// import TimeLineYunYi from './TimeLineYunYi.vue'
+// import TimeLineMobile from './TimeLineMobile.vue'
 export default {
   data() {
     return {
       tabList: [
         {
-          tit: '云逸介绍',
+          tit: '子午数智介绍',
           name: '1',
         },
         // {
@@ -275,7 +245,7 @@ export default {
         //   name: '3',
         // },
         {
-          tit: '联系云逸',
+          tit: '联系我们',
           name: '4',
         },
       ],
@@ -284,162 +254,163 @@ export default {
         {
           icon: '',
           title: '团队能力',
-          desc: ['技术驱动型队伍', '打造全球领先的生命健康产业数据库'],
+          desc: ['高学历人才丰富', '多学科交叉融合', '极具创新精神'],
         },
+        // {
+        //   icon: '',
+        //   title: '市场优势',
+        //   desc: ['自研超级数据工厂', '区块链AI技术在新药研发领域的实践者'],
+        // },
         {
           icon: '',
-          title: '市场优势',
-          desc: ['自研超级数据工厂', '区块链AI技术在新药研发领域的实践者'],
-        },
-        {
-          icon: '',
-          title: '数据优势',
+          title: '硬件优势',
           desc: [
-            '中国生物医药产业发展指数CBIB',
-            '中国临床试验能效指数CTCE Index',
+            '全景相机 | 专业测绘无人机',
+            '机载激光扫描仪 | 地面站激光扫描仪 | 手持激光扫描仪'
           ],
         },
         {
           icon: '',
           title: '技术优势',
           desc: [
-            '中国生物经济战略路径研究/主要省份生物经济研究',
-            '由生命科学、信息科学、经济学等复合人才构成',
+            '多平台跨模态数据融合技术',
+            '基于NeRF和3D GS的三维重建技术',
+            '丰富的数字化平台构建技术'
           ],
         },
-        {
-          icon: '',
-          title: '行业影响力',
-          desc: ['技术驱动型队伍', '国务院/国家发改委/国家医保局简报/专报'],
-        },
-        {
-          icon: '',
-          title: '政策影响力',
-          desc: [
-            '首创生命健康产业大脑',
-            '用户覆盖中国主要城市/园区承建北京科委高精尖产业大数据平台等项目',
-          ],
-        },
+        // {
+        //   icon: '',
+        //   title: '行业影响力',
+        //   desc: ['技术驱动型队伍', '国务院/国家发改委/国家医保局简报/专报'],
+        // },
+        // {
+        //   icon: '',
+        //   title: '政策影响力',
+        //   desc: [
+        //     '首创生命健康产业大脑',
+        //     '用户覆盖中国主要城市/园区承建北京科委高精尖产业大数据平台等项目',
+        //   ],
+        // },
       ],
-      timelineEvent: [
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-        {
-          event:
-            '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-          time: '2021/11/24',
-          img: require('../../assets/img/new7.png'),
-        },
-      ],
+      // timelineEvent: [
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      //   {
+      //     event:
+      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
+      //     time: '2021/11/24',
+      //     img: require('../../assets/img/new7.png'),
+      //   },
+      // ],
       contactMsg: [
         {
           tit: '市场合作',
-          desc: 'Business@hsmap.com',
+          desc: '邮箱待补充',
           icon: require('../../assets/img/61.png'),
         },
         {
           tit: '售前咨询',
-          desc: '000-000-0000',
+          desc: '电话待补充',
           icon: require('../../assets/img/60.png'),
         },
         {
           tit: '售后咨询',
-          desc: 'Product@hsmap.com',
+          desc: '邮箱待补充',
           icon: require('../../assets/img/61.png'),
         },
       ],
-      reailzeList: [
-        {
-          tit: '杭州总部',
-        },
-        {
-          tit: '北京子公司',
-        },
-        {
-          tit: '成都子公司',
-        },
-        {
-          tit: '重庆子公司',
-        },
-      ],
-      certificateList:[
-        {
-          img:'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210629/kWXEiepyNp1624936457266.png',
-          desc:'荣获“2021年杭州市准独角兽企业”荣誉称号'
-        },
-        {
-          img:'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/mkGhTrdJTi1616038179236.jpg',
-          desc:'2020年云逸创造成为华为认证级ISV伙伴'
-        },
-        {
-          img:'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/SS4ncBsjQs1616038188320.jpg',
-          desc:'云逸创造董事长金霞入选“2020年度女性创业者TOP10'
-        },
-        {
-          img:'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/DZPsTTfkJi1616038196212.jpg',
-          desc:'2020年云逸创造荣获“浙江省高新技术企业”荣誉称号'
-        },
-        {
-          img:'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/kjfX3JRw641616038294809.jpg',
-          desc:'荣获“2020中国健康新势力企业”荣誉称号'
-        },
-        {
-          img:'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/Wr3JPJ5wsG1616038303821.jpg',
-          desc:'云逸创造董事长金霞入选科技部“2019年创新人才推进计划'
-        },
-        {
-          img:'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/b2TNNdNsCe1591254359959.png',
-          desc:'荣获“2019年浙江省创新企业百强”称号'
-        },
-        {
-          img:'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/8hXzwptN261591254324083.png',
-          desc:'2019年获得"中国科技创新领军企业"称号'
-        },
-        {
-          img:'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/DcbXekjH2W1591254266381.png',
-          desc:'云逸创始人杨红飞荣获"2019年中国B2B领域卓越创业家"荣誉称号'
-        },
-      ]
+      // reailzeList: [
+      //   {
+      //     tit: '杭州总部',
+      //   },
+      //   {
+      //     tit: '北京子公司',
+      //   },
+      //   {
+      //     tit: '成都子公司',
+      //   },
+      //   {
+      //     tit: '重庆子公司',
+      //   },
+      // ],
+      // certificateList: [
+      //   {
+      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210629/kWXEiepyNp1624936457266.png',
+      //     desc: '荣获“2021年杭州市准独角兽企业”荣誉称号'
+      //   },
+      //   {
+      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/mkGhTrdJTi1616038179236.jpg',
+      //     desc: '2020年云逸创造成为华为认证级ISV伙伴'
+      //   },
+      //   {
+      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/SS4ncBsjQs1616038188320.jpg',
+      //     desc: '云逸创造董事长金霞入选“2020年度女性创业者TOP10'
+      //   },
+      //   {
+      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/DZPsTTfkJi1616038196212.jpg',
+      //     desc: '2020年云逸创造荣获“浙江省高新技术企业”荣誉称号'
+      //   },
+      //   {
+      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/kjfX3JRw641616038294809.jpg',
+      //     desc: '荣获“2020中国健康新势力企业”荣誉称号'
+      //   },
+      //   {
+      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/Wr3JPJ5wsG1616038303821.jpg',
+      //     desc: '云逸创造董事长金霞入选科技部“2019年创新人才推进计划'
+      //   },
+      //   {
+      //     img: 'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/b2TNNdNsCe1591254359959.png',
+      //     desc: '荣获“2019年浙江省创新企业百强”称号'
+      //   },
+      //   {
+      //     img: 'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/8hXzwptN261591254324083.png',
+      //     desc: '2019年获得"中国科技创新领军企业"称号'
+      //   },
+      //   {
+      //     img: 'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/DcbXekjH2W1591254266381.png',
+      //     desc: '云逸创始人杨红飞荣获"2019年中国B2B领域卓越创业家"荣誉称号'
+      //   },
+      // ]
     }
   },
   methods: {
@@ -452,10 +423,10 @@ export default {
     CallMe,
     MobileCallme,
     ReailzeCard,
-    TimeLineYunYi,
-    TimeLineMobile
+    // TimeLineYunYi,
+    // TimeLineMobile
   },
-  created(){
+  created() {
     this.tabSelectIndex = this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
   },
   watch: {
@@ -472,31 +443,38 @@ export default {
   .realize_img {
     width: 100%;
     height: 600px;
+
     @media screen and (max-width: 768px) {
       height: 50vw;
     }
-    background: url('../../assets/img/aboutbg.054cc8b.jpg') 0 0 no-repeat;
-    background-size: 100% 100%;
+
+    background: url('../../assets/img/zsbg.0b1914f.png') 0 0 no-repeat;
+    background-size: 100% 90%;
     color: #fff;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     position: relative;
+
     .img_tit {
       font-size: 60px;
       font-weight: bold;
+
       @media screen and (max-width: 768px) {
         font-size: 1.2rem;
       }
     }
+
     .img_desc {
       font-size: 32px;
       margin-top: 20px;
+
       @media screen and (max-width: 768px) {
         font-size: 0.85rem;
       }
     }
+
     .img_btn {
       width: 180px;
       height: 50px;
@@ -512,10 +490,12 @@ export default {
       font-weight: bold;
       cursor: pointer;
       transition: all 0.5s;
+
       &:hover {
         color: #fff;
         background: orange;
       }
+
       @media screen and (max-width: 768px) {
         width: 80px;
         height: 30px;
@@ -523,31 +503,40 @@ export default {
       }
     }
   }
+
   .realize_nav_wrap {
     width: 100%;
     height: 60px;
+
     @media screen and (max-width: 768px) {
       height: 50px;
     }
+
     .realize_nav {
       height: 100%;
       display: flex;
       align-items: center;
+
       .active {
         font-weight: bold;
         color: #000;
       }
+
       .realize_item {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+
         .nav_top {
           font-size: 18px;
+
           @media screen and (max-width: 768px) {
             font-size: 14px;
           }
         }
+
         .nav_bottom {
           width: 30%;
           height: 4px;
@@ -557,6 +546,7 @@ export default {
       }
     }
   }
+
   .product_shows_wrap {
     width: 100%;
     background: url('../../assets/img/introBg.40f79db.png') 0 0 no-repeat;
@@ -566,31 +556,38 @@ export default {
     box-sizing: border-box;
     height: 700px;
     position: relative;
+
     @media screen and (max-width: 768px) {
       background: #f4f9fc;
       height: auto;
     }
+
     .table_wrap {
       position: absolute;
       top: 23%;
       left: 20%;
       width: 400px;
+
       .table_form {
         .table_form_item {
           font-weight: bold;
         }
       }
     }
+
     .table_wrap_mobile {
       padding: 1rem;
+
       p {
         font-size: 0.9rem;
       }
+
       .table_form {
         .table_form_item {
           font-weight: bold;
           margin-top: 1rem;
           font-size: 0.85rem;
+
           span {
             color: #000;
             font-size: 0.9rem;
@@ -600,49 +597,62 @@ export default {
       }
     }
   }
+
   .advantage_out_wrap {
     width: 100%;
     display: flex;
     justify-content: center;
+
     .advantage_wrap {
       width: 70%;
       display: flex;
       margin-top: 70px;
       justify-content: center;
       flex-wrap: wrap;
+
       @media screen and (max-width: 768px) {
         width: 100%;
       }
+
       .advantage_item {
         height: auto;
         padding: 30px 20px 60px 20px;
         margin-right: 10px;
-        &:nth-child(1){
+
+        &:nth-child(4n+1) {
           background: url('../../assets/img/newEdition/31.png') 90% 10% no-repeat;
           background-size: 20%;
         }
-        &:nth-child(2){
+
+        &:nth-child(4n+2) {
           background: url('../../assets/img/newEdition/32.png') 90% 10% no-repeat;
           background-size: 20%;
         }
-        &:nth-child(3){
-          background: url('../../assets/img/newEdition/32.png') 90% 10% no-repeat;
-          background-size: 20%;
-        }
-        &:nth-child(4){
-          background: url('../../assets/img/newEdition/33.png') 90% 10% no-repeat;
-          background-size: 20%;
-        }
-        &:nth-child(5){
+
+
+        // &:nth-child(3) {
+        //   background: url('../../assets/img/newEdition/32.png') 90% 10% no-repeat;
+        //   background-size: 20%;
+        // }
+
+        &:nth-child(4n+3) {
           background: url('../../assets/img/newEdition/34.png') 90% 10% no-repeat;
           background-size: 20%;
         }
-        &:nth-child(6){
+
+        &:nth-child(4n) {
           background: url('../../assets/img/newEdition/35.png') 90% 10% no-repeat;
           background-size: 20%;
         }
+
+        // &:nth-child(6) {
+        //   background: url('../../assets/img/newEdition/35.png') 90% 10% no-repeat;
+        //   background-size: 20%;
+        // }
+
         margin: 15px;
         box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+
         @media screen and (max-width: 768px) {
           margin: 0;
           padding: 0 15px;
@@ -653,37 +663,44 @@ export default {
           flex-direction: column;
           height: 200px;
         }
+
         .item_top {
           display: flex;
           align-items: center;
+
           @media screen and (max-width: 768px) {
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
           }
+
           .icon {
             i {
               color: #2091d3;
               font-size: 26px;
               padding-right: 10px;
+
               @media screen and (max-width: 768px) {
                 font-size: 2rem;
                 margin-bottom: 10px;
               }
             }
           }
+
           .tit {
             width: 100%;
             color: #1c1c1c;
             font-size: 28px;
             font-weight: bold;
+
             @media screen and (max-width: 768px) {
               font-size: 1rem;
               text-align: left;
             }
           }
         }
+
         .item_desc {
           font-size: 20px;
           line-height: 20px;
@@ -692,12 +709,15 @@ export default {
           margin-top: 20px;
           color: #646464;
           list-style: none;
+
           li {
             line-height: 2rem;
+
             @media screen and (max-width: 768px) {
               line-height: 1rem;
               font-size: 12px;
             }
+
             &:first-child {
               margin-top: 30px;
             }
@@ -706,38 +726,48 @@ export default {
       }
     }
   }
+
   .china_map {
     width: 70%;
     margin: 50px auto;
+
     img {
       width: 100%;
     }
   }
+
   .timeline_wrap {
     width: 70%;
     margin: 0 auto;
+
     @media screen and (max-width: 768px) {
       width: 100%;
     }
+
     .timeline_card {
       h4 {
         font-size: 24px;
+
         @media screen and (max-width: 768px) {
           font-size: 18px;
         }
       }
-      .timeline_time{
+
+      .timeline_time {
         font-size: 12PX;
       }
+
       img {
         width: 30%;
         margin-top: 20px;
+
         @media screen and (max-width: 768px) {
           width: 100%;
         }
       }
     }
   }
+
   .three_box {
     width: 70%;
     margin: 0 auto;
@@ -745,30 +775,38 @@ export default {
     text-align: center;
     background: url('../../assets/img/ryzz.bc140e4.jpg') 0 0 no-repeat;
     background-size: cover;
+
     @media screen and (max-width: 768px) {
       width: 100%;
     }
+
     h1 {
       font-size: 40px;
       line-height: 200px;
       color: #fff;
     }
   }
+
   .three_box_card {
     width: 70%;
     margin: 30px auto;
+
     @media screen and (max-width: 768px) {
       width: 100%;
     }
+
     .out_card {
       flex-wrap: wrap;
+
       .card_item {
         @media screen and (max-width: 768px) {
           margin-top: 10px;
         }
+
         &:nth-child(n + 4) {
           margin-top: 10px;
         }
+
         img {
           padding-top: 30px;
           width: 100%;
@@ -776,6 +814,7 @@ export default {
       }
     }
   }
+
   .four_wrap {
     width: 70%;
     margin: 0 auto;
@@ -785,25 +824,31 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+
     @media screen and (max-width: 768px) {
       width: 100%;
       height: 150px;
     }
+
     .out_card {
       width: 100%;
       flex-wrap: wrap;
+
       .card_item {
         &:nth-child(n + 4) {
           margin-top: 10px;
         }
+
         .card_content {
           display: flex;
           flex-direction: column;
           text-align: center;
           width: 100%;
+
           img {
             padding-top: 30px;
             width: 30%;
+
             @media screen and (max-width: 768px) {
               width: 50%;
             }
@@ -812,23 +857,28 @@ export default {
       }
     }
   }
+
   .four_card_spa {
     width: 70%;
     margin: 30px auto;
+
     .out_card {
       .card_item {
         h1 {
           font-size: 30px;
           margin-top: 10px;
         }
+
         img {
           margin-top: 30px;
           width: 5%;
         }
+
         p {
           font-size: 12px;
           margin-top: 10px;
         }
+
         .card_bg {
           width: 30px;
           height: 5px;
@@ -838,26 +888,33 @@ export default {
     }
   }
 }
+
 .production_title_wrap {
   width: 100%;
   margin-top: 50px;
+
   @media screen and (max-width: 768px) {
     margin-top: 30px;
   }
+
   .production_inner {
     display: flex;
     justify-content: center;
+
     .inner_left {
       display: flex;
       justify-content: flex-end;
       align-items: center;
+
       @media screen and (max-width: 768px) {
         flex: 1;
       }
+
       img {
         width: 30%;
       }
     }
+
     .inner_center {
       width: 400px;
       display: flex;
@@ -865,33 +922,41 @@ export default {
       justify-content: center;
       align-items: center;
       padding: 0 50px;
+
       @media screen and (max-width: 768px) {
         flex: 2.2;
       }
+
       .production_title {
         font-size: 40px;
         font-weight: bold;
+
         @media screen and (max-width: 768px) {
           font-size: 1rem;
         }
       }
+
       .production_desc {
         font-size: 16px;
         color: #787878;
         margin-top: 10px;
+
         @media screen and (max-width: 768px) {
           margin-top: 10px;
           font-size: 14px;
         }
       }
     }
+
     .inner_right {
       display: flex;
       justify-content: flex-start;
       align-items: center;
+
       @media screen and (max-width: 768px) {
         flex: 1;
       }
+
       img {
         width: 30%;
       }

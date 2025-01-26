@@ -2,7 +2,8 @@
   <div style="margin-bottom:56px;" class="hidden-sm-and-up">
     <div class="mobile_nav_wrap hidden-sm-and-up">
       <div class="navbar_left" @click="gobackHome">
-        <img src="@/assets/img/home/logo_color.svg" alt="云逸创造..." />
+        子午数智
+        <!-- <img src="@/assets/img/home/logo_color.svg" alt="云逸创造..." /> -->
       </div>
       <div class="navbar_right">
         <!-- <div class="nav_tiyan" @click="gotoExperience">立即体验</div> -->
@@ -106,10 +107,14 @@ export default {
   .navbar_left {
     flex: 1;
     background: #fff;
-
-    img {
-      width: 100%;
-    }
+    width: 20vw !important;
+    font-size: x-large !important;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    color: #666;
+    // img {
+    //   width: 100%;
+    // }
   }
 
   .navbar_right {

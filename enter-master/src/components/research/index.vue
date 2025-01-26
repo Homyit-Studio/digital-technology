@@ -1,12 +1,6 @@
 <template>
   <div class="research_wrap">
-    <el-carousel
-      height="37vw"
-      loop
-      arrow="never"
-      class="hidden-xs-only"
-      indicator-position="none"
-    >
+    <el-carousel height="37vw" loop arrow="never" class="hidden-xs-only" indicator-position="none">
       <el-carousel-item v-for="(item, index) in imgList" :key="index">
         <img :src="item.src" alt="" class="img_item" />
         <div class="tips_font">
@@ -17,7 +11,7 @@
     </el-carousel>
 
     <div class="production_img hidden-sm-and-up">
-      <div class="img_tit">云逸研究院</div>
+      <div class="img_tit">新闻资讯</div>
       <div class="img_desc">专注生命健康产业研究，构建产业研究的数字化系统</div>
     </div>
 
@@ -77,12 +71,7 @@
     </div>
 
     <div class="research_sp_wrap hidden-xs-only">
-      <el-row
-        type="flex"
-        justify="space-between"
-        class="research_sp_row"
-        :gutter="10"
-      >
+      <el-row type="flex" justify="space-between" class="research_sp_row" :gutter="10">
         <el-col :span="7" class="research_sp_col">
           <div class="tit">面向政府</div>
           <div class="desc">
@@ -124,12 +113,7 @@
       </div>
       <div class="card_fan_list">
         <el-row class="card_fan_wrap" type="flex" justify="space-between">
-          <el-col
-            class="card_fan_item"
-            :span="11"
-            v-for="(item, index) in cardList"
-            :key="index"
-          >
+          <el-col class="card_fan_item" :span="11" v-for="(item, index) in cardList" :key="index">
             <div class="card_left hidden-xs-only">
               <img :src="item.img" alt="" />
             </div>
@@ -173,13 +157,13 @@
       </div>
     </div>
     <CallMe />
-    <BoottomTab/>
+    <BoottomTab />
   </div>
 </template>
 
 <script>
 import CallMe from '@/components/callme/index'
-import MobileCallme from '@/components/callme/MobileCallme.vue'
+// import MobileCallme from '@/components/callme/MobileCallme.vue'
 import BoottomTab from '@/components/consulting/BoottomTab.vue'
 export default {
   data() {
@@ -187,7 +171,7 @@ export default {
       imgList: [
         {
           src: require('@/assets/img/yjbg1.550eeb6.png'),
-          line1: '云逸研究院',
+          line1: '新闻资讯',
           line2: '专注生命健康产业研究，构建产业研究的数字化系统',
         },
       ],
@@ -195,29 +179,29 @@ export default {
         {
           tit: '面向政府重大战略研究',
           desc: '北京市十四五生物医药产业战略规划',
-          img:require('../../assets/img/researchInstitute/icon1.png')
+          img: require('../../assets/img/researchInstitute/icon1.png')
         },
         {
           tit: '面向新基建产业新基建研究',
           desc: '产业新基建战略白皮书',
-          img:require('../../assets/img/researchInstitute/icon2.png')
+          img: require('../../assets/img/researchInstitute/icon2.png')
         },
         {
           tit: '面向行业指数研究产品',
           desc: '中国生物医药产业发展指数CBIB',
-          img:require('../../assets/img/researchInstitute/icon3.png')
+          img: require('../../assets/img/researchInstitute/icon3.png')
         },
         {
           tit: '面向智库研究数字化产品',
           desc: '政策/资本研究数字化工具数鉴.生物医药(2019)',
-          img:require('../../assets/img/researchInstitute/icon4.png')
+          img: require('../../assets/img/researchInstitute/icon4.png')
         },
       ],
     }
   },
   components: {
     CallMe,
-    MobileCallme,
+    // MobileCallme,
     BoottomTab
   },
 }
@@ -227,12 +211,15 @@ export default {
 .research_wrap {
   position: relative;
   width: 100%;
+
   .production_img {
     width: 100%;
     height: 600px;
+
     @media screen and (max-width: 768px) {
       height: 50vw;
     }
+
     background: url('../../assets/img/banner22.png') 0 0 no-repeat;
     background-size: 100% 100%;
     color: #fff;
@@ -241,20 +228,25 @@ export default {
     justify-content: center;
     flex-direction: column;
     position: relative;
+
     .img_tit {
       font-size: 60px;
       font-weight: bold;
+
       @media screen and (max-width: 768px) {
         font-size: 1.2rem;
       }
     }
+
     .img_desc {
       font-size: 32px;
       margin-top: 20px;
+
       @media screen and (max-width: 768px) {
         font-size: 0.85rem;
       }
     }
+
     .img_btn {
       width: 180px;
       height: 50px;
@@ -270,10 +262,12 @@ export default {
       font-weight: bold;
       cursor: pointer;
       transition: all 0.5s;
+
       &:hover {
         color: #fff;
         background: orange;
       }
+
       @media screen and (max-width: 768px) {
         width: 80px;
         height: 30px;
@@ -281,6 +275,7 @@ export default {
       }
     }
   }
+
   .el-carousel__item {
     img {
       width: 100%;
@@ -288,6 +283,7 @@ export default {
       object-fit: cover;
     }
   }
+
   .tips_font {
     position: absolute;
     top: 260px;
@@ -295,10 +291,12 @@ export default {
     z-index: 5;
     color: #2d3937;
     font-size: 25px;
+
     @media screen and (max-width: 768px) {
       font-size: 0.5rem;
     }
   }
+
   .research_card {
     width: 72%;
     margin: 0 auto;
@@ -310,25 +308,30 @@ export default {
     display: flex;
     background: url('../../assets/img/bg.722080d.png');
     background-size: 100% 100%;
+
     .research-left {
       .research-left-title {
         font-size: 34px;
         font-weight: bold;
         color: #000;
       }
+
       .research-left-desc {
         color: #5b6e74;
         line-height: 2rem;
         font-size: 19px;
       }
+
       .research-left-instrc {
         font-size: 24px;
         margin-top: 20px;
       }
+
       ul {
         .research-left-detail {
           font-size: 18px;
           margin-top: 12px;
+
           span {
             font-weight: bold;
             color: #000;
@@ -336,34 +339,40 @@ export default {
         }
       }
     }
+
     .research_card_right {
       margin-left: 50px;
-      img {
-      }
+
+      img {}
     }
   }
-  .research_card_mobile{
+
+  .research_card_mobile {
     width: 100%;
     padding: 1rem;
     background: url('../../assets/img/bg.722080d.png') 0 0 no-repeat;
     background-size: cover;
     position: relative;
-    h1{
+
+    h1 {
       font-size: 1.3rem;
     }
-    p{
+
+    p {
       margin-top: 1rem;
       font-size: 0.9rem;
       color: #5b6e74;
       line-height: 1.5rem;
     }
-    h2{
+
+    h2 {
       margin-top: 1rem;
       font-weight: normal;
       font-size: 1rem;
       color: #000;
     }
-    img{
+
+    img {
       position: absolute;
       right: 1rem;
       width: 30%;
@@ -371,25 +380,32 @@ export default {
       opacity: 0.6;
     }
   }
+
   .research_title_wrap {
     width: 100%;
+
     @media screen and (max-width: 768px) {
       margin-top: 30px;
     }
+
     .research_inner {
       display: flex;
       justify-content: center;
+
       .inner_left {
         display: flex;
         justify-content: flex-end;
         align-items: center;
+
         @media screen and (max-width: 768px) {
           flex: 1;
         }
+
         img {
           width: 30%;
         }
       }
+
       .inner_center {
         width: 400px;
         display: flex;
@@ -397,62 +413,78 @@ export default {
         justify-content: center;
         align-items: center;
         padding: 0 50px;
+
         @media screen and (max-width: 768px) {
           flex: 2.2;
         }
+
         .research_title {
           font-size: 40px;
           font-weight: bold;
+
           @media screen and (max-width: 768px) {
             font-size: 1rem;
           }
         }
+
         .research_desc {
           font-size: 16px;
           color: #787878;
           margin-top: 10px;
+
           @media screen and (max-width: 768px) {
             margin-top: 10px;
           }
         }
       }
+
       .inner_right {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+
         @media screen and (max-width: 768px) {
           flex: 1;
         }
+
         img {
           width: 30%;
         }
       }
     }
   }
+
   .research_sp_wrap {
     width: 70%;
     margin: 0 auto;
     height: 300px;
+
     .research_sp_row {
       width: 100%;
+
       .research_sp_col {
         background-size: 100% 100%;
         height: 420px;
         padding: 200px;
-        &:nth-child(1){
+
+        &:nth-child(1) {
           background: url('../../assets/img/researchInstitute/1.png');
         }
-        &:nth-child(2){
+
+        &:nth-child(2) {
           background: url('../../assets/img/researchInstitute/2.png');
         }
-        &:nth-child(3){
+
+        &:nth-child(3) {
           background: url('../../assets/img/researchInstitute/3.png');
         }
+
         .tit {
           font-size: 32px;
           color: #000;
           margin: 0 30px;
         }
+
         .desc {
           font-size: 19px;
           margin: 10px 30px;
@@ -460,13 +492,16 @@ export default {
       }
     }
   }
-  .research_sp_wrap_mobile{
+
+  .research_sp_wrap_mobile {
     width: 90%;
     margin: 0 auto;
-    img{
+
+    img {
       width: 100%;
     }
   }
+
   .product_shows_wrap {
     width: 100%;
     background: #f4f9fc;
@@ -475,29 +510,37 @@ export default {
     box-sizing: border-box;
     margin-top: 250px;
     margin-bottom: 50px;
+
     @media screen and (max-width: 768px) {
       margin-top: 30px;
     }
+
     .production_title_wrap {
       width: 100%;
       margin-top: 50px;
+
       @media screen and (max-width: 768px) {
         margin-top: 30px;
       }
+
       .production_inner {
         display: flex;
         justify-content: center;
+
         .inner_left {
           display: flex;
           justify-content: flex-end;
           align-items: center;
+
           @media screen and (max-width: 768px) {
             flex: 1;
           }
+
           img {
             width: 30%;
           }
         }
+
         .inner_center {
           width: 400px;
           display: flex;
@@ -505,48 +548,60 @@ export default {
           justify-content: center;
           align-items: center;
           padding: 0 50px;
+
           @media screen and (max-width: 768px) {
             flex: 2.2;
           }
+
           .production_title {
             font-size: 40px;
             font-weight: bold;
+
             @media screen and (max-width: 768px) {
               font-size: 1rem;
             }
           }
+
           .production_desc {
             font-size: 16px;
             color: #787878;
             margin-top: 10px;
+
             @media screen and (max-width: 768px) {
               margin-top: 10px;
             }
           }
         }
+
         .inner_right {
           display: flex;
           justify-content: flex-start;
           align-items: center;
+
           @media screen and (max-width: 768px) {
             flex: 1;
           }
+
           img {
             width: 30%;
           }
         }
       }
     }
+
     .card_fan_list {
       width: 70%;
       margin: 0 auto;
+
       @media screen and (max-width: 768px) {
         width: 90%;
       }
+
       .card_fan_wrap {
         flex-wrap: wrap;
         margin-top: 50px;
       }
+
       .card_fan_item {
         display: flex;
         align-items: center;
@@ -554,32 +609,41 @@ export default {
         margin-top: 50px;
         padding: 30px;
         box-shadow: 10px 10px 20px rgba($color: #000, $alpha: 0.1);
+
         @media screen and (max-width: 768px) {
           background: url('../../assets/img/icon2.png') 0 0 no-repeat;
           background-position: 100% 100%;
           background-size: 35%;
           height: 100px;
-          &:nth-child(n+3){
+
+          &:nth-child(n+3) {
             margin-top: 25px;
           }
         }
+
         .card_left {
           width: 20%;
+
           img {
             width: 100%;
           }
         }
+
         .card_right {
           margin-left: 15px;
+
           h1 {
             font-size: 25px;
+
             @media screen and (max-width: 768px) {
               font-size: 14px;
             }
           }
+
           p {
             font-size: 18px;
             margin-top: 10px;
+
             @media screen and (max-width: 768px) {
               font-size: 12px;
             }
@@ -588,41 +652,52 @@ export default {
       }
     }
   }
+
   .develop_wrap {
     width: 70%;
     margin: 0 auto;
     display: flex;
+
     @media screen and (max-width: 768px) {
       width: 90%;
       flex-direction: column;
       margin-bottom: 30px;
     }
+
     .develop_left {
       margin-right: 100px;
+
       h1 {
         font-size: 26px;
+
         @media screen and (max-width: 768px) {
-          font-size: 0.95rem;  
+          font-size: 0.95rem;
         }
       }
+
       p {
         margin-top: 30px;
         font-size: 20px;
         color: #5b6e74;
+
         @media screen and (max-width: 768px) {
           font-size: 13px;
         }
       }
     }
+
     .develop_right {
       width: 100%;
+
       @media screen and (max-width: 768px) {
         width: 40%;
         margin: 0 auto;
       }
+
       img {
         width: 100%;
       }
+
       .tips {
         text-align: center;
         color: #2091d3;
