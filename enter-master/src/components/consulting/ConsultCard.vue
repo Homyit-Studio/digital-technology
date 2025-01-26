@@ -68,7 +68,7 @@ export default {
   props: {
     consultList: {
       type: Array,
-      default: [],
+      // default: [],
     },
   },
   methods: {
