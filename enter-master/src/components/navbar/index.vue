@@ -1,12 +1,13 @@
 <template>
-  <div class="navbar_wrap hidden-xs-only">
+  <div class="navbar_wrap hidden-xs-only" :style="{ backgroundColor: navBackground }">
     <div class="navbar_container">
       <div class="navbar_left">
-        江西子午数智信息科技有限公司
+        <!-- 江西子午数智信息科技有限公司 -->
+        <img src="@/assets/img/home/JXZWSZ_logo.png" alt="子午数智..." />
       </div>
       <div class="navbar_right">
-        <el-menu :default-active="activeIndex" class="el_menu_demo" mode="horizontal" background-color="rgba(0,0,0,0)"
-          :text-color="navBackground" :active-text-color="navBackground" @select="changeCurrentPage">
+        <el-menu :default-active="activeIndex" class="el_menu_demo" mode="horizontal" text-color="#333"
+          active-text-color="#000" style="background-color: rgba(255, 255, 255, 0); " @select="changeCurrentPage">
           <el-menu-item index="1" class="menu_item">首页</el-menu-item>
           <el-menu-item index="2" class="menu_item">产品</el-menu-item>
           <el-menu-item index="3" class="menu_item">新闻资讯</el-menu-item>
@@ -15,7 +16,7 @@
         </el-menu>
         <span class="right_phone">
           <i class="el-icon-phone"></i>
-          <span>联系电话待补充1</span>
+          <span> 联系电话待补充2 </span>
         </span>
       </div>
     </div>
@@ -27,7 +28,7 @@ export default {
   data() {
     return {
       activeIndex: '1',
-      navBackground: '#fff'
+      navBackground: 'rgba(255, 255, 255, 1)' // 修改初始背景颜色为rgba格式
     }
   },
   props: {
@@ -39,10 +40,13 @@ export default {
   mounted() {
     this.activeIndex = this.selectIndex
     window.onscroll = () => {
-      if (document.documentElement.scrollTop > 390) {
-        this.navBackground = '#000'
+      const scrollTop = document.documentElement.scrollTop
+      if (scrollTop > 390) {
+        // 计算透明度，最大透明度为0.1
+        const opacity = Math.max(0.5, 1 - scrollTop / 1000)
+        this.navBackground = `rgba(255, 255, 255, ${opacity})`
       } else {
-        this.navBackground = '#fff'
+        this.navBackground = 'rgba(255, 255, 255, 1)'
       }
     }
   },
@@ -77,7 +81,6 @@ export default {
 .navbar_wrap {
   width: 100%;
   height: 70px;
-  background: rgba(0, 0, 0, 0.3);
   backdrop-filter: saturate(180%) blur(0.5rem);
   display: flex;
   align-items: center;
@@ -86,6 +89,7 @@ export default {
   left: 0;
   right: 0;
   z-index: 1000;
+  box-shadow: 0 5px 30px rgba($color: #000000, $alpha: .05);
 
   .navbar_container {
     width: 70%;
@@ -94,73 +98,71 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
-    .navbar_left {
-      display: flex;
-      align-items: center;
-      height: 100%;
-      width: 26vw !important;
-      font-size: 1.5em;
-      letter-spacing: 0.1em;
-      font-weight: 700;
-      color: #fff;
-      // img {
-      //   width: 160px;
-      //   cursor: pointer;
-      // }
+  .navbar_left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-weight: 700;
+    color: #000;
+
+    img {
+      width: 200px;
+      cursor: pointer;
+    }
+  }
+
+  .navbar_right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 20px;
+
+    a {
+      text-decoration: none;
+      color: #0038a4;
+      display: inline-block;
+      width: 100px;
+      background: #ffa400;
+      line-height: 27px;
+      text-align: center;
+      border-radius: 20px;
+      padding: 5px;
     }
 
-    .navbar_right {
-      width: 100%;
-      height: 100%;
+    .el_menu_demo {
+      border: none;
+    }
+
+    .menu_item {
+      &:hover {
+        font-weight: 600;
+        background: transparent !important;
+      }
+    }
+
+    .right_phone {
+      &:hover {
+        color: #ccc;
+      }
+
+      transition: all 0.5s;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
-      font-size: 20px;
 
-      a {
-        text-decoration: none;
-        color: #0038a4;
-        display: inline-block;
-        width: 100px;
-        background: #ffa400;
-        line-height: 27px;
-        text-align: center;
-        border-radius: 20px;
-        padding: 5px;
+      i {
+        font-size: 20px;
       }
 
-      .el_menu_demo {
-        border: none;
+      span {
+        margin-left: 0.5rem;
       }
 
-      .menu_item {
-        &:hover {
-          font-weight: 600;
-          background: transparent !important;
-        }
-      }
-
-      .right_phone {
-        &:hover {
-          color: #ccc;
-        }
-
-        transition: all 0.5s;
-        display: flex;
-        align-items: center;
-
-        i {
-          font-size: 20px;
-        }
-
-        span {
-          margin-left: 0.5rem;
-        }
-
-        margin-left: 2.5rem;
-        color: #fff;
-      }
+      margin-left: 2.5rem;
+      color: #000;
     }
   }
 }

@@ -53,11 +53,11 @@
 </template>
 
 <script>
-import PCNavbar from '@/components/report_list/SpaNav.vue'
+import PCNavbar from '@/components/navbar/index.vue'
 import MobileNavBar from '@/components/navbar/MobileNavBar.vue'
 import moment from 'moment'
 export default {
-  created() {},
+  created() { },
   data() {
     return {
       moment,
@@ -72,21 +72,25 @@ export default {
 </script>
 
 <style lang="scss">
-.news_content{
+.news_content {
   width: 50%;
   margin: 0 auto;
   padding-top: 100px;
-  @media screen and (max-width:768px){
+
+  @media screen and (max-width:768px) {
     width: 90%;
   }
-  .news_bread{
+
+  .news_bread {
     font-size: 14px;
     margin-bottom: 10px;
-    @media screen and (max-width:768px){
+
+    @media screen and (max-width:768px) {
       font-size: 14px;
     }
   }
 }
+
 .nr-div-p {
   text-align: left;
   font-size: 16px;
@@ -105,33 +109,40 @@ export default {
   line-height: 30PX;
   font-weight: normal;
   color: #000;
-  @media screen and (max-width:768px){
+
+  @media screen and (max-width:768px) {
     line-height: 24px;
     font-size: 14px;
     text-indent: 2em;
     padding: 10px 0;
   }
 }
+
 .clear {
   clear: both;
 }
-.img_vsb_content{
+
+.img_vsb_content {
   width: 70%;
 }
-.h1tit{
-  @media screen and (max-width:768px){
+
+.h1tit {
+  @media screen and (max-width:768px) {
     font-size: 20px;
   }
 }
-.h4tit{
-  @media screen and (max-width:768px){
+
+.h4tit {
+  @media screen and (max-width:768px) {
     font-size: 14px;
   }
 }
-.v_news_content{
+
+.v_news_content {
   text-align: center;
-  img{
-    @media screen and (max-width:768px){
+
+  img {
+    @media screen and (max-width:768px) {
       width: 90%;
     }
   }
