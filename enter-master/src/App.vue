@@ -21,9 +21,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 * {
   box-sizing: border-box;
 }
 @import url('./assets/css/icon.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 </style>

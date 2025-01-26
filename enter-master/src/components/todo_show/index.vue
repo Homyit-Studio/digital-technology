@@ -5,7 +5,7 @@
 
     <el-row class="card_wrap" type="flex">
       <el-col
-        class="brain_item"
+        class="brain_item animate__animated animate__rotateIn"
         :lg="7"
         :sm="11"
         :xs="11"

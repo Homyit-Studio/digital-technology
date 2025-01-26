@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    <div class="cooperation_bottom">
+    <!-- <div class="cooperation_bottom">
       <div class="details_show">
         <div class="show_item">
           <div class="show_top">22个</div>
@@ -37,7 +37,7 @@
           <div class="show_bottom">企业</div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 

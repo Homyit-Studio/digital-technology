@@ -342,13 +342,8 @@ export default {
 
     .research_card_right {
       margin-left: 50px;
-<<<<<<< HEAD
-      // img {
-      // }
-=======
 
       img {}
->>>>>>> d3e780fa5ed28232a087d8aa9dd6c7e941341429
     }
   }
 
