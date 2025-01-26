@@ -107,8 +107,8 @@ export default {
   .navbar_left {
     flex: 1;
     background: #fff;
-    width: 20vw !important;
-    font-size: x-large !important;
+    width: 26vw !important;
+    font-size: 5em;
     letter-spacing: 0.1em;
     font-weight: 700;
     color: #666;
@@ -157,7 +157,7 @@ export default {
 .nav_menu {
   position: absolute;
   width: 100%;
-  height: 450PX;
+  height: 300PX;
   list-style: none;
   left: 0;
   right: 0;

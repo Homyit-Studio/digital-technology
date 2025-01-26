@@ -2,7 +2,7 @@
   <div class="navbar_wrap hidden-xs-only">
     <div class="navbar_container">
       <div class="navbar_left">
-        子午数智
+        江西子午数智信息科技有限公司
       </div>
       <div class="navbar_right">
         <el-menu :default-active="activeIndex" class="el_menu_demo" mode="horizontal" background-color="rgba(0,0,0,0)"
@@ -99,9 +99,9 @@ export default {
       display: flex;
       align-items: center;
       height: 100%;
-      width: 20vw !important;
-      font-size: x-large;
-      letter-spacing: 0.2em;
+      width: 26vw !important;
+      font-size: 1.5em;
+      letter-spacing: 0.1em;
       font-weight: 700;
       color: #fff;
       // img {
