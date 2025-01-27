@@ -33,6 +33,7 @@
                 <li></li>
             </ol>
         </section>
+        <Feature></Feature>
         <CallMe />
         <MobileCallme />
     </div>
@@ -43,6 +44,7 @@
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 // import BoottomTab from '@/components/consulting/BoottomTab.vue'
+import Feature from './Feature.vue';
 export default {
     data() {
         return {
@@ -91,6 +93,7 @@ export default {
         CallMe,
         MobileCallme,
         // BoottomTab
+        Feature
     }
 }
 </script>
@@ -273,6 +276,7 @@ export default {
     .timeline ol {
         font-size: 0;
         padding: 250px 0;
+        margin-bottom: 100px;
         transition: all 1s;
         overflow-x: scroll;
         -ms-scroll-snap-type: x mandatory;
