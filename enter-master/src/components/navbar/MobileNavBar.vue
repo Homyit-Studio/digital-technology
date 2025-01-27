@@ -5,7 +5,6 @@
         <img src="@/assets/img/home/JXZWSZ_logo_M.png" alt="子午数智..." />
       </div>
       <div class="navbar_right">
-        <!-- <div class="nav_tiyan" @click="gotoExperience">立即体验</div> -->
         <div class="nav_btns" @click="moveMenu">
           <i class="el-icon-menu"></i>
         </div>
@@ -15,26 +14,9 @@
       <div class="nav_menu" ref="menu">
         <router-link class="menu_item" to="/home" :class="currentActive === 0 ? 'active' : ''">首页</router-link>
         <router-link class="menu_item" to="/production/1" :class="currentActive === 1 ? 'active' : ''">产品</router-link>
-        <!-- <div class="item_options" v-show="productShow">
-          <a href="/production/1">产业大脑</a>
-          <a href="/production/2">云招商</a>
-          <a href="/production/3">企业创新服务</a>
-          <a href="/production/4">产业咨询</a>
-        </div> -->
         <router-link class="menu_item" to="/threenav" :class="currentActive === 2 ? 'active' : ''">新闻资讯</router-link>
         <router-link class="menu_item" to="/fournav/2" :class="currentActive === 3 ? 'active' : ''">发展历程</router-link>
-        <!-- <div class="item_options" v-show="centerShow">
-          <a href="/fournav/1" style="height: 33.3%">行业报告</a>
-          <a href="/fournav/2" style="height: 33.3%">精选文章</a>
-          <a href="/fournav/3" style="height: 33.3%">媒体报道</a>
-        </div> -->
         <router-link class="menu_item" to="/fivenav/2" :class="currentActive === 4 ? 'active' : ''">联系我们</router-link>
-        <!-- <div class="item_options" v-show="fireShow"> -->
-        <!-- <a href="/fivenav/1">云逸介绍</a> -->
-        <!-- <a href="/fivenav/2">发展历程</a> -->
-        <!-- <a href="/fivenav/3">荣誉资质</a> -->
-        <!-- <a href="/fivenav/2">联系云逸</a> -->
-        <!-- </div> -->
       </div>
     </Affix>
   </div>

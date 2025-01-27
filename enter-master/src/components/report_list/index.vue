@@ -50,40 +50,20 @@ export default {
         return {
             eventList: [
                 {
-                    year: '2024',
-                    txt: '公司成立',
+                    year: '2025.1.13',
+                    txt: '江西子午数智信息技术有限公司正式成立',
                 },
                 {
-                    year: '2025',
-                    txt: '公司发展达到领先水平',
+                    year: '2026.6',
+                    txt: '公司将在文物保护领域迈出一大步，为未来进一步发展打下坚实基础',
                 },
                 {
-                    year: '2026',
-                    txt: '公司发展达到领先水平',
+                    year: '2027.3',
+                    txt: '公司将进以创新为目标，广泛吸纳人才，达到行业中等水平',
                 },
                 {
-                    year: '2027',
-                    txt: '公司发展达到领先水平',
-                },
-                {
-                    year: '2028',
-                    txt: '公司发展达到领先水平',
-                },
-                {
-                    year: '2029',
-                    txt: '公司发展达到领先水平',
-                },
-                {
-                    year: '2030',
-                    txt: '公司发展达到领先水平',
-                },
-                {
-                    year: '2031',
-                    txt: '公司发展达到领先水平',
-                },
-                {
-                    year: '2032',
-                    txt: '公司发展达到领先水平',
+                    year: '2028.3',
+                    txt: '以高科技融合历史为目标，最后公司将达到行业顶尖水平',
                 },
                 // 可以继续添加更多事件
             ],
@@ -399,7 +379,7 @@ export default {
 
         .timeline ol li div {
 
-            font-size: 0.5rem;
+            font-size: 0.4rem;
 
             color: #666;
             background: #e8eef2;
@@ -407,7 +387,7 @@ export default {
 
         .timeline time {
             display: block;
-            font-size: 0.8rem;
+            font-size: 0.6rem;
             font-weight: bold;
             margin-bottom: 8px;
             color: #666;
