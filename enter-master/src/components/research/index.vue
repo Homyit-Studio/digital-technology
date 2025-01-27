@@ -12,16 +12,16 @@
 
     <div class="production_img hidden-sm-and-up">
       <div class="img_tit">新闻资讯</div>
-      <div class="img_desc">专注生命健康产业研究，构建产业研究的数字化系统</div>
+      <div class="img_desc">以前沿技术精准复原文物，实现数字存档与价值多元化应用</div>
     </div>
 
     <div class="research_card hidden-xs-only">
       <div class="research-left">
-        <div class="research-left-title">云逸研究院</div>
+        <div class="research-left-title">待补充3</div>
         <div class="research-left-desc">
-          研究院发轫于生命健康产业研究，致力于用数字科技和人工智能，构建产业研究的数字化系统，变革智库研究模式，支撑更精准化、更智能化的产业决策
+          待补充3待补充3
         </div>
-        <div class="research-left-instrc">核心能力</div>
+        <div class="research-left-instrc">待补充4</div>
         <ul>
           <li class="research-left-detail">
             <span>指标数字化评价能力：</span>
@@ -43,18 +43,53 @@
     </div>
 
     <div class="research_card_mobile hidden-sm-and-up">
-      <h1>云逸研究院</h1>
+      <h1>待补充1</h1>
       <p>
-        研究院发轫于生命健康产业研究，致力于用数字科技和人工智能，构建产业研究的数字化系统，变革智库研究模式，支撑更精准化、更智能化的产业决策
+
       </p>
-      <h2>团队介绍</h2>
+      <h2>待补充2</h2>
       <p>
-        云逸研究院团队30多人，拥有一支由产业经济学家，知名教授和产业分析师为骨干组成的复合型队伍，总部位于杭州，在北京，成都，深圳设有分支机构。云逸研究院形成了独特的“区域研究+产品研究”的
-        双轨研究模式，构建产业新标杆，为客户提供具有深度洞察力的数字化平台产品和区域独特价值的咨询方案
+
       </p>
       <img src="@/assets/img/build.543dd76.png" alt="" />
     </div>
 
+    <!-- 复制粘贴的年报轮播图组件 -->
+    <div class="book_list">
+      <div class="research_title_wrap">
+        <div class="research_inner">
+          <div class="inner_left">
+            <img src="../../assets/img/tupianright.png" alt="" />
+          </div>
+          <div class="inner_center">
+            <div class="research_title">公司资讯</div>
+            <div class="research_desc"></div>
+          </div>
+          <div class="inner_right">
+            <img src="../../assets/img/tupianleft.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="book_list_scroll" ref="listScroll" @wheel.prevent>
+        <el-row class="card_list">
+          <el-col class="card_item" v-for="(item, index) in cardListObj.report_group_list[activeIndex2]" :key="index">
+            <div class="big_box" @click="reportNavigate(item.report_id)">
+              <div class="item_left">
+                <img :src="'http://www.mtx.cn' + item.front_path" alt="" />
+              </div>
+              <div class="item_right">
+                <h1>{{ item.report_name }}</h1>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+        <div class="list_scroll_btn">
+          <div class="scroll_btn">左右滑动了解更多</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 
     <div class="research_title_wrap">
       <div class="research_inner">
         <div class="inner_left">
@@ -124,15 +159,17 @@
           </el-col>
         </el-row>
       </div>
-    </div>
+    </div> -->
+
+
 
     <div class="research_title_wrap">
       <div class="research_inner">
         <div class="inner_left">
           <img src="../../assets/img/tupianright.png" alt="" />
         </div>
-        <div class="inner_center" style="width: 70%">
-          <div class="research_title">中国生物医药产业发展</div>
+        <div class="inner_center">
+          <div class="research_title">行业资讯</div>
           <div class="research_desc"></div>
         </div>
         <div class="inner_right">
@@ -162,6 +199,12 @@
 </template>
 
 <script>
+import BScroll from '@better-scroll/core'
+import Pullup from '@better-scroll/pull-up'
+import MouseWheel from '@better-scroll/mouse-wheel'
+BScroll.use(Pullup)
+BScroll.use(MouseWheel)
+
 import CallMe from '@/components/callme/index'
 // import MobileCallme from '@/components/callme/MobileCallme.vue'
 import BoottomTab from '@/components/consulting/BoottomTab.vue'
@@ -172,7 +215,7 @@ export default {
         {
           src: require('@/assets/img/yjbg1.550eeb6.png'),
           line1: '新闻资讯',
-          line2: '专注生命健康产业研究，构建产业研究的数字化系统',
+          line2: '以前沿技术精准复原文物，实现数字存档与价值多元化应用',
         },
       ],
       cardList: [
@@ -197,7 +240,98 @@ export default {
           img: require('../../assets/img/researchInstitute/icon4.png')
         },
       ],
+
+      activeIndex: 0,
+      cardListObj: {
+        industry_list: [],
+        report_group_list: [],
+      },
+
+      mediaList: [],
+      scroll: null,
+      scroll2: null,
+      scroll3: null,
+      scroll4: null,
+      timer: null,
+      pageNo: 1,
+      pageNoMedia: 1,
+      total1: 0,
+      total2: 0,
+      activeIndex2: 0,
+      activeIndex3: 0,
+      activeIndex4: 0,
+      activeIndex5: 0,
+      columnList: [],
+      videoList: [],
     }
+  },
+  created() {
+    this.optionActive =
+      this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
+  },
+  mounted() {
+    this.scroll = new BScroll(this.$refs.listScroll, {
+      scrollX: true, // X轴滚动启用
+      eventPassthrough: 'vertical',
+      mouseWheel: {
+        speed: 20,
+        invert: false,
+        easeTime: 300,
+      },
+      click: true, // 确保点击事件可以触发
+      disableMouse: false, // 确保鼠标事件可以触发
+      disableTouch: false, // 确保触摸事件可以触发
+    })
+    this.getBookList()
+    this.getCardListData()
+    this.axios
+      .get('http://glowworm.club:9093/mediaList.json')
+      .then((res) => {
+        this.mediaList = res.data.mediaList
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+  },
+  methods: {
+    changeOptionIndex(index) {
+      this.optionActive = index
+      if (index === 1) {
+        this.$nextTick(() => {
+          this.scroll.refresh()
+          this.scroll2.refresh()
+          this.scroll3.refresh()
+          this.scroll4.refresh()
+        })
+      }
+    },
+    handleNewsDetails(url) {
+      // this.$router.push(`/news_detail/${id}`)
+      window.open(url)
+    },
+    async getCardListData() {
+      const res = await this.axios.get(
+        'https://api.mtx.cn/report?command=front_yj'
+      )
+      this.cardListObj = res.data.data
+    },
+    async getBookList() {
+      const res = await this.axios.get(
+        'https://api.mtx.cn/report?command=front_nb'
+      )
+      this.bookList = res.data.data.report_group_list
+    },
+
+    reportNavigate(id) {
+      window.open(`http://www.mtx.cn/#/report?id=${id}`)
+    },
+
+  },
+  watch: {
+    $route() {
+      this.optionActive =
+        this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
+    },
   },
   components: {
     CallMe,
@@ -211,6 +345,197 @@ export default {
 .research_wrap {
   position: relative;
   width: 100%;
+
+  .book_list {
+    @media screen and (max-width:768px) {
+      height: 400px;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: 0 20px;
+      background: #f4f9fc;
+    }
+
+    .book_list_scroll {
+      width: 1500px;
+      margin: 0 auto;
+      overflow: hidden;
+
+
+      @media screen and (max-width:768px) {
+        width: 100%;
+      }
+
+      .card_list {
+        width: 3000px;
+
+        @media screen and (max-width:768px) {
+          width: 2000px;
+          margin-top: 30px;
+        }
+
+        .card_item {
+          @media screen and (max-width:768px) {
+            width: 200px;
+            height: 230px;
+          }
+
+          float: left;
+          width: 300px;
+          text-align: center;
+
+          &:hover {
+            transform: scale(1);
+            box-shadow: none;
+          }
+
+          .big_box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width:768px) {
+              height: 100%;
+            }
+
+            .item_left {
+              width: 300px;
+              text-align: center;
+              // user-select: none;
+
+              @media screen and (max-width:768px) {
+                width: 100%;
+                height: 100%;
+              }
+
+              img {
+                transition: all .6s;
+                width: 80%;
+                min-height: 300px;
+                margin-left: 20px;
+                border: solid 1px rgb(235, 235, 235);
+
+
+                &:hover {
+                  box-shadow: 0 0 20px rgba($color: #000000, $alpha: .1);
+                }
+
+                @media screen and (max-width:768px) {
+                  margin-bottom: 60px;
+                  max-height: 300px;
+                }
+              }
+            }
+
+            .item_right {
+              padding: 10px 20px !important;
+              user-select: none;
+
+              h1 {
+                font-size: 1rem !important;
+                font-weight: 400;
+                text-align: center;
+                white-space: normal;
+
+                @media screen and (max-width:768px) {
+                  font-size: 14px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .list_scroll_btn {
+        text-align: center;
+
+        .scroll_btn {
+          background: rgba(0, 0, 0, 0);
+          color: rgba(0, 0, 0, 0.5);
+          font-size: 14PX;
+          margin-bottom: 30px;
+          // border-radius: 15PX;
+
+          @media screen and (max-width:768px) {
+            width: 120px;
+            height: 40px;
+            margin: 0 auto;
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+
+    .book_content {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+
+      .book_item {
+        width: 45%;
+        display: flex;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          background: #fff;
+          margin-top: 20px;
+          margin: 10px auto;
+          padding: 10px;
+        }
+
+        &:nth-child(n + 3) {
+          margin-top: 20px;
+        }
+
+        .book_left {
+          width: 50%;
+          margin-right: 40px;
+
+          @media screen and (max-width: 768px) {
+            width: 40%;
+          }
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .book_right {
+          font-weight: bold;
+          font-size: 20px;
+
+          span {
+            cursor: pointer;
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: 16px;
+            color: #000;
+          }
+        }
+      }
+    }
+
+    .tabs_wrap {
+      width: 60%;
+
+      @media screen and (max-width:768px) {
+        width: 100%;
+      }
+
+      padding-top: 1rem;
+    }
+  }
+
 
   .production_img {
     width: 100%;
@@ -421,6 +746,7 @@ export default {
         .research_title {
           font-size: 40px;
           font-weight: bold;
+
 
           @media screen and (max-width: 768px) {
             font-size: 1rem;
@@ -704,6 +1030,29 @@ export default {
         font-size: 20px;
         cursor: pointer;
       }
+    }
+  }
+}
+
+.report-carousel {
+  .el-carousel__item {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .report-tips {
+    position: absolute;
+    top: 260px;
+    left: 300px;
+    z-index: 5;
+    color: #2d3937;
+    font-size: 25px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.5rem;
     }
   }
 }
