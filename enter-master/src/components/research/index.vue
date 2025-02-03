@@ -148,18 +148,19 @@
       </div>
     </div>  -->
 
-
-    <div class="research_title_wrap">
-      <div class="research_inner">
-        <div class="inner_left">
-          <img src="../../assets/img/tupianright.png" alt="" />
-        </div>
-        <div class="inner_center">
-          <div class="research_title">政策支持</div>
-          <div class="research_desc"></div>
-        </div>
-        <div class="inner_right">
-          <img src="../../assets/img/tupianleft.png" alt="" />
+    <div class="book_list">
+      <div class="research_title_wrap">
+        <div class="research_inner">
+          <div class="inner_left">
+            <img src="../../assets/img/tupianright.png" alt="" />
+          </div>
+          <div class="inner_center">
+            <div class="research_title">政策支持</div>
+            <div class="research_desc"></div>
+          </div>
+          <div class="inner_right">
+            <img src="../../assets/img/tupianleft.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
@@ -215,6 +216,7 @@
     </div>
 
     <CallMe />
+    <MobileCallme />
     <BoottomTab />
   </div>
 </template>
@@ -227,7 +229,7 @@ BScroll.use(Pullup)
 BScroll.use(MouseWheel)
 
 import CallMe from '@/components/callme/index'
-// import MobileCallme from '@/components/callme/MobileCallme.vue'
+import MobileCallme from '@/components/callme/MobileCallme.vue'
 import imageScroll from './imageScroll.vue'
 import BoottomTab from '@/components/consulting/BoottomTab.vue'
 export default {
@@ -346,7 +348,7 @@ export default {
   },
   components: {
     CallMe,
-    // MobileCallme,
+    MobileCallme,
     BoottomTab,
     imageScroll
   },
@@ -548,6 +550,80 @@ export default {
 
       padding-top: 1rem;
     }
+
+    .research_title_wrap {
+      width: 100%;
+
+      @media screen and (max-width: 768px) {
+        margin-top: 30px;
+      }
+
+      .research_inner {
+        display: flex;
+        justify-content: center;
+
+        .inner_left {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          @media screen and (max-width: 768px) {
+            flex: 1;
+          }
+
+          img {
+            width: 30%;
+          }
+        }
+
+        .inner_center {
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 50px;
+
+          @media screen and (max-width: 768px) {
+            flex: 2.2;
+          }
+
+          .research_title {
+            font-size: 40px;
+            font-weight: bold;
+
+
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
+          }
+
+          .research_desc {
+            font-size: 16px;
+            color: #787878;
+            margin-top: 10px;
+
+            @media screen and (max-width: 768px) {
+              margin-top: 10px;
+            }
+          }
+        }
+
+        .inner_right {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          @media screen and (max-width: 768px) {
+            flex: 1;
+          }
+
+          img {
+            width: 30%;
+          }
+        }
+      }
+    }
   }
 
 
@@ -720,79 +796,7 @@ export default {
     }
   }
 
-  // .research_title_wrap {
-  //   width: 100%;
 
-  //   @media screen and (max-width: 768px) {
-  //     margin-top: 30px;
-  //   }
-
-  //   .research_inner {
-  //     display: flex;
-  //     justify-content: center;
-
-  //     .inner_left {
-  //       display: flex;
-  //       justify-content: flex-end;
-  //       align-items: center;
-
-  //       @media screen and (max-width: 768px) {
-  //         flex: 1;
-  //       }
-
-  //       img {
-  //         width: 30%;
-  //       }
-  //     }
-
-  //     .inner_center {
-  //       width: 400px;
-  //       display: flex;
-  //       flex-direction: column;
-  //       justify-content: center;
-  //       align-items: center;
-  //       padding: 0 50px;
-
-  //       @media screen and (max-width: 768px) {
-  //         flex: 2.2;
-  //       }
-
-  //       .research_title {
-  //         font-size: 40px;
-  //         font-weight: bold;
-
-
-  //         @media screen and (max-width: 768px) {
-  //           font-size: 1rem;
-  //         }
-  //       }
-
-  //       .research_desc {
-  //         font-size: 16px;
-  //         color: #787878;
-  //         margin-top: 10px;
-
-  //         @media screen and (max-width: 768px) {
-  //           margin-top: 10px;
-  //         }
-  //       }
-  //     }
-
-  //     .inner_right {
-  //       display: flex;
-  //       justify-content: flex-start;
-  //       align-items: center;
-
-  //       @media screen and (max-width: 768px) {
-  //         flex: 1;
-  //       }
-
-  //       img {
-  //         width: 30%;
-  //       }
-  //     }
-  //   }
-  // }
 
   // .research_sp_wrap {
   //   width: 70%;

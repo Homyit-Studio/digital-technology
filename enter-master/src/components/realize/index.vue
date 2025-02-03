@@ -194,12 +194,12 @@ export default {
           icon: require('../../assets/img/61.png'),
         },
         {
-          tit: '售前咨询',
+          tit: '销售咨询',
           desc: '189-7914-1505',
           icon: require('../../assets/img/60.png'),
         },
         {
-          tit: '售后咨询',
+          tit: '简历投递',
           desc: 'jxzwshuzi@163.com',
           icon: require('../../assets/img/61.png'),
         },
