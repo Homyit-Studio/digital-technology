@@ -30,12 +30,12 @@ export default {
         {
           // require 被用来引入本地静态资源
           src: require('@/assets/img/banner1.jpg'),
-          line1: '产业大脑',
-          line2: '赋能产业高质量发展',
+          line1: '匠心筑史，科技维新',
+          line2: '',
         },
         {
           src: require('@/assets/img/banner2.jpg'),
-          line1: '全面推进数字建设化改革',
+          line1: '科技赋魂，文物新生',
           line2: '',
         },
       ],

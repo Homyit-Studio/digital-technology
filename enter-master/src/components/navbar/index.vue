@@ -9,7 +9,7 @@
         <el-menu :default-active="activeIndex" class="el_menu_demo" mode="horizontal" text-color="#333"
           active-text-color="#000" style="background-color: rgba(255, 255, 255, 0); " @select="changeCurrentPage">
           <el-menu-item index="1" class="menu_item">首页</el-menu-item>
-          <el-menu-item index="2" class="menu_item">产品</el-menu-item>
+          <el-menu-item index="2" class="menu_item">案例</el-menu-item>
           <el-menu-item index="3" class="menu_item">新闻资讯</el-menu-item>
           <el-menu-item index="4" class="menu_item">发展历程</el-menu-item>
           <el-menu-item index="5" class="menu_item">联系我们</el-menu-item>

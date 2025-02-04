@@ -502,7 +502,7 @@ export default {
 .func_wrap {
     width: 100%;
     padding: 50px;
-    background: url('../assets/img/bg_0.png');
+    background: url('../assets/img/witness-bgc369221.png');
     background-size: 100% 100%;
     .func_wrap_inner {
       width: 70%;
