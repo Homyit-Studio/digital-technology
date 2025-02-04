@@ -5,21 +5,21 @@
         <img :src="item.src" alt="" class="img_item" />
         <div class="tips_font">
           <h1>{{ item.line1 }}</h1>
-          <h1>{{ item.line2 }}</h1>
+          <h3>{{ item.line2 }}</h3>
         </div>
       </el-carousel-item>
     </el-carousel>
 
     <div class="production_img hidden-sm-and-up">
       <div class="img_tit">新闻资讯</div>
-      <div class="img_desc">专注生命健康产业研究，构建产业研究的数字化系统</div>
+      <div class="img_desc">关注数字化产业发展，助力现代化进程</div>
     </div>
 
     <div class="research_card hidden-xs-only">
       <div class="research-left">
-        <div class="research-left-title">云逸研究院</div>
+        <div class="research-left-title">简洁高效，准确及时</div>
         <div class="research-left-desc">
-          研究院发轫于生命健康产业研究，致力于用数字科技和人工智能，构建产业研究的数字化系统，变革智库研究模式，支撑更精准化、更智能化的产业决策
+          充分了解行业发展趋势，为数字化经济赋能
         </div>
         <div class="research-left-instrc">核心能力</div>
         <ul>
@@ -33,7 +33,7 @@
           </li>
           <li class="research-left-detail">
             <span>产业链数字化研究能力：</span>
-            凝聚云逸创造在产业数据体系和产品体系的系统能力，基于产业指标评价体系和产业链图谱架构的研究，支撑区域产业链布局、动态监测、风险评估的“产业大脑”建设。
+            凝聚产业数据体系和产品体系的系统能力，基于产业指标评价体系和产业链图谱架构的研究，支撑区域产业链布局、动态监测、风险评估的“产业大脑”建设。
           </li>
         </ul>
       </div>
@@ -43,18 +43,40 @@
     </div>
 
     <div class="research_card_mobile hidden-sm-and-up">
-      <h1>云逸研究院</h1>
+      <h1>简洁高效，准确及时</h1>
       <p>
-        研究院发轫于生命健康产业研究，致力于用数字科技和人工智能，构建产业研究的数字化系统，变革智库研究模式，支撑更精准化、更智能化的产业决策
+        充分了解行业发展趋势，为数字化经济赋能
       </p>
-      <h2>团队介绍</h2>
+      <h2>核心能力</h2>
       <p>
-        云逸研究院团队30多人，拥有一支由产业经济学家，知名教授和产业分析师为骨干组成的复合型队伍，总部位于杭州，在北京，成都，深圳设有分支机构。云逸研究院形成了独特的“区域研究+产品研究”的
-        双轨研究模式，构建产业新标杆，为客户提供具有深度洞察力的数字化平台产品和区域独特价值的咨询方案
+        以指数评价为核心，改变唯GDP论的经济指标评价模式，将多源数据置于一个统一的定量分析环境中，从创新、要素、经济、政策等多维角度，形成对产业发展的综合评价体系。
+        将产业链图谱研究架构与知识库动态本体相结合，形成精准度高、动态可延展的智能化产业图谱体系，支撑产业管理从中观经济运行到微观产业节点。
+        凝聚产业数据体系和产品体系的系统能力，基于产业指标评价体系和产业链图谱架构的研究，支撑区域产业链布局、动态监测、风险评估的“产业大脑”建设。
       </p>
       <img src="@/assets/img/build.543dd76.png" alt="" />
     </div>
 
+    <!-- 公司资讯轮播图组件 -->
+    <div class="book_list">
+      <div class="research_title_wrap">
+        <div class="research_inner">
+          <div class="inner_left">
+            <img src="../../assets/img/tupianright.png" alt="" />
+          </div>
+          <div class="inner_center">
+            <div class="research_title">公司资讯</div>
+            <div class="research_desc"></div>
+          </div>
+          <div class="inner_right">
+            <img src="../../assets/img/tupianleft.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <imageScroll />
+    </div>
+
+
+    <!--     
     <div class="research_title_wrap">
       <div class="research_inner">
         <div class="inner_left">
@@ -124,46 +146,91 @@
           </el-col>
         </el-row>
       </div>
-    </div>
+    </div>  -->
 
-    <div class="research_title_wrap">
-      <div class="research_inner">
-        <div class="inner_left">
-          <img src="../../assets/img/tupianright.png" alt="" />
-        </div>
-        <div class="inner_center" style="width: 70%">
-          <div class="research_title">中国生物医药产业发展</div>
-          <div class="research_desc"></div>
-        </div>
-        <div class="inner_right">
-          <img src="../../assets/img/tupianleft.png" alt="" />
+    <div class="book_list">
+      <div class="research_title_wrap">
+        <div class="research_inner">
+          <div class="inner_left">
+            <img src="../../assets/img/tupianright.png" alt="" />
+          </div>
+          <div class="inner_center">
+            <div class="research_title">政策支持</div>
+            <div class="research_desc"></div>
+          </div>
+          <div class="inner_right">
+            <img src="../../assets/img/tupianleft.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
 
     <div class="develop_wrap">
       <div class="develop_left">
-        <h1>BT和IT融合，生物经济时代的“趋势线”</h1>
+        <h1>文物数字化保护，是信息化时代的“趋势线”</h1>
         <p>
-          中国生物医药产业发展指数（China Biomedical Industry
-          Barometer，简称CBIB）
-          作为首个国家级的生物医药产业指数，基于城市、园区、企业、资本四类成分机构，从经济、创新、要素等角度进行综合、量化、实时监测，生成反映我国生物医药产业发展的“趋势线”，用数字标杆打造生物医药产业高质量发展“风向标”，
-          标志着我国生物医药产业区域发展评价迈入“数字对标”时代，对产业进行动态、全方位、科学评价。
+          加强文物数字化保护，以世界文化遗产、全国重点文物保护单位、馆藏一级文物等为重点，推进相关文物信息高清数据采集和展示利用。
+          完善全国考古发掘信息管理系统。
+          建立文物数字化标准规范体系，健全数据管理和开放共享机制，加大文物数据保护力度。
+          支持国家和省级文物数据中心、重点文博单位信息基础设施建设，加强文物领域新型基础设施建设。
+          中国国家博物馆率先开发“国家博物馆VR”平台，实现“VR+数字”的融合。
         </p>
       </div>
       <div class="develop_right">
-        <img src="@/assets/img/cbib.3166b1c.png" alt="" />
-        <a class="tips hidden-xs-only" href="http://www.cbib.org.cn/#/kpi/trendLine" target="_blank">官网入口>></a>
+        <img src="@/assets/img/GuojiaBWG.png" alt="" />
+        <a class="tips hidden-xs-only" href="https://m.chnmuseum.cn/portals/0/web/vr/" target="_blank">官网入口>></a>
       </div>
     </div>
+    <div class="book_list">
+      <div class="research_title_wrap">
+        <div class="research_inner">
+          <div class="inner_left">
+            <img src="../../assets/img/tupianright.png" alt="" />
+          </div>
+          <div class="inner_center">
+            <div class="research_title">行业资讯</div>
+            <div class="research_desc"></div>
+          </div>
+          <div class="inner_right">
+            <img src="../../assets/img/tupianleft.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="book_list_scroll" ref="listScroll2" @wheel.prevent>
+        <el-row class="card_list">
+          <el-col class="card_item" v-for="(item, index) in cardListObj.report_group_list[activeIndex2]" :key="index">
+            <div class="big_box" @click="reportNavigate(item.report_id)">
+              <div class="item_left">
+                <img :src="'http://www.mtx.cn' + item.front_path" alt="" />
+              </div>
+              <div class="item_right">
+                <h1>{{ item.report_name }}</h1>
+              </div>
+            </div>
+          </el-col>
+        </el-row>
+        <div class="list_scroll_btn">
+          <div class="scroll_btn">左右滑动了解更多</div>
+        </div>
+      </div>
+    </div>
+
     <CallMe />
+    <MobileCallme />
     <BoottomTab />
   </div>
 </template>
 
 <script>
+import BScroll from '@better-scroll/core'
+import Pullup from '@better-scroll/pull-up'
+import MouseWheel from '@better-scroll/mouse-wheel'
+BScroll.use(Pullup)
+BScroll.use(MouseWheel)
+
 import CallMe from '@/components/callme/index'
-// import MobileCallme from '@/components/callme/MobileCallme.vue'
+import MobileCallme from '@/components/callme/MobileCallme.vue'
+import imageScroll from './imageScroll.vue'
 import BoottomTab from '@/components/consulting/BoottomTab.vue'
 export default {
   data() {
@@ -172,37 +239,118 @@ export default {
         {
           src: require('@/assets/img/yjbg1.550eeb6.png'),
           line1: '新闻资讯',
-          line2: '专注生命健康产业研究，构建产业研究的数字化系统',
+          line2: '关注数字化产业发展，助力现代化进程',
         },
       ],
-      cardList: [
-        {
-          tit: '面向政府重大战略研究',
-          desc: '北京市十四五生物医药产业战略规划',
-          img: require('../../assets/img/researchInstitute/icon1.png')
-        },
-        {
-          tit: '面向新基建产业新基建研究',
-          desc: '产业新基建战略白皮书',
-          img: require('../../assets/img/researchInstitute/icon2.png')
-        },
-        {
-          tit: '面向行业指数研究产品',
-          desc: '中国生物医药产业发展指数CBIB',
-          img: require('../../assets/img/researchInstitute/icon3.png')
-        },
-        {
-          tit: '面向智库研究数字化产品',
-          desc: '政策/资本研究数字化工具数鉴.生物医药(2019)',
-          img: require('../../assets/img/researchInstitute/icon4.png')
-        },
-      ],
+      activeIndex: 0,
+      cardListObj: {
+        industry_list: [],
+        report_group_list: [],
+      },
+
+      mediaList: [],
+      scroll: null,
+      scroll2: null,
+      // scroll3: null,
+      // scroll4: null,
+      // timer: null,
+      // pageNo: 1,
+      // pageNoMedia: 1,
+      // total1: 0,
+      // total2: 0,
+      activeIndex2: 0,
+      activeIndex3: 0,
+      activeIndex4: 0,
+      activeIndex5: 0,
+      columnList: [],
+      videoList: [],
     }
+  },
+  created() {
+    this.optionActive =
+      this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
+  },
+  mounted() {
+    this.scroll = new BScroll(this.$refs.listScroll, {
+      scrollX: true, // X轴滚动启用
+      eventPassthrough: 'vertical',
+      mouseWheel: {
+        speed: 20,
+        invert: false,
+        easeTime: 300,
+      },
+      click: true, // 确保点击事件可以触发
+      disableMouse: false, // 确保鼠标事件可以触发
+      disableTouch: false, // 确保触摸事件可以触发
+    })
+    this.scroll2 = new BScroll(this.$refs.listScroll2, {
+      scrollX: true, // X轴滚动启用
+      eventPassthrough: 'vertical',
+      mouseWheel: {
+        speed: 20,
+        invert: false,
+        easeTime: 300,
+      },
+      click: true, // 确保点击事件可以触发
+      disableMouse: false, // 确保鼠标事件可以触发
+      disableTouch: false, // 确保触摸事件可以触发
+    })
+    this.getBookList()
+    this.getCardListData()
+    this.axios
+      .get('http://glowworm.club:9093/mediaList.json')
+      .then((res) => {
+        this.mediaList = res.data.mediaList
+      })
+      .catch((err) => {
+        console.log(err.message)
+      })
+  },
+  methods: {
+    changeOptionIndex(index) {
+      this.optionActive = index
+      if (index === 1) {
+        this.$nextTick(() => {
+          this.scroll.refresh()
+          this.scroll2.refresh()
+          this.scroll3.refresh()
+          this.scroll4.refresh()
+        })
+      }
+    },
+    handleNewsDetails(url) {
+      // this.$router.push(`/news_detail/${id}`)
+      window.open(url)
+    },
+    async getCardListData() {
+      const res = await this.axios.get(
+        'https://api.mtx.cn/report?command=front_yj'
+      )
+      this.cardListObj = res.data.data
+    },
+    async getBookList() {
+      const res = await this.axios.get(
+        'https://api.mtx.cn/report?command=front_nb'
+      )
+      this.bookList = res.data.data.report_group_list
+    },
+
+    reportNavigate(id) {
+      window.open(`http://www.mtx.cn/#/report?id=${id}`)
+    },
+
+  },
+  watch: {
+    $route() {
+      this.optionActive =
+        this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
+    },
   },
   components: {
     CallMe,
-    // MobileCallme,
-    BoottomTab
+    MobileCallme,
+    BoottomTab,
+    imageScroll
   },
 }
 </script>
@@ -211,6 +359,273 @@ export default {
 .research_wrap {
   position: relative;
   width: 100%;
+
+  .book_list {
+    margin-bottom: 100px;
+
+    @media screen and (max-width:768px) {
+      height: 400px;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      padding: 0 20px;
+      background: #f4f9fc;
+    }
+
+    .book_list_scroll {
+      width: 1500px;
+      margin: 0 auto;
+      overflow: hidden;
+
+
+      @media screen and (max-width:768px) {
+        width: 100%;
+      }
+
+      .card_list {
+        width: 3000px;
+
+        @media screen and (max-width:768px) {
+          width: 2000px;
+          margin-top: 30px;
+        }
+
+        .card_item {
+          @media screen and (max-width:768px) {
+            width: 200px;
+            height: 230px;
+          }
+
+          float: left;
+          width: 300px;
+          text-align: center;
+
+          &:hover {
+            transform: scale(1);
+            box-shadow: none;
+          }
+
+          .big_box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            @media screen and (max-width:768px) {
+              height: 100%;
+            }
+
+            .item_left {
+              width: 300px;
+              text-align: center;
+              // user-select: none;
+
+              @media screen and (max-width:768px) {
+                width: 100%;
+                height: 100%;
+              }
+
+              img {
+                transition: all .6s;
+                width: 80%;
+                min-height: 300px;
+                margin-left: 20px;
+                border: solid 1px rgb(235, 235, 235);
+
+
+                &:hover {
+                  box-shadow: 0 0 20px rgba($color: #000000, $alpha: .1);
+                }
+
+                @media screen and (max-width:768px) {
+                  margin-bottom: 60px;
+                  max-height: 300px;
+                }
+              }
+            }
+
+            .item_right {
+              padding: 10px 20px !important;
+              user-select: none;
+
+              h1 {
+                font-size: 1rem !important;
+                font-weight: 400;
+                text-align: center;
+                white-space: normal;
+
+                @media screen and (max-width:768px) {
+                  font-size: 14px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .list_scroll_btn {
+        text-align: center;
+
+        .scroll_btn {
+          background: rgba(0, 0, 0, 0);
+          color: rgba(0, 0, 0, 0.5);
+          font-size: 14PX;
+          margin-bottom: 30px;
+          // border-radius: 15PX;
+
+          @media screen and (max-width:768px) {
+            width: 120px;
+            height: 40px;
+            margin: 0 auto;
+            margin-top: 40px;
+          }
+        }
+      }
+    }
+
+    .book_content {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+
+      @media screen and (max-width: 768px) {
+        width: 100%;
+      }
+
+      .book_item {
+        width: 45%;
+        display: flex;
+
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          background: #fff;
+          margin-top: 20px;
+          margin: 10px auto;
+          padding: 10px;
+        }
+
+        &:nth-child(n + 3) {
+          margin-top: 20px;
+        }
+
+        .book_left {
+          width: 50%;
+          margin-right: 40px;
+
+          @media screen and (max-width: 768px) {
+            width: 40%;
+          }
+
+          img {
+            width: 100%;
+          }
+        }
+
+        .book_right {
+          font-weight: bold;
+          font-size: 20px;
+
+          span {
+            cursor: pointer;
+          }
+
+          @media screen and (max-width: 768px) {
+            font-size: 16px;
+            color: #000;
+          }
+        }
+      }
+    }
+
+    .tabs_wrap {
+      width: 60%;
+
+      @media screen and (max-width:768px) {
+        width: 100%;
+      }
+
+      padding-top: 1rem;
+    }
+
+    .research_title_wrap {
+      width: 100%;
+
+      @media screen and (max-width: 768px) {
+        margin-top: 30px;
+      }
+
+      .research_inner {
+        display: flex;
+        justify-content: center;
+
+        .inner_left {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          @media screen and (max-width: 768px) {
+            flex: 1;
+          }
+
+          img {
+            width: 30%;
+          }
+        }
+
+        .inner_center {
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 50px;
+
+          @media screen and (max-width: 768px) {
+            flex: 2.2;
+          }
+
+          .research_title {
+            font-size: 40px;
+            font-weight: bold;
+
+
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
+          }
+
+          .research_desc {
+            font-size: 16px;
+            color: #787878;
+            margin-top: 10px;
+
+            @media screen and (max-width: 768px) {
+              margin-top: 10px;
+            }
+          }
+        }
+
+        .inner_right {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          @media screen and (max-width: 768px) {
+            flex: 1;
+          }
+
+          img {
+            width: 30%;
+          }
+        }
+      }
+    }
+  }
+
 
   .production_img {
     width: 100%;
@@ -381,281 +796,211 @@ export default {
     }
   }
 
-  .research_title_wrap {
-    width: 100%;
 
-    @media screen and (max-width: 768px) {
-      margin-top: 30px;
-    }
 
-    .research_inner {
-      display: flex;
-      justify-content: center;
+  // .research_sp_wrap {
+  //   width: 70%;
+  //   margin: 0 auto;
+  //   height: 300px;
 
-      .inner_left {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
+  //   .research_sp_row {
+  //     width: 100%;
 
-        @media screen and (max-width: 768px) {
-          flex: 1;
-        }
+  //     .research_sp_col {
+  //       background-size: 100% 100%;
+  //       height: 420px;
+  //       padding: 200px;
 
-        img {
-          width: 30%;
-        }
-      }
+  //       &:nth-child(1) {
+  //         background: url('../../assets/img/researchInstitute/1.png');
+  //       }
 
-      .inner_center {
-        width: 400px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0 50px;
+  //       &:nth-child(2) {
+  //         background: url('../../assets/img/researchInstitute/2.png');
+  //       }
 
-        @media screen and (max-width: 768px) {
-          flex: 2.2;
-        }
+  //       &:nth-child(3) {
+  //         background: url('../../assets/img/researchInstitute/3.png');
+  //       }
 
-        .research_title {
-          font-size: 40px;
-          font-weight: bold;
+  //       .tit {
+  //         font-size: 32px;
+  //         color: #000;
+  //         margin: 0 30px;
+  //       }
 
-          @media screen and (max-width: 768px) {
-            font-size: 1rem;
-          }
-        }
+  //       .desc {
+  //         font-size: 19px;
+  //         margin: 10px 30px;
+  //       }
+  //     }
+  //   }
+  // }
 
-        .research_desc {
-          font-size: 16px;
-          color: #787878;
-          margin-top: 10px;
+  // .research_sp_wrap_mobile {
+  //   width: 90%;
+  //   margin: 0 auto;
 
-          @media screen and (max-width: 768px) {
-            margin-top: 10px;
-          }
-        }
-      }
+  //   img {
+  //     width: 100%;
+  //   }
+  // }
 
-      .inner_right {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+  // .product_shows_wrap {
+  //   width: 100%;
+  //   background: #f4f9fc;
+  //   background-size: cover;
+  //   padding: 10px 0 50px 0;
+  //   box-sizing: border-box;
+  //   margin-top: 250px;
+  //   margin-bottom: 50px;
 
-        @media screen and (max-width: 768px) {
-          flex: 1;
-        }
+  //   @media screen and (max-width: 768px) {
+  //     margin-top: 30px;
+  //   }
 
-        img {
-          width: 30%;
-        }
-      }
-    }
-  }
+  //   .production_title_wrap {
+  //     width: 100%;
+  //     margin-top: 50px;
 
-  .research_sp_wrap {
-    width: 70%;
-    margin: 0 auto;
-    height: 300px;
+  //     @media screen and (max-width: 768px) {
+  //       margin-top: 30px;
+  //     }
 
-    .research_sp_row {
-      width: 100%;
+  //     .production_inner {
+  //       display: flex;
+  //       justify-content: center;
 
-      .research_sp_col {
-        background-size: 100% 100%;
-        height: 420px;
-        padding: 200px;
+  //       .inner_left {
+  //         display: flex;
+  //         justify-content: flex-end;
+  //         align-items: center;
 
-        &:nth-child(1) {
-          background: url('../../assets/img/researchInstitute/1.png');
-        }
+  //         @media screen and (max-width: 768px) {
+  //           flex: 1;
+  //         }
 
-        &:nth-child(2) {
-          background: url('../../assets/img/researchInstitute/2.png');
-        }
+  //         img {
+  //           width: 30%;
+  //         }
+  //       }
 
-        &:nth-child(3) {
-          background: url('../../assets/img/researchInstitute/3.png');
-        }
+  //       .inner_center {
+  //         width: 400px;
+  //         display: flex;
+  //         flex-direction: column;
+  //         justify-content: center;
+  //         align-items: center;
+  //         padding: 0 50px;
 
-        .tit {
-          font-size: 32px;
-          color: #000;
-          margin: 0 30px;
-        }
+  //         @media screen and (max-width: 768px) {
+  //           flex: 2.2;
+  //         }
 
-        .desc {
-          font-size: 19px;
-          margin: 10px 30px;
-        }
-      }
-    }
-  }
+  //         .production_title {
+  //           font-size: 40px;
+  //           font-weight: bold;
 
-  .research_sp_wrap_mobile {
-    width: 90%;
-    margin: 0 auto;
+  //           @media screen and (max-width: 768px) {
+  //             font-size: 1rem;
+  //           }
+  //         }
 
-    img {
-      width: 100%;
-    }
-  }
+  //         .production_desc {
+  //           font-size: 16px;
+  //           color: #787878;
+  //           margin-top: 10px;
 
-  .product_shows_wrap {
-    width: 100%;
-    background: #f4f9fc;
-    background-size: cover;
-    padding: 10px 0 50px 0;
-    box-sizing: border-box;
-    margin-top: 250px;
-    margin-bottom: 50px;
+  //           @media screen and (max-width: 768px) {
+  //             margin-top: 10px;
+  //           }
+  //         }
+  //       }
 
-    @media screen and (max-width: 768px) {
-      margin-top: 30px;
-    }
+  //       .inner_right {
+  //         display: flex;
+  //         justify-content: flex-start;
+  //         align-items: center;
 
-    .production_title_wrap {
-      width: 100%;
-      margin-top: 50px;
+  //         @media screen and (max-width: 768px) {
+  //           flex: 1;
+  //         }
 
-      @media screen and (max-width: 768px) {
-        margin-top: 30px;
-      }
+  //         img {
+  //           width: 30%;
+  //         }
+  //       }
+  //     }
+  //   }
 
-      .production_inner {
-        display: flex;
-        justify-content: center;
+  //   .card_fan_list {
+  //     width: 70%;
+  //     margin: 0 auto;
 
-        .inner_left {
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
+  //     @media screen and (max-width: 768px) {
+  //       width: 90%;
+  //     }
 
-          @media screen and (max-width: 768px) {
-            flex: 1;
-          }
+  //     .card_fan_wrap {
+  //       flex-wrap: wrap;
+  //       margin-top: 50px;
+  //     }
 
-          img {
-            width: 30%;
-          }
-        }
+  //     .card_fan_item {
+  //       display: flex;
+  //       align-items: center;
+  //       background: #fff;
+  //       margin-top: 50px;
+  //       padding: 30px;
+  //       box-shadow: 10px 10px 20px rgba($color: #000, $alpha: 0.1);
 
-        .inner_center {
-          width: 400px;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          padding: 0 50px;
+  //       @media screen and (max-width: 768px) {
+  //         background: url('../../assets/img/icon2.png') 0 0 no-repeat;
+  //         background-position: 100% 100%;
+  //         background-size: 35%;
+  //         height: 100px;
 
-          @media screen and (max-width: 768px) {
-            flex: 2.2;
-          }
+  //         &:nth-child(n+3) {
+  //           margin-top: 25px;
+  //         }
+  //       }
 
-          .production_title {
-            font-size: 40px;
-            font-weight: bold;
+  //       .card_left {
+  //         width: 20%;
 
-            @media screen and (max-width: 768px) {
-              font-size: 1rem;
-            }
-          }
+  //         img {
+  //           width: 100%;
+  //         }
+  //       }
 
-          .production_desc {
-            font-size: 16px;
-            color: #787878;
-            margin-top: 10px;
+  //       .card_right {
+  //         margin-left: 15px;
 
-            @media screen and (max-width: 768px) {
-              margin-top: 10px;
-            }
-          }
-        }
+  //         h1 {
+  //           font-size: 25px;
 
-        .inner_right {
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
+  //           @media screen and (max-width: 768px) {
+  //             font-size: 14px;
+  //           }
+  //         }
 
-          @media screen and (max-width: 768px) {
-            flex: 1;
-          }
+  //         p {
+  //           font-size: 18px;
+  //           margin-top: 10px;
 
-          img {
-            width: 30%;
-          }
-        }
-      }
-    }
-
-    .card_fan_list {
-      width: 70%;
-      margin: 0 auto;
-
-      @media screen and (max-width: 768px) {
-        width: 90%;
-      }
-
-      .card_fan_wrap {
-        flex-wrap: wrap;
-        margin-top: 50px;
-      }
-
-      .card_fan_item {
-        display: flex;
-        align-items: center;
-        background: #fff;
-        margin-top: 50px;
-        padding: 30px;
-        box-shadow: 10px 10px 20px rgba($color: #000, $alpha: 0.1);
-
-        @media screen and (max-width: 768px) {
-          background: url('../../assets/img/icon2.png') 0 0 no-repeat;
-          background-position: 100% 100%;
-          background-size: 35%;
-          height: 100px;
-
-          &:nth-child(n+3) {
-            margin-top: 25px;
-          }
-        }
-
-        .card_left {
-          width: 20%;
-
-          img {
-            width: 100%;
-          }
-        }
-
-        .card_right {
-          margin-left: 15px;
-
-          h1 {
-            font-size: 25px;
-
-            @media screen and (max-width: 768px) {
-              font-size: 14px;
-            }
-          }
-
-          p {
-            font-size: 18px;
-            margin-top: 10px;
-
-            @media screen and (max-width: 768px) {
-              font-size: 12px;
-            }
-          }
-        }
-      }
-    }
-  }
+  //           @media screen and (max-width: 768px) {
+  //             font-size: 12px;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   .develop_wrap {
     width: 70%;
     margin: 0 auto;
+    margin-bottom: 100px;
     display: flex;
 
     @media screen and (max-width: 768px) {
@@ -704,6 +1049,29 @@ export default {
         font-size: 20px;
         cursor: pointer;
       }
+    }
+  }
+}
+
+.report-carousel {
+  .el-carousel__item {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .report-tips {
+    position: absolute;
+    top: 260px;
+    left: 300px;
+    z-index: 5;
+    color: #2d3937;
+    font-size: 25px;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.5rem;
     }
   }
 }

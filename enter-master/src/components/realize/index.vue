@@ -104,72 +104,14 @@
         <div class="card_fan_list">
           <el-row class="card_fan_wrap" type="flex" justify="space-between">
             <el-col class="card_fan_item" :span="11" v-for="(item, index) in cardList" :key="index">
-              <!-- <div class="card_left hidden-xs-only">
-              <img :src="item.img" alt="" />
-            </div> -->
               <div class="card_right">
                 <h1>{{ item.name }}</h1>
-                <!-- <p>{{ item.desc }}</p> -->
               </div>
             </el-col>
           </el-row>
         </div>
       </div>
-      <!-- <PersonCard /> -->
-      <!-- <div class="production_title_wrap">
-        <div class="production_inner">
-          <div class="inner_left">
-            <img src="../../assets/img/tupianright.png" alt="" />
-          </div>
-          <div class="inner_center" style="width: 50%">
-            <div class="production_title">合作分布</div>
-            <div class="production_desc">
-              已实现核心园区70%覆盖和数百万医药企业的精准覆盖
-            </div>
-          </div>
-          <div class="inner_right">
-            <img src="../../assets/img/tupianleft.png" alt="" />
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="china_map">
-        <img src="../../assets/img/coor1.png" alt="" />
-        <img src="../../assets/img/coor2.png" alt="" />
-        <img src="../../assets/img/coor3.png" alt="" />
-      </div> -->
     </div>
-    <!-- <div class="show_box_index" v-if="tabSelectIndex === 1">
-      <div class="timeline_wrap">
-        <TimeLineYunYi/>
-        <TimeLineMobile/>
-      </div>
-    </div>
-    <div class="show_box_index" v-if="tabSelectIndex === 2">
-      <div class="three_box">
-        <h1 style="font-size:1rem;">商誉资质</h1>
-      </div>
-      <div class="three_box_card">
-        <el-row type="flex" justify="center" class="out_card" :gutter="10">
-          <el-col
-            :span="7"
-            :xs="11"
-            v-for="(item, index) in certificateList"
-            :key="index"
-            class="card_item"
-          >
-            <el-card :body-style="{ padding: '0px' }">
-              <img
-                :src="item.img"
-                class="image"
-              />
-              <div style="padding: 14px;min-height:60px;">
-                <span style="font-size:0.8rem;">{{item.desc}}</span>
-              </div>
-            </el-card>
-          </el-col>
-        </el-row>
-      </div>
-    </div> -->
     <div class="show_box_index" v-if="tabSelectIndex === 1">
       <div class="four_wrap">
         <el-row type="flex" justify="center" class="out_card" :gutter="10">
@@ -181,7 +123,7 @@
                   {{ item.tit }}
                 </div>
                 <div class="bottom clearfix">
-                  <el-button type="text" class="button" style="font-size:0.7rem;">{{
+                  <el-button type="text" class="button">{{
                     item.desc
                   }}</el-button>
                 </div>
@@ -190,44 +132,6 @@
           </el-col>
         </el-row>
       </div>
-      <!-- <div class="production_title_wrap">
-        <div class="production_inner">
-          <div class="inner_left">
-            <img src="../../assets/img/tupianright.png" alt="" />
-          </div>
-          <div class="inner_center">
-            <div class="production_title">分支机构</div>
-          </div>
-          <div class="inner_right">
-            <img src="../../assets/img/tupianleft.png" alt="" />
-          </div>
-        </div>
-      </div>
-      <div class="four_card_spa hidden-xs-only">
-        <el-row type="flex" justify="space-between" class="out_card">
-          <el-col :span="7" class="card_item">
-            <h1>杭州总部</h1>
-            <img src="../../assets/img/position.png" alt="" />
-            <div class="card_bg"></div>
-            <p>浙江省杭州市滨江区阡陌路482号智慧e谷B座7楼</p>
-            <h1>000-000-0000</h1>
-          </el-col>
-          <el-col :span="7" class="card_item">
-            <h1>北京子公司</h1>
-            <img src="../../assets/img/position.png" alt="" />
-            <div class="card_bg"></div>
-            <p>北京市朝阳区安翔北里11号院北京创业大厦B座1005</p>
-            <h1>000-000-0000</h1>
-          </el-col>
-          <el-col :span="7" class="card_item">
-            <h1>成都子公司</h1>
-            <img src="../../assets/img/position.png" alt="" />
-            <div class="card_bg"></div>
-            <p>成都市高新区天晖路360号晶科1号1806</p>
-            <h1>000-000-0000</h1>
-          </el-col>
-        </el-row>
-      </div> -->
       <div class="real_wrap">
         <ReailzeCard :reailzeList="reailzeList" class="hidden-sm-and-up" />
       </div>
@@ -252,14 +156,6 @@ export default {
           tit: '子午数智介绍',
           name: '1',
         },
-        // {
-        //   tit: '发展历程',
-        //   name: '2',
-        // },
-        // {
-        //   tit: '荣誉资质',
-        //   name: '3',
-        // },
         {
           tit: '联系我们',
           name: '4',
@@ -272,11 +168,6 @@ export default {
           title: '团队能力',
           desc: ['高学历人才丰富', '多学科交叉融合', '极具创新精神'],
         },
-        // {
-        //   icon: '',
-        //   title: '市场优势',
-        //   desc: ['自研超级数据工厂', '区块链AI技术在新药研发领域的实践者'],
-        // },
         {
           icon: '',
           title: '硬件优势',
@@ -294,70 +185,8 @@ export default {
             '丰富的数字化平台构建技术'
           ],
         },
-        // {
-        //   icon: '',
-        //   title: '行业影响力',
-        //   desc: ['技术驱动型队伍', '国务院/国家发改委/国家医保局简报/专报'],
-        // },
-        // {
-        //   icon: '',
-        //   title: '政策影响力',
-        //   desc: [
-        //     '首创生命健康产业大脑',
-        //     '用户覆盖中国主要城市/园区承建北京科委高精尖产业大数据平台等项目',
-        //   ],
-        // },
       ],
-      // timelineEvent: [
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      //   {
-      //     event:
-      //       '《中国新闻报》点赞云逸创造产业大脑的数字化实践，并写入两会专刊',
-      //     time: '2021/11/24',
-      //     img: require('../../assets/img/new7.png'),
-      //   },
-      // ],
+
       contactMsg: [
         {
           tit: '市场合作',
@@ -365,88 +194,32 @@ export default {
           icon: require('../../assets/img/61.png'),
         },
         {
-          tit: '售前咨询',
-          desc: '电话待补充',
+          tit: '销售咨询',
+          desc: '189-7914-1505',
           icon: require('../../assets/img/60.png'),
         },
         {
-          tit: '售后咨询',
-          desc: '邮箱待补充',
+          tit: '简历投递',
+          desc: 'jxzwshuzi@163.com',
           icon: require('../../assets/img/61.png'),
         },
       ],
-      // reailzeList: [
-      //   {
-      //     tit: '杭州总部',
-      //   },
-      //   {
-      //     tit: '北京子公司',
-      //   },
-      //   {
-      //     tit: '成都子公司',
-      //   },
-      //   {
-      //     tit: '重庆子公司',
-      //   },
-      // ],
-      // certificateList: [
-      //   {
-      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210629/kWXEiepyNp1624936457266.png',
-      //     desc: '荣获“2021年杭州市准独角兽企业”荣誉称号'
-      //   },
-      //   {
-      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/mkGhTrdJTi1616038179236.jpg',
-      //     desc: '2020年云逸创造成为华为认证级ISV伙伴'
-      //   },
-      //   {
-      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/SS4ncBsjQs1616038188320.jpg',
-      //     desc: '云逸创造董事长金霞入选“2020年度女性创业者TOP10'
-      //   },
-      //   {
-      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/DZPsTTfkJi1616038196212.jpg',
-      //     desc: '2020年云逸创造荣获“浙江省高新技术企业”荣誉称号'
-      //   },
-      //   {
-      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/kjfX3JRw641616038294809.jpg',
-      //     desc: '荣获“2020中国健康新势力企业”荣誉称号'
-      //   },
-      //   {
-      //     img: 'https://hs-official-site-prod.oss-cn-hangzhou.aliyuncs.com/client/official/20210318/Wr3JPJ5wsG1616038303821.jpg',
-      //     desc: '云逸创造董事长金霞入选科技部“2019年创新人才推进计划'
-      //   },
-      //   {
-      //     img: 'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/b2TNNdNsCe1591254359959.png',
-      //     desc: '荣获“2019年浙江省创新企业百强”称号'
-      //   },
-      //   {
-      //     img: 'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/8hXzwptN261591254324083.png',
-      //     desc: '2019年获得"中国科技创新领军企业"称号'
-      //   },
-      //   {
-      //     img: 'http://hs-official-site-test.oss-cn-hangzhou.aliyuncs.com/client/official/20200604/DcbXekjH2W1591254266381.png',
-      //     desc: '云逸创始人杨红飞荣获"2019年中国B2B领域卓越创业家"荣誉称号'
-      //   },
-      // ]
       cardList: [
         {
           name: '子午舆图数码科技（江西）有限公司',
-          // desc: '北京市十四五生物医药产业战略规划',
-          // img: require('../../assets/img/researchInstitute/icon1.png')
+
         },
         {
           name: '三维数字科技（江西）有限公司',
-          // desc: '产业新基建战略白皮书',
-          // img: require('../../assets/img/researchInstitute/icon2.png')
+
         },
         {
           name: '思看科技（杭州）股份有限公司',
-          // desc: '中国生物医药产业发展指数CBIB',
-          // img: require('../../assets/img/researchInstitute/icon3.png')
+
         },
         {
           name: '深圳市其域创新科技有限公司',
-          // desc: '政策/资本研究数字化工具数鉴.生物医药(2019)',
-          // img: require('../../assets/img/researchInstitute/icon4.png')
+
         },
       ],
     }
@@ -457,12 +230,9 @@ export default {
     },
   },
   components: {
-    //PersonCard,
     CallMe,
     MobileCallme,
     ReailzeCard,
-    // TimeLineYunYi,
-    // TimeLineMobile
   },
   created() {
     this.tabSelectIndex = this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
@@ -889,6 +659,16 @@ export default {
 
             @media screen and (max-width: 768px) {
               width: 50%;
+            }
+          }
+
+          .bottom {
+            .button {
+              font-size: 1rem;
+
+              @media screen and (max-width: 768px) {
+                font-size: 0.5rem;
+              }
             }
           }
         }

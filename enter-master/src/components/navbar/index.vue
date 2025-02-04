@@ -16,7 +16,7 @@
         </el-menu>
         <span class="right_phone">
           <i class="el-icon-phone"></i>
-          <span> 联系电话待补充2 </span>
+          <span> 189-7914-1505 </span>
         </span>
       </div>
     </div>
