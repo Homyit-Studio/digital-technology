@@ -26,7 +26,7 @@
                 <el-col :span="7" class="research_sp_col">
                     <div class="tit">面向数字经济</div>
                     <div class="desc">
-                        面向数字经济时代的产业新基建研究，探索构建以“产业大脑”为核心的产业数字化管理新模式
+                        面向数字经济时代的产业新基建研究，探索产业数字化管理新模式
                     </div>
                 </el-col>
                 <el-col :span="7" class="research_sp_col">
@@ -80,22 +80,22 @@ export default {
             cardList: [
                 {
                     tit: '面向政府重大战略研究',
-                    desc: '北京市十四五生物医药产业战略规划',
+                    desc: '国务院办公厅关于印发“十四五”文物保护和科技创新规划',
                     img: require('../../assets/img/researchInstitute/icon1.png')
                 },
                 {
-                    tit: '面向新基建产业新基建研究',
+                    tit: '面向新基建产业新基建',
                     desc: '产业新基建战略白皮书',
                     img: require('../../assets/img/researchInstitute/icon2.png')
                 },
                 {
-                    tit: '面向行业指数研究产品',
-                    desc: '中国生物医药产业发展指数CBIB',
+                    tit: '面向行业指数研发产品',
+                    desc: '文物保护产业现状及未来发展趋势分析',
                     img: require('../../assets/img/researchInstitute/icon3.png')
                 },
                 {
-                    tit: '面向智库研究数字化产品',
-                    desc: '政策/资本研究数字化工具数鉴.生物医药(2019)',
+                    tit: '面向“数智”数字化产品',
+                    desc: '“数智”带来活化新模式，赋能文化遗产保护传承利用',
                     img: require('../../assets/img/researchInstitute/icon4.png')
                 },
             ]
