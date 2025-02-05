@@ -1,6 +1,6 @@
 <template>
   <div class="data_brain_wrap">
-    <div class="brain_title">子午数智硬件优势</div>
+    <div class="brain_title">硬件优势</div>
     <div class="brain_desc">高精度数字化，守护文物未来</div>
 
     <el-row class="card_wrap" type="flex">
@@ -45,6 +45,10 @@ export default {
         {
           title: '专业测绘无人机',
           desc: '结合GPS导航和遥感技术，能够高效完成空中文物测绘任务，为文物的空间布局和地形地貌分析提供了重要依据',
+        },
+        {
+          title: '3D打印机',
+          desc: '根据数字模型制作文物的实体复制品，用于研究和展示',
         },
       ],
     }

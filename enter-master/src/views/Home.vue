@@ -9,7 +9,7 @@
     <!-- 企业软件优势 -->
     <div class="func_wrap">
         <div class="func_wrap_inner">
-          <div class="func_tit">子午数智软件优势</div>
+          <div class="func_tit">软件优势</div>
           <el-row class="func_card hidden-xs-only" type="flex">
             <el-col
               class="card_item animate__animated animate__flipInX"
@@ -56,7 +56,7 @@
             <img src="../assets/img/tupianright.png" alt="" />
           </div>
           <div class="inner_center" style="width: 60%">
-            <div class="enter_title">子午数智人才优势</div>
+            <div class="enter_title">人才优势</div>
             <div class="enter_desc hidden-xs-only">
               公司拥有一支具备交叉学科背景的专业团队，涵盖了建筑、测绘、GIS、遥感、计算机等多个领域
             </div>

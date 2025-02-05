@@ -5,6 +5,59 @@
       <div class="img_desc">文物遗址数字化的核心，赋能文化保护、服务历史传承</div>
     </div>
 
+
+    
+
+     <!-- 子午产品优势 -->
+    <div class="func_wrap hidden-xs-only" style="background: #f4f9fc">
+
+      <div class="func_wrap_inner">
+        <div class="func_tit"><div class="consult_title_wrap">
+      <div class="consult_inner">
+
+        <div class="inner_left">
+          <img src="../../assets/img/tupianright.png" alt="" />
+        </div>
+
+        <div class="inner_center" style="width: 40%">
+          <div class="consult_title">子午产品独特优势</div>
+          <div class="consult_desc"></div>
+        </div>
+
+        <div class="inner_right">
+          <img src="../../assets/img/tupianleft.png" alt="" />
+        </div>
+
+      </div>
+    </div></div>
+      </div>
+
+      <div class="double_card_wrap">
+        <el-row class="double_card" type="flex">
+
+          <el-col :span="7" :xs="11" class="double_card_item animate__animated animate__flipInX">
+            <div class="double_card_bg">多学科融合的专业团队</div>
+            <p>多学科背景团队，6位博士、16位硕士，理论与实践结合，创新解决文物数字化难题，推动技术进步。</p>
+          </el-col>
+
+          <el-col :span="7" :xs="11" class="double_card_item animate__animated animate__flipInX">
+            <div class="double_card_bg">全流程数字化解决方案</div>
+            <p>提供从数据采集、处理到展示的全流程服务，构建数字化平台，支持文物存储、管理及多领域应用。</p>
+          </el-col>
+
+           <el-col :span="7" :xs="11" class="double_card_item animate__animated animate__flipInX">
+            <div class="double_card_bg">创新技术与文化传承结合</div>
+            <p>运用VR等技术，让文物“活起来”，提供沉浸式体验，助力学术研究、公众教育与文化创意产业发展。</p>
+          </el-col>
+
+        </el-row>
+      </div>
+    </div>
+
+     <div class="func_wrap_mobile hidden-sm-and-up">
+      <img src="@/assets/img/ys.png" alt="">
+    </div>
+    
     <div class="product_shows_wrap">
       <div class="production_title_wrap">
         <div class="production_inner">
@@ -14,7 +67,7 @@
           <div class="inner_center">
             <div class="production_title">公司成果</div>
             <div class="production_desc">
-              匠心护史，科技焕新
+              3D建模，成果展示
             </div>
           </div>
           <div class="inner_right">
@@ -102,6 +155,190 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+ .consult_title_wrap {
+    width: 100%;
+    margin-top: 50px;
+    @media screen and (max-width: 768px) {
+      margin-top: 30px;
+    }
+    .consult_inner {
+      display: flex;
+      justify-content: center;
+      .inner_left {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        @media screen and (max-width: 768px) {
+          flex: 1;
+        }
+        img {
+          width: 30%;
+        }
+      }
+      .inner_center {
+        width: 450px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0 50px;
+        @media screen and (max-width: 768px) {
+          flex: 3;
+        }
+        .consult_title {
+          font-size: 40px;
+          font-weight: bold;
+          @media screen and (max-width: 768px) {
+            font-size: 1rem;
+          }
+        }
+        .consult_desc {
+          font-size: 16px;
+          color: #787878;
+          margin-top: 10px;
+          @media screen and (max-width: 768px) {
+            margin-top: 10px;
+            font-size: 13px;
+          }
+        }
+      }
+      .inner_right {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @media screen and (max-width: 768px) {
+          flex: 1;
+        }
+        img {
+          width: 30%;
+        }
+      }
+    }
+  }
+  .consult_card_wrap {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  .func_wrap {
+    width: 100%;
+    padding: 50px;
+    background: url('../../assets/img/bg_0.png');
+    background-size: 100% 100%;
+    .func_wrap_inner {
+      width: 70%;
+      margin: 0 auto;
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
+      .func_tit {
+        font-size: 34px;
+        font-weight: bold;
+        text-align: center;
+        @media screen and (max-width: 768px) {
+          font-size: 1rem;
+        }
+      }
+      .func_card {
+        justify-content: space-between;
+        margin-top: 40px;
+        .card_item {
+          background: #fff;
+          box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.1);
+          .item_top {
+            width: 100%;
+            height: 150px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            background: url('../../assets/img/bg3.png');
+            background-size: 100% 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .item_bottom {
+            padding: 15px;
+            p {
+              font-size: 16px;
+              margin-top: 20px;
+            }
+          }
+        }
+      }
+      .func_card_mobile {
+        width: 100%;
+        img {
+          width: 100%;
+          margin-top: 40px;
+        }
+      }
+    }
+    .double_card_wrap {
+      width: 70%;
+      margin: 0 auto;
+      @media screen and (max-width: 768px) {
+        width: 90%;
+      }
+      .double_card {
+        justify-content: space-between;
+        margin-top: 50px;
+        @media screen and (max-width: 768px) {
+          flex-wrap: wrap;
+        }
+        .double_card_item {
+          height: 340px;
+          background: #fff;
+          padding: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+          flex-direction: column;
+          &:nth-child(1){
+            background-image: url('../../assets/img/ys1.png');
+            background-position: 90% 10%;
+            background-repeat: no-repeat;
+            background-size: 20%;
+          }
+          &:nth-child(2){
+            background-image: url('../../assets/img/ys2.png');
+            background-position: 90% 10%;
+            background-repeat: no-repeat;
+            background-size: 20%;
+          }
+          &:nth-child(3){
+            background-image: url('../../assets/img/ys3.png');
+            background-position: 90% 10%;
+            background-repeat: no-repeat;
+            background-size: 20%;
+          }
+          box-shadow: 10px 10px 20px rgba(0,0,0,.1);
+          @media screen and (max-width: 768px) {
+            height: 140px;
+            &:nth-child(n + 3) {
+              margin-top: 20px;
+            }
+          }
+          .double_card_bg {
+            font-size: 24px;
+            color: #000;
+            font-weight: bold;
+          }
+          p {
+            line-height: 40PX;
+            font-size: 18px;
+            margin-top: 30px;
+          }
+        }
+      }
+    }
+  }
+  .func_wrap_mobile{
+    width: 100%;
+    img{
+      width: 100%;
+    }
+  }
 .production_wrap {
   width: 100%;
   .production_img {

@@ -64,17 +64,17 @@
       <div class="double_card_wrap">
         <el-row class="double_card" type="flex">
 
-          <el-col :span="7" :xs="11" class="double_card_item">
+          <el-col :span="7" :xs="11" class="double_card_item animate__animated animate__flipInX">
             <div class="double_card_bg">数据驱动</div>
             <p>基于产业链，创新链，空间链，政府链的数据优势，提供专业化地区生物医药产业数据评价服务。</p>
           </el-col>
 
-          <el-col :span="7" :xs="11" class="double_card_item">
+          <el-col :span="7" :xs="11" class="double_card_item animate__animated animate__flipInX">
             <div class="double_card_bg">一体化解决方案</div>
             <p>形成“产业研究+规划蓝图+资源集成+平台落地”的理论指导，提供“顶天立地”独特的区域生物医药产业研究解决方案。</p>
           </el-col>
 
-          <el-col :span="7" :xs="11" class="double_card_item">
+          <el-col :span="7" :xs="11" class="double_card_item animate__animated animate__flipInX">
             <div class="double_card_bg">专业服务团队</div>
             <p>聚焦国内规模最大的生物医药产业研究专业团队。 核心骨干人员均拥有多年生物医药行业研究和咨询规划工作经验</p>
           </el-col>
@@ -82,11 +82,12 @@
         </el-row>
       </div>
     </div>
-
-    <!-- 预约专家部分 -->
-    <div class="func_wrap_mobile hidden-sm-and-up">
+     <div class="func_wrap_mobile hidden-sm-and-up">
       <img src="@/assets/img/ys.png" alt="">
     </div>
+
+    <!-- 预约专家部分 -->
+   
     <div class="appointment_wrap">
       <div class="appointment_txt">
         <h1>预约我们的产业专家<br>了解更多有关云逸产业咨询服务详细信息</h1>
