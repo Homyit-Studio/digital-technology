@@ -38,20 +38,11 @@
           </div>
         </div>
       </div>
-    <!-- <div class="bottom_circle">
-      <h1>产业大脑将会是所有城市园区产业发展的标准配置</h1>
-      <div class="circle_img">
-        <img src="@/assets/img/lineimg.9cc3174a.png" alt="" class="hidden-xs-only"/> -->
-        <!-- 移动端时出现 -->
-        <!-- <img src="@/assets/img/lineimg.9cc3174a.png" alt="" class="hidden-sm-and-up"/>
-      </div>
-    </div> -->
 
     <!-- 子午数智人才优势 -->
      <div class="current_show_menu">
     <div class="enter_title_wrap">
         <div class="enter_inner">
-
           <div class="inner_left">
             <img src="../assets/img/tupianright.png" alt="" />
           </div>
@@ -64,7 +55,6 @@
           <div class="inner_right">
             <img src="../assets/img/tupianleft.png" alt="" />
           </div>
-
         </div>
       </div>
       
@@ -151,8 +141,8 @@
             :key="index"
           >
             <div class="bottom_img">
-              <img :src="item.src" alt="" />
-              <div class="img_desc">{{ item.tit }}</div>
+              <img :src="item.companyImageUrl" alt="" />
+              <div class="img_desc">{{ item.companyName }}</div>
             </div>
           </div>
         </div>
@@ -165,6 +155,7 @@
 </template>
 
 <script>
+import http from '@/utils/http.js' 
 import PCNavbar from '@/components/navbar/index'
 import MobileNavBar from '@/components/navbar/MobileNavBar.vue'
 import CarouselHome from '@/components/carousel_home/index'
@@ -173,6 +164,7 @@ import TodoShow from '@/components/todo_show/index'
 // import CooperationCustomer from '@/components/cooperation_customer/index'
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
+
 export default {
   components: {
     PCNavbar,
@@ -184,53 +176,52 @@ export default {
     CallMe,
     MobileCallme
   },
-   data() {
-  return {
-    funcCardList: [
-      {
-        tit: '多平台跨模态数据融合技术',
-        desc: [
-          '能够高效整合来自不同硬件设备的数据，实现数据的无缝对接和精确融合，为文物的数字化重建提供了坚实基础'
-        ],
-        bg: require('../assets/img/bg1.png')
-      },
-      {
-        tit: '基于NeRF和3D GS的三维重建技术',
-        desc: [
-          '能够生成高度逼真的文物三维模型，不仅保留了文物的几何形态，还还原了其表面材质和光照效果，为文物的数字化展示和虚拟体验提供了可能'
-        ],
-        bg: require('../assets/img/bg2.png')
-      },
-      {
-        tit: '丰富的数字化平台构建技术',
-        desc: [
-          '能够构建功能完善的数字化平台，支持文物的数字化存储、管理和展示，为文物的长期保护和活化利用提供了有力保障'
-        ],
-        bg: require('../assets/img/bg3.png')
-      }
-    ],
-      procardList: [
+  data() {
+    return {
+      funcCardList: [
         {
-          tit: '子午舆图数码科技（江西）有限公司',
-          src: require('@/assets/img/a.png'),
+          tit: '多平台跨模态数据融合技术',
+          desc: [
+            '能够高效整合来自不同硬件设备的数据，实现数据的无缝对接和精确融合，为文物的数字化重建提供了坚实基础'
+          ],
+          bg: require('../assets/img/bg1.png')
         },
         {
-          tit: '三维数字科技（江西）有限公司',
-          src: require('@/assets/img/d.png'),
+          tit: '基于NeRF和3D GS的三维重建技术',
+          desc: [
+            '能够生成高度逼真的文物三维模型，不仅保留了文物的几何形态，还还原了其表面材质和光照效果，为文物的数字化展示和虚拟体验提供了可能'
+          ],
+          bg: require('../assets/img/bg2.png')
         },
         {
-          tit: '思看科技（杭州）股份有限公司',
-          src: require('@/assets/img/e.png'),
-        },
-        {
-          tit: '深圳市其域创新科技有限公司',
-          src: require('@/assets/img/f.png'),
-        },
-      ]
+          tit: '丰富的数字化平台构建技术',
+          desc: [
+            '能够构建功能完善的数字化平台，支持文物的数字化存储、管理和展示，为文物的长期保护和活化利用提供了有力保障'
+          ],
+          bg: require('../assets/img/bg3.png')
+        }
+      ],
+      procardList: []
+    }
+  },
+  mounted() {
+    // 发起请求获取合作伙伴数据
+    http.get('/collaboratingcompany/getallcollaboratingcompanies')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.procardList = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
   }
 }
-}
 </script>
+
+
 
 <style lang="scss" scoped>
 .consult_title_wrap {

@@ -81,11 +81,11 @@
             class="bottom_img_item"
             v-for="(item, index) in procardList3"
             :key="index"
-            @click="openModal(item.src)"
+            @click="openModal(item.imageUrl)"
           >
             <div class="bottom_img">
-              <img :src="item.src" alt="" />
-              <div class="img_desc">{{ item.desc }}</div>
+              <img :src="item.imageUrl" alt="" />
+              <div class="img_desc">{{ item.caseIntroduction }}</div>
             </div>
           </div>
         </div>
@@ -106,34 +106,36 @@
 
 
 <script>
+import http from '@/utils/http.js' 
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 
 export default {
   data() {
     return {
-      procardList3: [
-        {
-          desc: '大井朱德陈毅同志旧居完整拼接',
-          src: require('@/assets/img/work111.png'),
-        },
-        {
-          desc: '大井毛泽东同志旧居完整拼接',
-          src: require('@/assets/img/work222.png'),
-        },
-        {
-          desc: '小井-红军医院',
-          src: require('@/assets/img/work333.png'),
-        },
-        {
-          desc: '茨坪-湘赣边界特委旧址',
-          src: require('@/assets/img/work444.png'),
-        },
-        {
-          desc: '雯峰书院',
-          src: require('@/assets/img/work555.png'),
-        },
-      ],
+      // procardList3: [
+      //   {
+      //     desc: '大井朱德陈毅同志旧居完整拼接',
+      //     src: require('@/assets/img/work111.png'),
+      //   },
+      //   {
+      //     desc: '大井毛泽东同志旧居完整拼接',
+      //     src: require('@/assets/img/work222.png'),
+      //   },
+      //   {
+      //     desc: '小井-红军医院',
+      //     src: require('@/assets/img/work333.png'),
+      //   },
+      //   {
+      //     desc: '茨坪-湘赣边界特委旧址',
+      //     src: require('@/assets/img/work444.png'),
+      //   },
+      //   {
+      //     desc: '雯峰书院',
+      //     src: require('@/assets/img/work555.png'),
+      //   },
+      // ],
+      procardList3:[],
       isModalOpen: false,
       currentImage: '',
     }
@@ -150,6 +152,20 @@ export default {
     closeModal() {
       this.isModalOpen = false;
     }
+  },
+  mounted() {
+    // 发起请求获取合作伙伴数据
+    http.get('/case/getallcases')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.procardList3 = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
   }
 }
 </script>

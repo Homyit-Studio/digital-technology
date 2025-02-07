@@ -2,20 +2,18 @@
   <div class="carousel_wrap">
     <el-carousel height="37vw" loop arrow="never" class="hidden-xs-only">
       <el-carousel-item v-for="(item, index) in imgList" :key="index">
-        <img :src="item.src" alt="" class="img_item" />
+        <img :src="item.imageUrl" alt="" class="img_item" />
         <div class="tips_font">
-          <h1>{{ item.line1 }}</h1>
-          <h1>{{ item.line2 }}</h1>
+          <h1>{{ item.imageWord }}</h1>
         </div>
       </el-carousel-item>
     </el-carousel>
     <!-- 移动端时出现 -->
     <el-carousel height="50vw" loop arrow="never" class="hidden-sm-and-up">
       <el-carousel-item v-for="(item, index) in imgList" :key="index">
-        <img :src="item.src" alt="" class="img_item" />
+        <img :src="item.imageUrl" alt="" class="img_item" />
         <div class="tips_font">
-          <h1>{{ item.line1 }}</h1>
-          <h1>{{ item.line2 }}</h1>
+          <h1>{{ item.imageWord }}</h1>
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -23,24 +21,26 @@
 </template>
 
 <script>
+import http from '@/utils/http.js'; 
 export default {
   data() {
     return {
-      imgList: [
-        {
-          // require 被用来引入本地静态资源
-          src: require('@/assets/img/banner1.jpg'),
-          line1: '匠心筑史，科技维新',
-          line2: '',
-        },
-        {
-          src: require('@/assets/img/banner2.jpg'),
-          line1: '科技赋魂，文物新生',
-          line2: '',
-        },
-      ],
+      imgList:[]
     }
   },
+  mounted() {
+    http.get('/image/getallimages')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.imgList = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
+  }
 }
 </script>
 
