@@ -13,9 +13,10 @@
     <Affix>
       <div class="nav_menu" ref="menu">
         <router-link class="menu_item" to="/home" :class="currentActive === 0 ? 'active' : ''">首页</router-link>
-        <router-link class="menu_item" to="/production/1" :class="currentActive === 1 ? 'active' : ''">案例</router-link>
+        <router-link class="menu_item" to="/fournav/2" :class="currentActive === 3 ? 'active' : ''">公司概况</router-link>
+        <router-link class="menu_item" to="/production/1"
+          :class="currentActive === 1 ? 'active' : ''">案例展示</router-link>
         <router-link class="menu_item" to="/threenav" :class="currentActive === 2 ? 'active' : ''">新闻资讯</router-link>
-        <router-link class="menu_item" to="/fournav/2" :class="currentActive === 3 ? 'active' : ''">发展历程</router-link>
         <router-link class="menu_item" to="/fivenav/2" :class="currentActive === 4 ? 'active' : ''">联系我们</router-link>
       </div>
     </Affix>

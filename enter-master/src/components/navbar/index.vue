@@ -3,15 +3,16 @@
     <div class="navbar_container">
       <div class="navbar_left">
         <!-- 江西子午数智信息科技有限公司 -->
-        <img src="@/assets/img/home/JXZWSZ_logo.png" alt="子午数智..." />
+        <img src="@/assets/img/home/JXZWSZ_logo_icon.png" alt="子午数智..." />
+        <img src="@/assets/img/home/JXZWSZ_logo_name.png" alt="子午数智..." />
       </div>
       <div class="navbar_right">
         <el-menu :default-active="activeIndex" class="el_menu_demo" mode="horizontal" text-color="#333"
           active-text-color="#000" style="background-color: rgba(255, 255, 255, 0); " @select="changeCurrentPage">
           <el-menu-item index="1" class="menu_item">首页</el-menu-item>
-          <el-menu-item index="2" class="menu_item">案例</el-menu-item>
+          <el-menu-item index="4" class="menu_item">公司概况</el-menu-item>
+          <el-menu-item index="2" class="menu_item">案例展示</el-menu-item>
           <el-menu-item index="3" class="menu_item">新闻资讯</el-menu-item>
-          <el-menu-item index="4" class="menu_item">发展历程</el-menu-item>
           <el-menu-item index="5" class="menu_item">联系我们</el-menu-item>
         </el-menu>
         <span class="right_phone">
@@ -138,6 +139,9 @@ export default {
     }
 
     .menu_item {
+      font-size: 16px;
+      font-weight: 500;
+
       &:hover {
         font-weight: 600;
         background: transparent !important;
@@ -145,6 +149,8 @@ export default {
     }
 
     .right_phone {
+      font-weight: 600;
+
       &:hover {
         color: #ccc;
       }
@@ -154,7 +160,7 @@ export default {
       align-items: center;
 
       i {
-        font-size: 20px;
+        font-size: 24px;
       }
 
       span {
