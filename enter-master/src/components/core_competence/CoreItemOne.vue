@@ -1,171 +1,162 @@
 <template>
-  <el-row class="core_one_wrap">
-    <el-col class="one_left">
-      <div class="left_tit">
-        背靠工业和信息化部直属单位--中国电子信息产业发展研究院（CCID），产业资源整合能力强
-      </div>
-      <ul class="left_desc">
-        <li>依托赛迪支撑制造强国和网络强国建设，聚焦两化融合、智能制造、数字经济、军民融合等重点领域，逐步形成了研究咨询、评测认证、科技服务、媒体会展、军工业务、产业金融6大业务布局，累计为20余个国家部委、400余个地方政府、5000余个行业企业提供服务。</li>
-      </ul>
-      <div class="left_card">
-        <div class="card_item" v-for="(item, index) in cardList" :key="index">
-          <i :class="item.icon" class="iconfont"></i>
-          <span class="item_txt">{{ item.txt }}</span>
+  <div class="production_wrap">
+      <div class="with_center">
+        <div class="bottom_img_wrap">
+          <div
+            class="bottom_img_item"
+            v-for="(item, index) in procardList3"
+            :key="index"
+            @click="openModal(item.imageUrl)"
+          >
+            <div class="bottom_img">
+              <img :src="item.imageUrl" alt="" />
+              <div class="img_desc">{{ item.caseIntroduction }}</div>
+            </div>
+          </div>
         </div>
+      </div> 
+    
+    <!-- Modal for large image -->
+    <div v-if="isModalOpen" class="modal" @click.self="closeModal">
+      <div class="modal_content">
+        <span class="close_btn" @click="closeModal">X</span>
+        <img :src="currentImage" alt="Large image" />
       </div>
-    </el-col>
-    <el-col class="one_right">
-      <img src="@/assets/img/right1.png" alt="">
-    </el-col>
-  </el-row>
+    </div>
+  </div>
 </template>
 
 <script>
+import http from '@/utils/http.js'
+
 export default {
   data() {
     return {
-      cardList: [
-        {
-          icon: 'icon-chanyelian-shengwuyiyao',
-          txt: '生物医药',
-        },
-        {
-          icon: 'icon-shengchanzhizao',
-          txt: '高端装备制造',
-        },
-        {
-          icon: 'icon-lvye',
-          txt: ' 新能源',
-        },
-        {
-          icon: 'icon-zu',
-          txt: ' 新材料',
-        },
-        {
-          icon: 'icon-dc-icon-xinxijishu',
-          txt: '新一代信息技术',
-        },
-        {
-          icon: 'icon-jienenghuanbao',
-          txt: ' 节能环保',
-        },
-        {
-          icon: 'icon-shuzichuangyi',
-          txt: '数字创意',
-        },
-        {
-          icon: 'icon-fenzishi',
-          txt: '科技服务业务',
-        },
-        {
-          icon: 'icon-xinnengyuan',
-          txt: '新能源汽车',
-        },
-      ],
+      procardList3:[],
+      isModalOpen: false,
+      currentImage: '',
     }
   },
+  methods: {
+    openModal(image) {
+      this.currentImage = image;
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+    }
+  },
+  mounted() {
+    // 发起请求获取合作伙伴数据
+    http.get('/case/getallcases')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.procardList3 = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
+  }
 }
 </script>
 
 <style lang="scss" scoped>
-.core_one_wrap {
-  display: flex;
-  justify-content: center;
-  text-align: left;
-  margin-bottom: 30px;
-  @media screen and (max-width: 768px) {
-    flex-wrap: wrap;
-  }
-  .one_left {
-    width: 40%;
-    @media screen and (max-width: 768px) {
-      width: 90%;
-    }
-    .left_tit {
-      font-size: 23px;
-      font-weight: bold;
-      color: #3e3e3e;
-      @media screen and (max-width: 768px) {
-        font-size: 1.2rem;
-        margin-top: 20PX;
-      }
-    }
-
-    .left_desc {
-      color: #717171;
-      padding: 10px 40px 20px 40px;
-      li {
-        line-height: 25PX;
-      }
-      @media screen and (max-width: 768px) {
-        font-size: 14px;
-      }
-    }
-
-    .left_card {
+.with_center {
       display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      margin-top: 25px;
-      margin-right: 80px;
-      @media screen and (max-width: 768px) {
-        margin: 0;
-      }
-      .card_item {
-        box-sizing: border-box;
-        width: 30%;
-        height: 50px;
-        background: #fff;
-        box-shadow: 0 -0.0625rem 0.4375rem 0 silver,
-          0 0 0.75rem 0 rgb(0 0 0 / 10%);
+      justify-content: center;
+      .bottom_img_wrap {
+        width: 80%;
         display: flex;
-        align-items: center;
-        color: #0991d3;
-        padding: 0 20px;
-        cursor: pointer;
+        justify-content: center;
+        flex-wrap: wrap;
         @media screen and (max-width: 768px) {
-          height: 50PX;
-        }
-        i{
-          font-size: 1.3rem;
-        }
-        &:nth-child(n + 4) {
-          margin-top: 30px;
-          @media screen and (max-width: 768px) {
-            margin-top: 16PX;
-          }
-        }
-        &:hover .item_txt {
-          letter-spacing: 4px;
-        }
-        .item_txt {
           width: 100%;
-          font-weight: bold;
-          font-size: 17px;
-          margin-left: 10px;
-          transition: all 1s;
-          overflow: hidden;
-          white-space: nowrap;
-          text-overflow: ellipsis;
+        }
+
+        .bottom_img_item {
+          width: 48%; 
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 20px;
+          margin: 10px;
           @media screen and (max-width: 768px) {
-            font-size: 14px;
+            width: 45%; 
+          }
+
+          .bottom_img {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+              transform: scale(1.02);
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+            }
+
+            .img_desc {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              text-align: center;
+              color: #fff;
+              font-size: 18px;
+              background: rgba(0, 0, 0, 0.6);
+              padding: 10px;
+              font-weight: bold;
+              transition: transform 0.3s ease;
+            }
           }
         }
       }
     }
+    /* Modal styling */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
   }
 
-  .one_right {
-    width: 20%;
-    height: 100%;
-    @media screen and (max-width: 768px) {
-      width: 70%;
-      margin-top: 20PX;
-    }
-    img{
-      width: 100%;
-      margin-top: 40px;
-    }
+  .modal_content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: #fff;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   }
-}
+
+  .close_btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+
+  .modal_content img {
+    width: 100%;
+    height: auto;
+  }
 </style>

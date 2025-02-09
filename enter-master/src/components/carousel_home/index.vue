@@ -56,13 +56,14 @@ export default {
   }
   .tips_font {
     position: absolute;
-    top: 260px;
+    top: 310px;
     left: 300px;
     z-index: 5;
     color: #fff;
-    font-size: 25px;
+    font-size: 30px;
     @media screen and (max-width: 768px) {
-      font-size: 0.5rem;
+      font-size: .8rem;
+      top: 90px;
     }
   }
 }
