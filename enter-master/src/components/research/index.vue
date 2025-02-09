@@ -5,38 +5,37 @@
         <img :src="item.src" alt="" class="img_item" />
         <div class="tips_font">
           <h1>{{ item.line1 }}</h1>
-          <h3>{{ item.line2 }}</h3>
+          <!-- <h3>{{ item.line2 }}</h3> -->
         </div>
       </el-carousel-item>
     </el-carousel>
 
     <div class="production_img hidden-sm-and-up">
       <div class="img_tit">新闻资讯</div>
-      <div class="img_desc">关注数字化产业发展，助力现代化进程</div>
+      <!-- <div class="img_desc">关注数字化产业发展，助力现代化进程</div> -->
     </div>
 
     <div class="research_card hidden-xs-only">
       <div class="research-left">
-        <div class="research-left-title">简洁高效，准确及时</div>
+        <div class="research-left-title">准确及时，简洁高效</div>
         <div class="research-left-desc">
           充分了解行业发展趋势，为数字化经济赋能
         </div>
-        <div class="research-left-instrc">子午新闻</div>
+        <!-- <div class="research-left-instrc">子午新闻</div> -->
         <ul>
           <li class="research-left-detail">
-            <span>即时性与时效性：</span>
-            迅速传递最新的信息，确保第一时间获取到全球或本地的时事动态。
-            确保信息的时效性，使我们始终站在信息的前沿。
+            <span> 迅速传递最新的信息，确保第一时间获取到全球或本地的时事动态。
+              确保信息的时效性，使我们始终站在信息的前沿。</span>
+
           </li>
           <li class="research-left-detail">
-            <span>权威性与可信度：</span>
-            确保新闻来源的可靠性和准确性。
-            采用严格的新闻采编和审核流程，维护新闻的真实性和客观性。
+            <span>确保新闻来源的可靠性和准确性。
+              采用严格的新闻采编和审核流程，维护新闻的真实性和客观性。</span>
+
           </li>
           <li class="research-left-detail">
-            <span>内容丰富性：</span>
-            提供涵盖本公司相关和行业相关的最新动态。
-            采用文字、图片增强可读性和吸引力。
+            <span> 提供涵盖本公司相关和行业相关的最新动态。</span>
+
           </li>
         </ul>
       </div>
@@ -50,12 +49,12 @@
       <p>
         充分了解行业发展趋势，为数字化经济赋能
       </p>
-      <h2>子午新闻</h2>
+      <!-- <h2>子午新闻</h2> -->
       <p>
         迅速传递最新的信息，确保第一时间获取到全球或本地的时事动态。
         确保信息的时效性，使我们始终站在信息的前沿。确保新闻来源的可靠性和准确性。
         采用严格的新闻采编和审核流程，维护新闻的真实性和客观性。 提供涵盖本公司相关和行业相关的最新动态。
-        采用文字、图片增强可读性和吸引力。
+
       </p>
       <img src="@/assets/img/build.543dd76.png" alt="" />
     </div>
@@ -152,7 +151,7 @@
       </div>
     </div>  -->
 
-    <div class="book_list">
+    <div class="support_wrap">
       <div class="research_title_wrap">
         <div class="research_inner">
           <div class="inner_left">
@@ -171,16 +170,20 @@
         <div class="develop_left">
           <h1>文物数字化保护，是信息化时代的“趋势线”</h1>
           <p>
-            加强文物数字化保护，以世界文化遗产、全国重点文物保护单位、馆藏一级文物等为重点，推进相关文物信息高清数据采集和展示利用。
-            完善全国考古发掘信息管理系统。
-            建立文物数字化标准规范体系，健全数据管理和开放共享机制，加大文物数据保护力度。
-            支持国家和省级文物数据中心、重点文博单位信息基础设施建设，加强文物领域新型基础设施建设。
-            中国国家博物馆率先开发“国家博物馆VR”平台，实现“VR+数字”的融合。
+            《“十四五”文物保护和科技创新规划》部署十项重点任务。
+            一是强化文物资源管理和文物安全工作，建设国家文物资源大数据库，健全文物安全长效机制；
+            二是全面加强文物科技创新，构建产学研用深度融合的文物科技创新体系；
+            三是提升考古工作能力和科技考古水平，建设中国特色、中国风格、中国气派的考古学；
+            四是强化文物古迹保护，坚持系统整体保护；五是加强革命文物保护管理运用，充分发挥革命文物重要作用；
+            六是激发博物馆创新活力，提升博物馆发展质量；七是优化社会文物管理服务，完善流失文物追索返还制度；
+            八是大力推进让文物活起来，推动文物保护利用工作全面融入经济社会发展；九是加强文物国际交流合作，向全世界讲好中国故事，促进中外文明交流互鉴；
+            十是壮大文物人才队伍，综合施策推动构建与文物资源规模、文物保护利用任务相匹配的学科结构、管理机构和专业队伍。
           </p>
         </div>
         <div class="develop_right">
-          <img src="@/assets/img/GuojiaBWG.png" alt="" />
-          <a class="tips hidden-xs-only" href="https://m.chnmuseum.cn/portals/0/web/vr/" target="_blank">官网入口>></a>
+
+          <a class="tips hidden-xs-only" href="https://www.gov.cn/zhengce/content/2021-11/08/content_5649764.htm"
+            target="_blank"><img src="@/assets/Z_img/zhengce.png" alt="" />原文件查看入口>></a>
         </div>
       </div>
     </div>
@@ -222,7 +225,7 @@
 
     <CallMe />
     <MobileCallme />
-    <BoottomTab />
+    <!-- <BoottomTab /> -->
   </div>
 </template>
 
@@ -236,15 +239,15 @@ BScroll.use(MouseWheel)
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 import imageScroll from './imageScroll.vue'
-import BoottomTab from '@/components/consulting/BoottomTab.vue'
+// import BoottomTab from '@/components/consulting/BoottomTab.vue'
 export default {
   data() {
     return {
       imgList: [
         {
-          src: require('@/assets/img/yjbg1.550eeb6.png'),
+          src: require('@/assets/Z_img/bg_Old.png'),
           line1: '新闻资讯',
-          line2: '关注数字化产业发展，助力现代化进程',
+          // line2: '关注数字化产业发展，助力现代化进程',
         },
       ],
       activeIndex: 0,
@@ -354,7 +357,7 @@ export default {
   components: {
     CallMe,
     MobileCallme,
-    BoottomTab,
+    // BoottomTab,
     imageScroll
   },
 }
@@ -366,10 +369,11 @@ export default {
   width: 100%;
 
   .book_list {
+
     margin-bottom: 100px;
 
     @media screen and (max-width:768px) {
-      height: 400px;
+      // height: 400px;
     }
 
 
@@ -557,6 +561,7 @@ export default {
     }
 
     .research_title_wrap {
+
       width: 100%;
 
       @media screen and (max-width: 768px) {
@@ -640,7 +645,7 @@ export default {
       height: 50vw;
     }
 
-    background: url('../../assets/img/banner22.png') 0 0 no-repeat;
+    background: url('../../assets/Z_img/bg_Old.png') 0 0 no-repeat;
     background-size: 100% 100%;
     color: #fff;
     display: flex;
@@ -658,14 +663,14 @@ export default {
       }
     }
 
-    .img_desc {
-      font-size: 32px;
-      margin-top: 20px;
+    // .img_desc {
+    //   font-size: 32px;
+    //   margin-top: 20px;
 
-      @media screen and (max-width: 768px) {
-        font-size: 0.85rem;
-      }
-    }
+    //   @media screen and (max-width: 768px) {
+    //     font-size: 0.85rem;
+    //   }
+    // }
 
     .img_btn {
       width: 180px;
@@ -738,14 +743,17 @@ export default {
 
       .research-left-desc {
         color: #5b6e74;
+        font-weight: bold;
         line-height: 2rem;
         font-size: 19px;
       }
 
-      .research-left-instrc {
-        font-size: 24px;
-        margin-top: 20px;
-      }
+      // .research-left-instrc {
+      //   color: #000;
+      //   font-weight: bold;
+      //   font-size: 24px;
+      //   margin-top: 20px;
+      // }
 
       ul {
         .research-left-detail {
@@ -754,7 +762,7 @@ export default {
 
           span {
             font-weight: bold;
-            color: #000;
+            color: #5b6e74;
           }
         }
       }
@@ -762,8 +770,10 @@ export default {
 
     .research_card_right {
       margin-left: 50px;
-      // img {
-      // }
+
+      img {
+        height: 300px;
+      }
     }
   }
 
@@ -1001,58 +1011,142 @@ export default {
   //     }
   //   }
   // }
-
-  .develop_wrap {
-    width: 70%;
-    margin: 0 auto;
-    margin-bottom: 100px;
-    display: flex;
+  .support_wrap {
+    padding: 20px 0px 40px 0px;
+    margin-bottom: 50px;
+    background-color: #f4f9fc;
 
     @media screen and (max-width: 768px) {
-      width: 90%;
-      flex-direction: column;
-      margin-bottom: 30px;
+      background-color: #fff;
     }
 
-    .develop_left {
-      margin-right: 100px;
+    .research_title_wrap {
 
-      h1 {
-        font-size: 26px;
-
-        @media screen and (max-width: 768px) {
-          font-size: 0.95rem;
-        }
-      }
-
-      p {
-        margin-top: 30px;
-        font-size: 20px;
-        color: #5b6e74;
-
-        @media screen and (max-width: 768px) {
-          font-size: 13px;
-        }
-      }
-    }
-
-    .develop_right {
       width: 100%;
 
       @media screen and (max-width: 768px) {
-        width: 40%;
-        margin: 0 auto;
+        margin-top: 30px;
       }
 
-      img {
+      .research_inner {
+        display: flex;
+        justify-content: center;
+
+        .inner_left {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+
+          @media screen and (max-width: 768px) {
+            flex: 1;
+          }
+
+          img {
+            width: 30%;
+          }
+        }
+
+        .inner_center {
+          width: 400px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          padding: 0 50px;
+
+          @media screen and (max-width: 768px) {
+            flex: 2.2;
+          }
+
+          .research_title {
+            font-size: 40px;
+            font-weight: bold;
+
+
+            @media screen and (max-width: 768px) {
+              font-size: 1rem;
+            }
+          }
+
+          .research_desc {
+            font-size: 16px;
+            color: #787878;
+            margin-top: 10px;
+
+            @media screen and (max-width: 768px) {
+              margin-top: 10px;
+            }
+          }
+        }
+
+        .inner_right {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          @media screen and (max-width: 768px) {
+            flex: 1;
+          }
+
+          img {
+            width: 30%;
+          }
+        }
+      }
+    }
+
+    .develop_wrap {
+      width: 70%;
+      margin: 0 auto;
+      // margin-bottom: 100px;
+      display: flex;
+
+      @media screen and (max-width: 768px) {
+        width: 90%;
+        flex-direction: column;
+        margin-bottom: 30px;
+      }
+
+      .develop_left {
+        margin-right: 100px;
+
+        h1 {
+          font-size: 26px;
+
+          @media screen and (max-width: 768px) {
+            font-size: 0.95rem;
+          }
+        }
+
+        p {
+          margin-top: 30px;
+          font-size: 20px;
+          color: #5b6e74;
+
+          @media screen and (max-width: 768px) {
+            font-size: 13px;
+          }
+        }
+      }
+
+      .develop_right {
         width: 100%;
-      }
 
-      .tips {
-        text-align: center;
-        color: #2091d3;
-        font-size: 20px;
-        cursor: pointer;
+        @media screen and (max-width: 768px) {
+          width: 40%;
+          margin: 0 auto;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        .tips {
+          text-align: center;
+          color: #2091d3;
+          font-size: 20px;
+          cursor: pointer;
+        }
       }
     }
   }
