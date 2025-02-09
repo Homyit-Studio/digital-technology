@@ -58,7 +58,7 @@ export default {}
 .mobile_callme_wrap {
   width: 100%;
   height: 100PX;
-  margin-top: 20PX;
+  // margin-top: 20PX;
   display: flex;
   justify-content: center;
   align-items: center;

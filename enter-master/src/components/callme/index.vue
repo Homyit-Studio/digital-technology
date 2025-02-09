@@ -139,7 +139,7 @@ export default {
 <style lang="scss" scoped>
 .callme_total_wrap {
   width: 100%;
-  margin-top: 80px;
+  // margin-top: 80px;
 
   .callme_top_wrap {
     width: 100%;
