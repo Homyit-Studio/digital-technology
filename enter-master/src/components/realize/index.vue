@@ -3,16 +3,24 @@
     <div class="realize_img">
       <div class="img_tit">匠心筑史，科技维新</div>
     </div>
-    <div class="realize_nav_wrap">
+    <!-- <div class="realize_nav_wrap">
       <el-row class="realize_nav" type="flex" justify="center">
         <el-col v-for="(tab, index) in tabList" :key="index" class="realize_item"
           :class="tabSelectIndex === index ? 'active' : ''" :span="2" :xs="6" @click.native="changeTabIndex(index)">
-          <div class="nav_top">{{ tab.tit }}</div>
+          <div class="nav_top">{{ tab.tit }}{{ index }}</div>
           <div class="nav_bottom" :style="tabSelectIndex === index ? '' : 'background:#fff'"></div>
         </el-col>
       </el-row>
+    </div> -->
+    <div class="realize_nav_wrap">
+      <el-row class="realize_nav" type="flex" justify="center">
+        <el-col :key="index" class="realize_item" :class="active" :span="2" :xs="6">
+          <div class="nav_top">{{ tabList[0].tit }}</div>
+          <div class="nav_bottom"></div>
+        </el-col>
+      </el-row>
     </div>
-    <div class="show_box_index" v-if="tabSelectIndex === 0">
+    <!-- <div class="show_box_index" v-if="tabSelectIndex === 0">
       <div class="product_shows_wrap">
         <div class="production_title_wrap">
           <div class="production_inner">
@@ -86,7 +94,6 @@
           </el-col>
         </el-row>
       </div>
-      <!-- 合作伙伴 -->
       <div class="product_shows_wrap1">
         <div class="production_title_wrap">
           <div class="production_inner">
@@ -111,8 +118,9 @@
           </el-row>
         </div>
       </div>
-    </div>
-    <div class="show_box_index" v-if="tabSelectIndex === 1">
+    </div> -->
+    <!-- v-if="tabSelectIndex === 1" -->
+    <div class="show_box_index">
       <div class="four_wrap">
         <el-row type="flex" justify="center" class="out_card" :gutter="10">
           <el-col :span="7" v-for="(item, index) in contactMsg" :key="index" class="card_item">
@@ -153,10 +161,10 @@ export default {
   data() {
     return {
       tabList: [
-        {
-          tit: '子午数智介绍',
-          name: '1',
-        },
+        // {
+        //   tit: '子午数智介绍',
+        //   name: '1',
+        // },
         {
           tit: '联系我们',
           name: '4',
@@ -254,7 +262,7 @@ export default {
       height: 50vw;
     }
 
-    background: url('../../assets/img/zsbg.0b1914f.png') 0 0 no-repeat;
+    background: url('../../assets/Z_img/bg_gugong3.png') 0 0 no-repeat;
     background-size: 100% 90%;
     color: #fff;
     display: flex;
@@ -337,6 +345,8 @@ export default {
 
         .nav_top {
           font-size: 18px;
+          font-weight: 600;
+          color: #000;
 
           @media screen and (max-width: 768px) {
             font-size: 14px;
@@ -353,185 +363,185 @@ export default {
     }
   }
 
-  .product_shows_wrap {
-    width: 100%;
-    background: url('../../assets/img/introBg.40f79db.png') 0 0 no-repeat;
-    background-size: cover;
-    padding: 10px 0 50px 0;
-    margin-top: -7px;
-    box-sizing: border-box;
-    height: 700px;
-    position: relative;
+  // .product_shows_wrap {
+  //   width: 100%;
+  //   background: url('../../assets/img/introBg.40f79db.png') 0 0 no-repeat;
+  //   background-size: cover;
+  //   padding: 10px 0 50px 0;
+  //   margin-top: -7px;
+  //   box-sizing: border-box;
+  //   height: 700px;
+  //   position: relative;
 
-    @media screen and (max-width: 768px) {
-      background: #f4f9fc;
-      height: auto;
-    }
+  //   @media screen and (max-width: 768px) {
+  //     background: #f4f9fc;
+  //     height: auto;
+  //   }
 
-    .table_wrap {
-      position: absolute;
-      top: 23%;
-      left: 20%;
-      width: 500px;
+  //   .table_wrap {
+  //     position: absolute;
+  //     top: 23%;
+  //     left: 20%;
+  //     width: 500px;
 
-      .table_form {
-        .table_form_item {
-          font-weight: bold;
-        }
-      }
-    }
+  //     .table_form {
+  //       .table_form_item {
+  //         font-weight: bold;
+  //       }
+  //     }
+  //   }
 
-    .table_wrap_mobile {
-      padding: 1rem;
+  //   .table_wrap_mobile {
+  //     padding: 1rem;
 
-      p {
-        font-size: 0.9rem;
-      }
+  //     p {
+  //       font-size: 0.9rem;
+  //     }
 
-      .table_form {
-        .table_form_item {
-          font-weight: bold;
-          margin-top: 1rem;
-          font-size: 0.85rem;
+  //     .table_form {
+  //       .table_form_item {
+  //         font-weight: bold;
+  //         margin-top: 1rem;
+  //         font-size: 0.85rem;
 
-          span {
-            color: #000;
-            font-size: 0.9rem;
-            padding-right: 30px;
-          }
-        }
-      }
-    }
-  }
+  //         span {
+  //           color: #000;
+  //           font-size: 0.9rem;
+  //           padding-right: 30px;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
-  .advantage_out_wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  // .advantage_out_wrap {
+  //   width: 100%;
+  //   display: flex;
+  //   justify-content: center;
 
-    .advantage_wrap {
-      width: 70%;
-      display: flex;
-      margin-top: 70px;
-      justify-content: center;
-      flex-wrap: wrap;
+  //   .advantage_wrap {
+  //     width: 70%;
+  //     display: flex;
+  //     margin-top: 70px;
+  //     justify-content: center;
+  //     flex-wrap: wrap;
 
-      @media screen and (max-width: 768px) {
-        width: 100%;
-      }
+  //     @media screen and (max-width: 768px) {
+  //       width: 100%;
+  //     }
 
-      .advantage_item {
-        height: auto;
-        padding: 30px 20px 60px 20px;
-        margin-right: 10px;
+  //     .advantage_item {
+  //       height: auto;
+  //       padding: 30px 20px 60px 20px;
+  //       margin-right: 10px;
 
-        &:nth-child(4n+1) {
-          background: url('../../assets/img/newEdition/31.png') 90% 10% no-repeat;
-          background-size: 20%;
-        }
+  //       &:nth-child(4n+1) {
+  //         background: url('../../assets/img/newEdition/31.png') 90% 10% no-repeat;
+  //         background-size: 20%;
+  //       }
 
-        &:nth-child(4n+2) {
-          background: url('../../assets/img/newEdition/32.png') 90% 10% no-repeat;
-          background-size: 20%;
-        }
+  //       &:nth-child(4n+2) {
+  //         background: url('../../assets/img/newEdition/32.png') 90% 10% no-repeat;
+  //         background-size: 20%;
+  //       }
 
 
-        // &:nth-child(3) {
-        //   background: url('../../assets/img/newEdition/32.png') 90% 10% no-repeat;
-        //   background-size: 20%;
-        // }
+  //       // &:nth-child(3) {
+  //       //   background: url('../../assets/img/newEdition/32.png') 90% 10% no-repeat;
+  //       //   background-size: 20%;
+  //       // }
 
-        &:nth-child(4n+3) {
-          background: url('../../assets/img/newEdition/34.png') 90% 10% no-repeat;
-          background-size: 20%;
-        }
+  //       &:nth-child(4n+3) {
+  //         background: url('../../assets/img/newEdition/34.png') 90% 10% no-repeat;
+  //         background-size: 20%;
+  //       }
 
-        &:nth-child(4n) {
-          background: url('../../assets/img/newEdition/35.png') 90% 10% no-repeat;
-          background-size: 20%;
-        }
+  //       &:nth-child(4n) {
+  //         background: url('../../assets/img/newEdition/35.png') 90% 10% no-repeat;
+  //         background-size: 20%;
+  //       }
 
-        // &:nth-child(6) {
-        //   background: url('../../assets/img/newEdition/35.png') 90% 10% no-repeat;
-        //   background-size: 20%;
-        // }
+  //       // &:nth-child(6) {
+  //       //   background: url('../../assets/img/newEdition/35.png') 90% 10% no-repeat;
+  //       //   background-size: 20%;
+  //       // }
 
-        margin: 15px;
-        box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
+  //       margin: 15px;
+  //       box-shadow: 0 0 10px rgba($color: #000000, $alpha: 0.1);
 
-        @media screen and (max-width: 768px) {
-          margin: 0;
-          padding: 0 15px;
-          margin-top: 3px;
-          height: 140px;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          height: 200px;
-        }
+  //       @media screen and (max-width: 768px) {
+  //         margin: 0;
+  //         padding: 0 15px;
+  //         margin-top: 3px;
+  //         height: 140px;
+  //         display: flex;
+  //         justify-content: center;
+  //         flex-direction: column;
+  //         height: 200px;
+  //       }
 
-        .item_top {
-          display: flex;
-          align-items: center;
+  //       .item_top {
+  //         display: flex;
+  //         align-items: center;
 
-          @media screen and (max-width: 768px) {
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-          }
+  //         @media screen and (max-width: 768px) {
+  //           flex-direction: column;
+  //           justify-content: center;
+  //           align-items: center;
+  //           text-align: center;
+  //         }
 
-          .icon {
-            i {
-              color: #2091d3;
-              font-size: 26px;
-              padding-right: 10px;
+  //         .icon {
+  //           i {
+  //             color: #2091d3;
+  //             font-size: 26px;
+  //             padding-right: 10px;
 
-              @media screen and (max-width: 768px) {
-                font-size: 2rem;
-                margin-bottom: 10px;
-              }
-            }
-          }
+  //             @media screen and (max-width: 768px) {
+  //               font-size: 2rem;
+  //               margin-bottom: 10px;
+  //             }
+  //           }
+  //         }
 
-          .tit {
-            width: 100%;
-            color: #1c1c1c;
-            font-size: 28px;
-            font-weight: bold;
+  //         .tit {
+  //           width: 100%;
+  //           color: #1c1c1c;
+  //           font-size: 28px;
+  //           font-weight: bold;
 
-            @media screen and (max-width: 768px) {
-              font-size: 1rem;
-              text-align: left;
-            }
-          }
-        }
+  //           @media screen and (max-width: 768px) {
+  //             font-size: 1rem;
+  //             text-align: left;
+  //           }
+  //         }
+  //       }
 
-        .item_desc {
-          font-size: 20px;
-          line-height: 20px;
-          margin: 0;
-          padding: 0;
-          margin-top: 20px;
-          color: #646464;
-          list-style: none;
+  //       .item_desc {
+  //         font-size: 20px;
+  //         line-height: 20px;
+  //         margin: 0;
+  //         padding: 0;
+  //         margin-top: 20px;
+  //         color: #646464;
+  //         list-style: none;
 
-          li {
-            line-height: 2rem;
+  //         li {
+  //           line-height: 2rem;
 
-            @media screen and (max-width: 768px) {
-              line-height: 1rem;
-              font-size: 12px;
-            }
+  //           @media screen and (max-width: 768px) {
+  //             line-height: 1rem;
+  //             font-size: 12px;
+  //           }
 
-            &:first-child {
-              margin-top: 30px;
-            }
-          }
-        }
-      }
-    }
-  }
+  //           &:first-child {
+  //             margin-top: 30px;
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   .china_map {
     width: 70%;

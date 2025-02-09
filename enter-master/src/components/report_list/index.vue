@@ -80,7 +80,9 @@
                 <li></li>
             </ol>
         </section> -->
+        <Teamwork />
         <!-- <Feature></Feature> -->
+        <ResearchPlatform :skyList="skyList" />
         <CallMe />
         <MobileCallme />
     </div>
@@ -92,6 +94,8 @@ import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 // import BoottomTab from '@/components/consulting/BoottomTab.vue'
 // import Feature from './Feature.vue';
+import Teamwork from './Teamwork.vue';
+import ResearchPlatform from './ResearchPlatform.vue';
 export default {
     data() {
         return {
@@ -114,6 +118,17 @@ export default {
                 },
                 // 可以继续添加更多事件
             ],
+            skyList: [
+                {
+                    tit: 'HIST南昌分中心',
+                },
+                {
+                    tit: '鄱阳湖湿地与流域研究教育部重点实验室',
+                },
+                {
+                    tit: '国家革命文物协同研究中心',
+                },
+            ],
         }
     },
     components: {
@@ -121,12 +136,15 @@ export default {
         MobileCallme,
         // BoottomTab
         // Feature
+        Teamwork,
+        ResearchPlatform
     }
 }
 </script>
 
 <style lang="scss">
 .report_wrap {
+
 
     .repost_mobile_shiying {
         @media screen and (max-width: 768px) {}
@@ -139,7 +157,7 @@ export default {
                 height: 50vw;
             }
 
-            background: url('../../assets/img/cydcbg.80d9b0b.jpg') 0 0 no-repeat;
+            background: url('../../assets/Z_img/bg_Old2.png') 0 0 no-repeat;
             background-size: 100% 100%;
             color: #fff;
             display: flex;
