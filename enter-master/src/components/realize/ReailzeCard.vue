@@ -51,7 +51,7 @@ export default {
   props: {
     reailzeList: {
       type: Array,
-      default: [],
+      // default: [],
     },
   },
   methods: {

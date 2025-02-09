@@ -80,6 +80,7 @@
                 <li></li>
             </ol>
         </section> -->
+        <Teamwork />
         <!-- <Feature></Feature> -->
         <CallMe />
         <MobileCallme />
@@ -92,6 +93,7 @@ import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 // import BoottomTab from '@/components/consulting/BoottomTab.vue'
 // import Feature from './Feature.vue';
+import Teamwork from './Teamwork.vue';
 export default {
     data() {
         return {
@@ -121,6 +123,7 @@ export default {
         MobileCallme,
         // BoottomTab
         // Feature
+        Teamwork
     }
 }
 </script>
@@ -139,7 +142,7 @@ export default {
                 height: 50vw;
             }
 
-            background: url('../../assets/img/cydcbg.80d9b0b.jpg') 0 0 no-repeat;
+            background: url('../../assets/Z_img/bg_Old2.png') 0 0 no-repeat;
             background-size: 100% 100%;
             color: #fff;
             display: flex;

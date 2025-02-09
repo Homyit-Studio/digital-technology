@@ -3,16 +3,24 @@
     <div class="realize_img">
       <div class="img_tit">匠心筑史，科技维新</div>
     </div>
-    <div class="realize_nav_wrap">
+    <!-- <div class="realize_nav_wrap">
       <el-row class="realize_nav" type="flex" justify="center">
         <el-col v-for="(tab, index) in tabList" :key="index" class="realize_item"
           :class="tabSelectIndex === index ? 'active' : ''" :span="2" :xs="6" @click.native="changeTabIndex(index)">
-          <div class="nav_top">{{ tab.tit }}</div>
+          <div class="nav_top">{{ tab.tit }}{{ index }}</div>
           <div class="nav_bottom" :style="tabSelectIndex === index ? '' : 'background:#fff'"></div>
         </el-col>
       </el-row>
+    </div> -->
+    <div class="realize_nav_wrap">
+      <el-row class="realize_nav" type="flex" justify="center">
+        <el-col :key="index" class="realize_item" :class="active" :span="2" :xs="6">
+          <div class="nav_top">{{ tabList[0].tit }}</div>
+          <div class="nav_bottom"></div>
+        </el-col>
+      </el-row>
     </div>
-    <div class="show_box_index" v-if="tabSelectIndex === 0">
+    <!-- <div class="show_box_index" v-if="tabSelectIndex === 0">
       <div class="product_shows_wrap">
         <div class="production_title_wrap">
           <div class="production_inner">
@@ -86,7 +94,6 @@
           </el-col>
         </el-row>
       </div>
-      <!-- 合作伙伴 -->
       <div class="product_shows_wrap1">
         <div class="production_title_wrap">
           <div class="production_inner">
@@ -111,8 +118,9 @@
           </el-row>
         </div>
       </div>
-    </div>
-    <div class="show_box_index" v-if="tabSelectIndex === 1">
+    </div> -->
+    <!-- v-if="tabSelectIndex === 1" -->
+    <div class="show_box_index">
       <div class="four_wrap">
         <el-row type="flex" justify="center" class="out_card" :gutter="10">
           <el-col :span="7" v-for="(item, index) in contactMsg" :key="index" class="card_item">
@@ -153,10 +161,10 @@ export default {
   data() {
     return {
       tabList: [
-        {
-          tit: '子午数智介绍',
-          name: '1',
-        },
+        // {
+        //   tit: '子午数智介绍',
+        //   name: '1',
+        // },
         {
           tit: '联系我们',
           name: '4',
@@ -254,7 +262,7 @@ export default {
       height: 50vw;
     }
 
-    background: url('../../assets/img/zsbg.0b1914f.png') 0 0 no-repeat;
+    background: url('../../assets/Z_img/bg_gugong3.png') 0 0 no-repeat;
     background-size: 100% 90%;
     color: #fff;
     display: flex;
@@ -337,6 +345,8 @@ export default {
 
         .nav_top {
           font-size: 18px;
+          font-weight: 600;
+          color: #000;
 
           @media screen and (max-width: 768px) {
             font-size: 14px;
