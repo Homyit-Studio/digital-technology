@@ -28,37 +28,10 @@
 </template>
 
 <script>
-export default {
-    data() {
-        return {
-            cardList: [
-                {
-                    tit: '面向政府重大战略研究',
-                    desc: '国务院办公厅关于印发“十四五”文物保护和科技创新规划',
-                    img: require('../../assets/img/researchInstitute/icon1.png')
-                },
-                {
-                    tit: '面向新基建产业新基建',
-                    desc: '产业新基建战略白皮书',
-                    img: require('../../assets/img/researchInstitute/icon2.png')
-                },
-                {
-                    tit: '面向行业指数研发产品',
-                    desc: '文物保护产业现状及未来发展趋势分析',
-                    img: require('../../assets/img/researchInstitute/icon3.png')
-                },
-                {
-                    tit: '面向“数智”数字化产品',
-                    desc: '“数智”带来活化新模式，赋能文化遗产保护传承利用',
-                    img: require('../../assets/img/researchInstitute/icon4.png')
-                },
-            ]
-        };
-    }
-};
+
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .team_shows_wrap {
     width: 100%;
     background: #fff;
@@ -147,65 +120,16 @@ export default {
     }
 
     .card_fan_list {
-        width: 70%;
+        width: 50%;
         margin: 0 auto;
+        font-size: 18px;
+        line-height: 40PX;
+        font-weight: bold;
 
         @media screen and (max-width: 768px) {
-            width: 90%;
-        }
-
-        .card_fan_wrap {
-            flex-wrap: wrap;
-            margin-top: 50px;
-        }
-
-        .card_fan_item {
-            display: flex;
-            align-items: center;
-            background: #fff;
-            margin-top: 50px;
-            padding: 30px;
-            box-shadow: 10px 10px 20px rgba($color: #000, $alpha: 0.1);
-
-            @media screen and (max-width: 768px) {
-                background: url('../../assets/img/icon2.png') 0 0 no-repeat;
-                background-position: 100% 100%;
-                background-size: 35%;
-                height: 100px;
-
-                &:nth-child(n+3) {
-                    margin-top: 25px;
-                }
-            }
-
-            .card_left {
-                width: 20%;
-
-                img {
-                    width: 100%;
-                }
-            }
-
-            .card_right {
-                margin-left: 15px;
-
-                h1 {
-                    font-size: 25px;
-
-                    @media screen and (max-width: 768px) {
-                        font-size: 14px;
-                    }
-                }
-
-                p {
-                    font-size: 18px;
-                    margin-top: 10px;
-
-                    @media screen and (max-width: 768px) {
-                        font-size: 12px;
-                    }
-                }
-            }
+            width: 100%;
+            padding: 1rem;
+            font-size: 0.85rem;
         }
     }
 }
