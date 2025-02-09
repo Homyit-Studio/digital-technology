@@ -2,7 +2,7 @@
   <div class="production_wrap">
     <div class="production_img">
       <div class="img_tit">数字文保引擎</div>
-      <div class="img_desc">文物遗址数字化的核心，赋能文化保护、服务历史传承</div>
+      <div class="img_desc">数字遗产新质生产力，赋能文物保护，服务历史传承</div>
     </div>
 
 
