@@ -105,7 +105,7 @@
           <el-row class="card_fan_wrap" type="flex" justify="space-between">
             <el-col class="card_fan_item" :span="11" v-for="(item, index) in cardList" :key="index">
               <div class="card_right">
-                <h1>{{ item.name }}</h1>
+                <h1>{{ item.companyName }}</h1>
               </div>
             </el-col>
           </el-row>
@@ -142,6 +142,7 @@
 </template>
 
 <script>
+import http from '@/utils/http.js'
 //import PersonCard from './PersonCard.vue'
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
@@ -204,24 +205,7 @@ export default {
           icon: require('../../assets/img/61.png'),
         },
       ],
-      cardList: [
-        {
-          name: '子午舆图数码科技（江西）有限公司',
-
-        },
-        {
-          name: '三维数字科技（江西）有限公司',
-
-        },
-        {
-          name: '思看科技（杭州）股份有限公司',
-
-        },
-        {
-          name: '深圳市其域创新科技有限公司',
-
-        },
-      ],
+      cardList: [],
     }
   },
   methods: {
@@ -243,6 +227,20 @@ export default {
         this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
     },
   },
+  mounted() {
+    // 发起请求获取合作伙伴数据
+    http.get('/collaboratingcompany/getallcollaboratingcompanies')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.cardList = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
+  }
 }
 </script>
 

@@ -7,9 +7,23 @@
     <div class="callme_bottom_wrap">
       <div class="bottom_container">
         <div class="items_wrap">
-          <div class="item_tit">产品</div>
+          <div class="item_tit">公司概况</div>
           <div class="item_options">
-            <span @click="handleToRouter('/production/1')">产品示例</span>
+            <span @click="handleToRouter('/fournav/1')">项目团队</span>
+            <span @click="handleToRouter('/fournav/1')">研究平台</span>
+            <span @click="handleToRouter('/fournav/1')">条件设备</span>
+            <!-- <span @click="handleToRouter('/fournav/2')">精选文章</span>
+            <span @click="handleToRouter('/fournav/3')">媒体报道</span> -->
+          </div>
+        </div>
+        <div class="items_wrap">
+          <div class="item_tit">案例展示</div>
+          <div class="item_options">
+            <span @click="handleToRouter('/production/1')">公司成果</span>
+            <span @click="handleToRouter('/production/1')">文物数字化</span>
+            <span @click="handleToRouter('/production/1')">全景漫游</span>
+            <span @click="handleToRouter('/production/1')">传统村落数字博物馆</span>
+            <span @click="handleToRouter('/production/1')">数字信息平台</span>
             <!-- <span @click="handleToRouter('/production/2')">云招商</span>
             <span @click="handleToRouter('/production/3')">企业创新服务</span>
             <span @click="handleToRouter('/production/4')">企业咨询</span> -->
@@ -19,19 +33,12 @@
           <div class="item_tit">新闻资讯</div>
           <div class="item_options">
             <span @click="handleToRouter('/threenav')">公司资讯</span>
+            <span @click="handleToRouter('/threenav')">政策支持</span>
+            <span @click="handleToRouter('/threenav')">行业资讯</span>
             <!-- <span @click="handleToRouter('/fournav/2')">精选文章</span>
             <span @click="handleToRouter('/fournav/3')">媒体报道</span> -->
           </div>
         </div>
-        <div class="items_wrap">
-          <div class="item_tit">发展进程</div>
-          <div class="item_options">
-            <span @click="handleToRouter('/fournav/1')">公司大事件</span>
-            <!-- <span @click="handleToRouter('/fournav/2')">精选文章</span>
-            <span @click="handleToRouter('/fournav/3')">媒体报道</span> -->
-          </div>
-        </div>
-
         <div class="items_wrap">
           <div class="item_tit">联系我们</div>
           <div class="item_options">
@@ -66,19 +73,19 @@
       </div>
       <div class="navigate_wrap">
         <span>友情链接:</span>
-        <a href="http://www.gov.cn/">中华人民共和国中央人民政府</a>
-        <a href="http://www.miit.gov.cn/">中华人民共和国工业和信息化部</a>
-        <a href="https://www.fmprc.gov.cn/chn/gxh/tyb/">中华人民共和国外交部</a>
-        <a href="http://www.cinn.cn/">中国工业新闻网</a>
-        <a href="https://www.chnmuseum.cn/">中国国家博物馆</a>
-        <a href="https://www.jxmuseum.cn/">江西省博物馆</a>
+        <a href="http://www.ncha.gov.cn/">国家文物局</a>
+        <a href="https://dct.jiangxi.gov.cn/">江西省文化和旅游厅</a>
+        <a href="https://www.unesco-hist.org/index.php?r=article/index&cid=21918">hist南昌分中心</a>
+        <a href="https://www.jgsgmbwg.com/">井冈山革命博物馆</a>
+        <a href="http://www.cchicc.org.cn/">中国文物信息咨询中心（国家文物局数据中心）</a>
+        <!-- <a href="https://www.jxmuseum.cn/">江西省博物馆</a>
         <a href="http://www.chinaeinet.com/">中国工业和信息化</a>
         <a href="http://www.cio360.net/">中国信息主管网</a>
         <a href="http://www.cena.com.cn/">中国电子信息产业</a>
         <a href="http://www.ccidcom.com/">通信产业网</a>
         <a href="http://www.cstc.org.cn/">中国软件评测中心</a>
         <a href="http://www.saism.com.cn/">软件和集成电胳</a>
-        <a href="http://www.ccidreport.com/">中市场情报中心</a>
+        <a href="http://www.ccidreport.com/">中市场情报中心</a> -->
         <p>
           Copyright ©2025 子午数智 . All Rights Reserved .
           <!-- （浙ICP备15031491号-1浙公网安备 33010802005636号） -->

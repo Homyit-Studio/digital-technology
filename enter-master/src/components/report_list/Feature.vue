@@ -1,46 +1,9 @@
 <template>
     <div>
-        <div class="research_title_wrap">
-            <div class="research_inner">
-                <div class="inner_left">
-                    <img src="../../assets/img/tupianright.png" alt="" />
-                </div>
-                <div class="inner_center">
-                    <div class="research_title">公司特色</div>
-                    <div class="research_desc"></div>
-                </div>
-                <div class="inner_right">
-                    <img src="../../assets/img/tupianleft.png" alt="" />
-                </div>
-            </div>
-        </div>
 
-        <div class="research_sp_wrap hidden-xs-only">
-            <el-row type="flex" justify="space-between" class="research_sp_row" :gutter="10">
-                <el-col :span="7" class="research_sp_col">
-                    <div class="tit">面向政府</div>
-                    <div class="desc">
-                        面向政府的重大战略研究，支撑服务于国家发展改革委、科技部等的决策研究
-                    </div>
-                </el-col>
-                <el-col :span="7" class="research_sp_col">
-                    <div class="tit">面向数字经济</div>
-                    <div class="desc">
-                        面向数字经济时代的产业新基建研究，探索产业数字化管理新模式
-                    </div>
-                </el-col>
-                <el-col :span="7" class="research_sp_col">
-                    <div class="tit">面向行业</div>
-                    <div class="desc">
-                        面向行业的指数研究产品，着力构建新时代产业研究与评价的新标杆，为政府战略决策与产业研究提供工具和产品
-                    </div>
-                </el-col>
-            </el-row>
-        </div>
-
-        <div class="research_sp_wrap_mobile hidden-sm-and-up">
+        <!-- <div class="research_sp_wrap_mobile hidden-sm-and-up">
             <img src="@/assets/img/content1.png" alt="">
-        </div>
+        </div> -->
 
         <div class="product_shows_wrap">
             <div class="production_title_wrap">
@@ -69,6 +32,43 @@
                     </el-col>
                 </el-row>
             </div>
+        </div>
+        <div class="research_title_wrap">
+            <div class="research_inner">
+                <div class="inner_left">
+                    <img src="../../assets/img/tupianright.png" alt="" />
+                </div>
+                <div class="inner_center">
+                    <div class="research_title">公司特色</div>
+                    <div class="research_desc"></div>
+                </div>
+                <div class="inner_right">
+                    <img src="../../assets/img/tupianleft.png" alt="" />
+                </div>
+            </div>
+        </div>
+
+        <div class="research_sp_wrap hidden-xs-only">
+            <el-row type="flex" justify="space-between" class="research_sp_row" :gutter="10">
+                <el-col :span="7" class="research_sp_col">
+                    <div class="tit">关于政府</div>
+                    <div class="desc">
+                        坚持政府的重大战略研究，支撑服务于国家发展改革委、科技部等的决策研究
+                    </div>
+                </el-col>
+                <el-col :span="7" class="research_sp_col">
+                    <div class="tit">关于数字经济</div>
+                    <div class="desc">
+                        坚持数字经济时代的产业新基建研究，探索产业数字化管理新模式
+                    </div>
+                </el-col>
+                <el-col :span="7" class="research_sp_col">
+                    <div class="tit">关于行业</div>
+                    <div class="desc">
+                        坚持行业的指数研究产品，着力构建新时代产业研究与评价的新标杆，为政府战略决策与产业研究提供工具和产品
+                    </div>
+                </el-col>
+            </el-row>
         </div>
     </div>
 </template>
@@ -182,7 +182,7 @@ export default {
 .research_sp_wrap {
     width: 70%;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 200px;
     height: 300px;
 
     .research_sp_row {
@@ -234,8 +234,8 @@ export default {
     background-size: cover;
     padding: 10px 0 50px 0;
     box-sizing: border-box;
-    margin-top: 250px;
-    margin-bottom: 50px;
+    margin-top: 150px;
+    margin-bottom: 100px;
 
     @media screen and (max-width: 768px) {
         margin-top: 30px;
