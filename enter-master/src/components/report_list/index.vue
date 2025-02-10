@@ -144,8 +144,6 @@ export default {
 
 <style lang="scss">
 .report_wrap {
-
-
     .repost_mobile_shiying {
         @media screen and (max-width: 768px) {}
 

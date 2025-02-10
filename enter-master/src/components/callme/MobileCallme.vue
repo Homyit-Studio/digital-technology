@@ -3,6 +3,8 @@
     <div class="mobile_callme_wrap">
       <p>
         Copyright ©2025 子午数智 . All Rights Reserved .
+        <a href="https://beian.miit.gov.cn" id="beian" target="_blank">赣B2-20050166号-1</a>
+        <!-- 赣公网安备 xxx号） -->
       </p>
     </div>
     <div class="navigate_wrap">

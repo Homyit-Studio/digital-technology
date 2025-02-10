@@ -40,7 +40,7 @@
         </ul>
       </div>
       <div class="research_card_right">
-        <img src="@/assets/img/build.543dd76.png" alt="" />
+        <!-- <img src="@/assets/img/build.543dd76.png" alt="" /> -->
       </div>
     </div>
 
@@ -68,7 +68,7 @@
           </div>
           <div class="inner_center">
             <div class="research_title">公司资讯</div>
-            <div class="research_desc"></div>
+            <div class="research_desc">点击了解更多</div>
           </div>
           <div class="inner_right">
             <img src="../../assets/img/tupianleft.png" alt="" />
@@ -726,6 +726,7 @@ export default {
     width: 72%;
     margin: 0 auto;
     position: relative;
+    border-radius: 20%;
     z-index: 5;
     margin-top: -200px;
     background: #ffffff;

@@ -88,6 +88,8 @@
         <a href="http://www.ccidreport.com/">中市场情报中心</a> -->
         <p>
           Copyright ©2025 子午数智 . All Rights Reserved .
+          <a href="https://beian.miit.gov.cn" id="beian" target="_blank">赣B2-20050166号-1</a>
+          <!-- 赣公网安备 xxx号 -->
           <!-- （浙ICP备15031491号-1浙公网安备 33010802005636号） -->
         </p>
       </div>

@@ -343,6 +343,7 @@ export default {
                     font-weight: bold;
 
                     @media screen and (max-width: 768px) {
+                        line-height: 20PX;
                         width: 100%;
                         padding: 1rem;
                         font-size: 0.85rem;
