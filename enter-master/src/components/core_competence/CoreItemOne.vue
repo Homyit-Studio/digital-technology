@@ -1,22 +1,21 @@
 <template>
   <div class="production_wrap">
-      <div class="with_center">
-        <div class="bottom_img_wrap">
-          <div
-            class="bottom_img_item"
-            v-for="(item, index) in procardList3"
-            :key="index"
-            @click="openModal(item.imageUrl)"
-          >
-            <div class="bottom_img">
-              <img :src="item.imageUrl" alt="" />
-              <div class="img_desc">{{ item.caseIntroduction }}</div>
-            </div>
+    <div class="with_center">
+      <div class="bottom_img_wrap">
+        <div
+          class="bottom_img_item"
+          v-for="(item, index) in procardList3"
+          :key="index"
+          @click="openModal(item.imageUrl)"
+        >
+          <div class="bottom_img">
+            <img :src="item.imageUrl" alt="" />
+            <div class="img_desc">{{ item.caseIntroduction }}</div>
           </div>
         </div>
-      </div> 
-    
-    <!-- Modal for large image -->
+      </div>
+    </div>
+
     <div v-if="isModalOpen" class="modal" @click.self="closeModal">
       <div class="modal_content">
         <span class="close_btn" @click="closeModal">X</span>
@@ -32,7 +31,7 @@ import http from '@/utils/http.js'
 export default {
   data() {
     return {
-      procardList3:[],
+      procardList3: [],
       isModalOpen: false,
       currentImage: '',
     }
@@ -64,10 +63,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.production_wrap {
+  padding: 20px;
+}
+
 .with_center {
-      display: flex;
-      justify-content: center;
-      .bottom_img_wrap {
+  display: flex;
+  justify-content: center;
+ .bottom_img_wrap {
         width: 80%;
         display: flex;
         justify-content: center;
@@ -123,19 +126,20 @@ export default {
         }
       }
     }
-    /* Modal styling */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
 
   .modal_content {
     position: relative;
@@ -143,20 +147,48 @@ export default {
     max-height: 90%;
     background: #fff;
     padding: 20px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  }
+    animation: slideIn 0.3s ease;
 
-  .close_btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 25px;
-    cursor: pointer;
-  }
+    .close_btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 25px;
+      cursor: pointer;
+      color: #333;
+      transition: color 0.3s ease;
 
-  .modal_content img {
-    width: 100%;
-    height: auto;
+      &:hover {
+        color: #000;
+      }
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
   }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 </style>
