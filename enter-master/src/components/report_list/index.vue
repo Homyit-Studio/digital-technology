@@ -1,5 +1,5 @@
 <template>
-    <div class="report_wrap" ref="turtor">
+    <div class="report_wrap">
         <div class="repost_mobile_shiying">
             <div class="report_img">
                 <div class="img_tit">
@@ -11,13 +11,13 @@
             <div class="production_title_wrap">
                 <div class="production_inner">
                     <div class="inner_left">
-                        <img src="../../assets/img/tupianright.png" alt="" />
+                        <!-- <img src="../../assets/img/tupianright.png" alt="" /> -->
                     </div>
                     <div class="inner_center">
-                        <div class="production_title">公司介绍</div>
+                        <div class="production_title">公司简介</div>
                     </div>
                     <div class="inner_right">
-                        <img src="../../assets/img/tupianleft.png" alt="" />
+                        <!-- <img src="../../assets/img/tupianleft.png" alt="" /> -->
                     </div>
                 </div>
             </div>
@@ -83,6 +83,7 @@
         <Teamwork />
         <!-- <Feature></Feature> -->
         <ResearchPlatform :skyList="skyList" />
+        <ConditionEquipment></ConditionEquipment>
         <CallMe />
         <MobileCallme />
     </div>
@@ -96,6 +97,7 @@ import MobileCallme from '@/components/callme/MobileCallme.vue'
 // import Feature from './Feature.vue';
 import Teamwork from './Teamwork.vue';
 import ResearchPlatform from './ResearchPlatform.vue';
+import ConditionEquipment from './ConditionEquipment.vue';
 export default {
     data() {
         return {
@@ -137,12 +139,13 @@ export default {
         // BoottomTab
         // Feature
         Teamwork,
-        ResearchPlatform
+        ResearchPlatform,
+        ConditionEquipment
     }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .report_wrap {
     .repost_mobile_shiying {
         @media screen and (max-width: 768px) {}

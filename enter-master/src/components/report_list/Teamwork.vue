@@ -25,7 +25,7 @@
             </div> -->
             <div class="current_show_menu">
                 <Row class-name="enter_card_wrap hidden-xs-only" :gutter="20" justify="center">
-                    <Col span="18">
+                    <Col span="14">
                     <Card :bordered="true" class="enter_card_item animate__animated animate__swing">
                         <!-- <p slot="title" class="title">高学历人才</p> -->
                         <br />
@@ -74,7 +74,7 @@
 
     .current_show_menu {
         max-width: 100%;
-
+        // width: 80%;
         margin-bottom: 50px;
 
         .enter_card_wrap_mobile {
@@ -92,7 +92,7 @@
 
             .enter_card_item {
                 background: #f4f9fc;
-                border-radius: 10%;
+                border-radius: 20px;
                 text-align: center;
 
                 p {
