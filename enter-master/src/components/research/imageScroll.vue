@@ -196,6 +196,10 @@ export default {
     &:hover {
       color: #333;
     }
+
+    @media screen and (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 
   .modal-body {
@@ -209,6 +213,11 @@ export default {
     height: 300px;
     object-fit: contain;
     margin-bottom: 20px;
+
+    @media screen and (max-width: 768px) {
+      width: 100%;
+      height: 300px;
+    }
   }
 
   .modal-text {
@@ -216,6 +225,10 @@ export default {
     line-height: 1.6;
     color: #444;
     white-space: pre-wrap;
+
+    @media screen and (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 }
 </style>
