@@ -2,7 +2,7 @@
   <div class="scroll_wrap_overflow" ref="wrapper">
     <div class="scroll_content" ref="scrollWidth">
       <div class="scroll_wrap">
-        <div class="scroll_item" v-for="(item, index) in showImages" :key="index" @click="showModal(item)">
+        <div class="scroll_item" v-for="(item, index) in showImages.slice(0, 5)" :key="index" @click="showModal(item)">
           <div class="scroll_img">
             <img :src="item.src" style="user-select: none;pointer-events: none" alt="" ref="curImg" />
           </div>
@@ -128,7 +128,7 @@ export default {
 
           img {
             width: 100%;
-            height: 400px;
+            height: 250px;
             // width: 100%;
             object-fit: contain;
 
