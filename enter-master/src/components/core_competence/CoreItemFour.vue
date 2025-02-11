@@ -1,18 +1,16 @@
 <template>
   <div class="production_wrap">
     <div class="with_center">
-      <div class="bottom_video_wrap">
+      <div class="bottom_img_wrap">
         <div
-          class="bottom_video_item"
+          class="bottom_img_item"
           v-for="(item, index) in procardList3"
           :key="index"
-          @click="openModal(item.videoUrl)"
+          @click="openModal(item.imageUrl)"
         >
-          <div class="bottom_video">
-            <video :src="item.videoUrl" controls>
-              Your browser does not support the video tag.
-            </video>
-            <div class="video_desc">{{ item.caseIntroduction }}</div>
+          <div class="bottom_img">
+            <img :src="item.imageUrl" alt="" />
+            <div class="img_desc">{{ item.caseIntroduction }}</div>
           </div>
         </div>
       </div>
@@ -21,60 +19,45 @@
     <div v-if="isModalOpen" class="modal" @click.self="closeModal">
       <div class="modal_content">
         <span class="close_btn" @click="closeModal">X</span>
-        <video :src="currentVideo" controls>
-          Your browser does not support the video tag.
-        </video>
+        <img :src="currentImage" alt="Large image" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-// import http from '@/utils/http.js'
+import http from '@/utils/http.js'
 
 export default {
   data() {
     return {
-      procardList3: [
-        {
-          videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4', 
-          caseIntroduction: 'Video 1'
-        },
-        {
-          videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4', 
-          caseIntroduction: 'Video 1'
-        },
-        {
-          videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4', 
-          caseIntroduction: 'Video 1'
-        }
-      ],
+      procardList3: [],
       isModalOpen: false,
-      currentVideo: '',
+      currentImage: '',
     }
   },
   methods: {
-    openModal(video) {
-      this.currentVideo = video;
+    openModal(image) {
+      this.currentImage = image;
       this.isModalOpen = true;
     },
     closeModal() {
       this.isModalOpen = false;
     }
   },
-  // mounted() {
-  //   http.get('/case/getallcases')
-  //     .then(response => {
-  //       if (response.data.code === 201) {
-  //         // this.procardList3 = response.data.data;
-  //       } else {
-  //         console.error('获取数据失败', response.data.desc);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error('请求失败', error);
-  //     });
-  // }
+  mounted() {
+    http.get('/case/getallcases')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.procardList3 = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
+  }
 }
 </script>
 
@@ -86,65 +69,62 @@ export default {
 .with_center {
   display: flex;
   justify-content: center;
-
-  .bottom_video_wrap {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-
-    .bottom_video_item {
-      width: 48%;
-      display: flex;
-      flex-wrap: wrap;
-      margin-top: 20px;
-      margin: 10px;
-
-      @media screen and (max-width: 768px) {
-        width: 45%;
-      }
-
-      .bottom_video {
-        width: 100%;
-        height: 300px;
-        position: relative;
-        overflow: hidden;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-        &:hover {
-          transform: scale(1.02);
-          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-        }
-
-        video {
+ .bottom_img_wrap {
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        @media screen and (max-width: 768px) {
           width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 10px;
         }
 
-        .video_desc {
-          position: absolute;
-          bottom: 0;
-          width: 100%;
-          text-align: center;
-          color: #fff;
-          font-size: 18px;
-          background: rgba(0, 0, 0, 0.6);
-          padding: 10px;
-          font-weight: bold;
-          transition: transform 0.3s ease;
+        .bottom_img_item {
+          width: 48%; 
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 20px;
+          margin: 10px;
+          @media screen and (max-width: 768px) {
+            width: 45%; 
+          }
+
+          .bottom_img {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+              transform: scale(1.02);
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+            }
+
+            .img_desc {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              text-align: center;
+              color: #fff;
+              font-size: 18px;
+              background: rgba(0, 0, 0, 0.6);
+              padding: 10px;
+              font-weight: bold;
+              transition: transform 0.3s ease;
+            }
+          }
         }
       }
     }
-  }
-}
 
 /* Modal styling */
 .modal {
@@ -185,7 +165,7 @@ export default {
       }
     }
 
-    video {
+    img {
       width: 100%;
       height: auto;
       border-radius: 5px;
