@@ -147,9 +147,6 @@ export default {
                     break
             }
         },
-        handleToDeomo() {
-            this.$router.push('/demo')
-        }
     },
 }
 </script>
