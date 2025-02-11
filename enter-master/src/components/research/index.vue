@@ -40,7 +40,7 @@
         </ul>
       </div>
       <div class="research_card_right">
-        <img src="@/assets/img/build.543dd76.png" alt="" />
+        <!-- <img src="@/assets/img/build.543dd76.png" alt="" /> -->
       </div>
     </div>
 
@@ -54,7 +54,6 @@
         迅速传递最新的信息，确保第一时间获取到全球或本地的时事动态。
         确保信息的时效性，使我们始终站在信息的前沿。确保新闻来源的可靠性和准确性。
         采用严格的新闻采编和审核流程，维护新闻的真实性和客观性。 提供涵盖本公司相关和行业相关的最新动态。
-
       </p>
       <img src="@/assets/img/build.543dd76.png" alt="" />
     </div>
@@ -68,7 +67,7 @@
           </div>
           <div class="inner_center">
             <div class="research_title">公司资讯</div>
-            <div class="research_desc"></div>
+            <div class="research_desc">点击了解更多</div>
           </div>
           <div class="inner_right">
             <img src="../../assets/img/tupianleft.png" alt="" />
@@ -78,78 +77,6 @@
       <imageScroll />
     </div>
 
-
-    <!--     
-    <div class="research_title_wrap">
-      <div class="research_inner">
-        <div class="inner_left">
-          <img src="../../assets/img/tupianright.png" alt="" />
-        </div>
-        <div class="inner_center">
-          <div class="research_title">三大特色</div>
-          <div class="research_desc"></div>
-        </div>
-        <div class="inner_right">
-          <img src="../../assets/img/tupianleft.png" alt="" />
-        </div>
-      </div>
-    </div>
-
-    <div class="research_sp_wrap hidden-xs-only">
-      <el-row type="flex" justify="space-between" class="research_sp_row" :gutter="10">
-        <el-col :span="7" class="research_sp_col">
-          <div class="tit">面向政府</div>
-          <div class="desc">
-            面向政府的重大战略研究，支撑服务于国家发展改革委、科技部等的决策研究
-          </div>
-        </el-col>
-        <el-col :span="7" class="research_sp_col">
-          <div class="tit">面向数字经济</div>
-          <div class="desc">
-            面向数字经济时代的产业新基建研究，探索构建以“产业大脑”为核心的产业数字化管理新模式
-          </div>
-        </el-col>
-        <el-col :span="7" class="research_sp_col">
-          <div class="tit">面向行业</div>
-          <div class="desc">
-            面向行业的指数研究产品，着力构建新时代产业研究与评价的新标杆，为政府战略决策与产业研究提供工具和产品
-          </div>
-        </el-col>
-      </el-row>
-    </div>
-
-    <div class="research_sp_wrap_mobile hidden-sm-and-up">
-      <img src="@/assets/img/content1.png" alt="">
-    </div>
-
-    <div class="product_shows_wrap">
-      <div class="production_title_wrap">
-        <div class="production_inner">
-          <div class="inner_left">
-            <img src="../../assets/img/tupianright.png" alt="" />
-          </div>
-          <div class="inner_center" style="width: 40%">
-            <div class="production_title">研究院研究方向与成果</div>
-          </div>
-          <div class="inner_right">
-            <img src="../../assets/img/tupianleft.png" alt="" />
-          </div>
-        </div>
-      </div>
-      <div class="card_fan_list">
-        <el-row class="card_fan_wrap" type="flex" justify="space-between">
-          <el-col class="card_fan_item" :span="11" v-for="(item, index) in cardList" :key="index">
-            <div class="card_left hidden-xs-only">
-              <img :src="item.img" alt="" />
-            </div>
-            <div class="card_right">
-              <h1>{{ item.tit }}</h1>
-              <p>{{ item.desc }}</p>
-            </div>
-          </el-col>
-        </el-row>
-      </div>
-    </div>  -->
 
     <div class="support_wrap">
       <div class="research_title_wrap">
@@ -181,7 +108,6 @@
           </p>
         </div>
         <div class="develop_right">
-
           <a class="tips hidden-xs-only" href="https://www.gov.cn/zhengce/content/2021-11/08/content_5649764.htm"
             target="_blank"><img src="@/assets/Z_img/zhengce.png" alt="" />原文件查看入口>></a>
         </div>
@@ -204,15 +130,15 @@
           </div>
         </div>
       </div>
-      <div class="book_list_scroll" ref="listScroll2" @wheel.prevent>
+      <div class="book_list_scroll" ref="listScroll" @wheel.prevent>
         <el-row class="card_list">
-          <el-col class="card_item" v-for="(item, index) in cardListObj.report_group_list[activeIndex2]" :key="index">
-            <div class="big_box" @click="reportNavigate(item.report_id)">
+          <el-col class="card_item" v-for="(item, index) in industryNews.slice(0, 10)" :key="index">
+            <div class="big_box" @click="handleNewsDetails(item.url)">
               <div class="item_left">
-                <img :src="'http://www.mtx.cn' + item.front_path" alt="" />
+                <img :src="item.src" alt="" />
               </div>
               <div class="item_right">
-                <h1>{{ item.report_name }}</h1>
+                <h1>{{ item.tit }}</h1>
               </div>
             </div>
           </el-col>
@@ -225,7 +151,6 @@
 
     <CallMe />
     <MobileCallme />
-    <!-- <BoottomTab /> -->
   </div>
 </template>
 
@@ -239,39 +164,71 @@ BScroll.use(MouseWheel)
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
 import imageScroll from './imageScroll.vue'
-// import BoottomTab from '@/components/consulting/BoottomTab.vue'
+
 export default {
   data() {
     return {
       imgList: [
         {
           src: require('@/assets/Z_img/bg_Old.png'),
-          line1: '新闻资讯',
-          // line2: '关注数字化产业发展，助力现代化进程',
+          line1: '新闻资讯'
         },
       ],
       activeIndex: 0,
-      cardListObj: {
-        industry_list: [],
-        report_group_list: [],
-      },
-
-      mediaList: [],
+      industryNews: [
+        {
+          src: require('@/assets/Z_img/news_about/2024-12-13_3.jpg'),
+          tit: '新时代革命文物安全防范建设对策探析——以安源路矿工人补习夜校旧址为例',
+          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-12-13/paperId/21170/id/106776"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-12-13_6.jpg'),
+          tit: '科技助力展陈 "马王堆"汉代文化焕新生 湖南博物院"生命艺术——马王堆汉代文化沉浸式数字大展"的策展实践',
+          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-12-13/paperId/21173/id/106781"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-12-03_7.jpg'),
+          tit: '辉煌文脉 亘古巨制 中华优秀传统文化典籍展',
+          url: "http://www.zhongguowenwubao.com/DigitPager/paper/id/21150/publishdate/2024-12-03"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-11-29_3.jpg'),
+          tit: '推进革命文物保护利用 激活江西人文经济新引擎',
+          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-29/paperId/21138/id/106652"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-11-22_3.jpg'),
+          tit: '从“三个先行”看新修订的文物保护法践',
+          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-22/paperId/21123/id/106592"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-11-19_3.jpg'),
+          tit: '接续奋斗十余载 多方协作谱新篇——写在新修订的《中华人民共和国文物保护法》通过之际',
+          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-19/paperId/21115/id/106563"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-11-15_3.jpg'),
+          tit: '锻造新时代文物保护的法治利器——评文物保护法第七次修改',
+          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-15/paperId/21108/id/106536"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-11-10_3.jpg'),
+          tit: '中华人民共和国文物保护法',
+          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-10/paperId/21100/id/106505"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-11-1.jpg'),
+          tit: '2024年文化遗产保护传承数字化大会暨中国文物学会信息化专业委员会2024年度学术活动在南京举行',
+          url: "http://www.cchicc.org.cn/art/2024/11/1/art_397_37066.html"
+        },
+        {
+          src: require('@/assets/Z_img/news_about/2024-8-25.jpg'),
+          tit: '稳步推进文物数字化 激发文博教育新路径——中国文物信息咨询中心参展第十届中国博物馆及相关产品与技术博览会',
+          url: "http://www.cchicc.org.cn/art/2024/8/25/art_397_37045.html"
+        }
+      ],
       scroll: null,
       scroll2: null,
-      // scroll3: null,
-      // scroll4: null,
-      // timer: null,
-      // pageNo: 1,
-      // pageNoMedia: 1,
-      // total1: 0,
-      // total2: 0,
-      activeIndex2: 0,
-      activeIndex3: 0,
-      activeIndex4: 0,
-      activeIndex5: 0,
-      columnList: [],
-      videoList: [],
     }
   },
   created() {
@@ -282,6 +239,11 @@ export default {
     this.scroll = new BScroll(this.$refs.listScroll, {
       scrollX: true, // X轴滚动启用
       eventPassthrough: 'vertical',
+      snap: {
+        loop: false,
+        threshold: 0.3, // 滚动到下一个卡片的阈值
+        // stepX: this.$refs.cardItem.clientWidth, // 每个卡片的宽度
+      },
       mouseWheel: {
         speed: 20,
         invert: false,
@@ -291,62 +253,20 @@ export default {
       disableMouse: false, // 确保鼠标事件可以触发
       disableTouch: false, // 确保触摸事件可以触发
     })
-    this.scroll2 = new BScroll(this.$refs.listScroll2, {
-      scrollX: true, // X轴滚动启用
-      eventPassthrough: 'vertical',
-      mouseWheel: {
-        speed: 20,
-        invert: false,
-        easeTime: 300,
-      },
-      click: true, // 确保点击事件可以触发
-      disableMouse: false, // 确保鼠标事件可以触发
-      disableTouch: false, // 确保触摸事件可以触发
-    })
-    this.getBookList()
-    this.getCardListData()
-    this.axios
-      .get('http://glowworm.club:9093/mediaList.json')
-      .then((res) => {
-        this.mediaList = res.data.mediaList
-      })
-      .catch((err) => {
-        console.log(err.message)
-      })
   },
   methods: {
+    handleNewsDetails(url) {
+      window.open(url)
+    },
     changeOptionIndex(index) {
       this.optionActive = index
       if (index === 1) {
         this.$nextTick(() => {
           this.scroll.refresh()
           this.scroll2.refresh()
-          this.scroll3.refresh()
-          this.scroll4.refresh()
         })
       }
     },
-    handleNewsDetails(url) {
-      // this.$router.push(`/news_detail/${id}`)
-      window.open(url)
-    },
-    async getCardListData() {
-      const res = await this.axios.get(
-        'https://api.mtx.cn/report?command=front_yj'
-      )
-      this.cardListObj = res.data.data
-    },
-    async getBookList() {
-      const res = await this.axios.get(
-        'https://api.mtx.cn/report?command=front_nb'
-      )
-      this.bookList = res.data.data.report_group_list
-    },
-
-    reportNavigate(id) {
-      window.open(`http://www.mtx.cn/#/report?id=${id}`)
-    },
-
   },
   watch: {
     $route() {
@@ -422,6 +342,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
 
             @media screen and (max-width:768px) {
               height: 100%;
@@ -726,6 +647,7 @@ export default {
     width: 72%;
     margin: 0 auto;
     position: relative;
+    border-radius: 20%;
     z-index: 5;
     margin-top: -200px;
     background: #ffffff;
@@ -811,206 +733,6 @@ export default {
     }
   }
 
-
-
-  // .research_sp_wrap {
-  //   width: 70%;
-  //   margin: 0 auto;
-  //   height: 300px;
-
-  //   .research_sp_row {
-  //     width: 100%;
-
-  //     .research_sp_col {
-  //       background-size: 100% 100%;
-  //       height: 420px;
-  //       padding: 200px;
-
-  //       &:nth-child(1) {
-  //         background: url('../../assets/img/researchInstitute/1.png');
-  //       }
-
-  //       &:nth-child(2) {
-  //         background: url('../../assets/img/researchInstitute/2.png');
-  //       }
-
-  //       &:nth-child(3) {
-  //         background: url('../../assets/img/researchInstitute/3.png');
-  //       }
-
-  //       .tit {
-  //         font-size: 32px;
-  //         color: #000;
-  //         margin: 0 30px;
-  //       }
-
-  //       .desc {
-  //         font-size: 19px;
-  //         margin: 10px 30px;
-  //       }
-  //     }
-  //   }
-  // }
-
-  // .research_sp_wrap_mobile {
-  //   width: 90%;
-  //   margin: 0 auto;
-
-  //   img {
-  //     width: 100%;
-  //   }
-  // }
-
-  // .product_shows_wrap {
-  //   width: 100%;
-  //   background: #f4f9fc;
-  //   background-size: cover;
-  //   padding: 10px 0 50px 0;
-  //   box-sizing: border-box;
-  //   margin-top: 250px;
-  //   margin-bottom: 50px;
-
-  //   @media screen and (max-width: 768px) {
-  //     margin-top: 30px;
-  //   }
-
-  //   .production_title_wrap {
-  //     width: 100%;
-  //     margin-top: 50px;
-
-  //     @media screen and (max-width: 768px) {
-  //       margin-top: 30px;
-  //     }
-
-  //     .production_inner {
-  //       display: flex;
-  //       justify-content: center;
-
-  //       .inner_left {
-  //         display: flex;
-  //         justify-content: flex-end;
-  //         align-items: center;
-
-  //         @media screen and (max-width: 768px) {
-  //           flex: 1;
-  //         }
-
-  //         img {
-  //           width: 30%;
-  //         }
-  //       }
-
-  //       .inner_center {
-  //         width: 400px;
-  //         display: flex;
-  //         flex-direction: column;
-  //         justify-content: center;
-  //         align-items: center;
-  //         padding: 0 50px;
-
-  //         @media screen and (max-width: 768px) {
-  //           flex: 2.2;
-  //         }
-
-  //         .production_title {
-  //           font-size: 40px;
-  //           font-weight: bold;
-
-  //           @media screen and (max-width: 768px) {
-  //             font-size: 1rem;
-  //           }
-  //         }
-
-  //         .production_desc {
-  //           font-size: 16px;
-  //           color: #787878;
-  //           margin-top: 10px;
-
-  //           @media screen and (max-width: 768px) {
-  //             margin-top: 10px;
-  //           }
-  //         }
-  //       }
-
-  //       .inner_right {
-  //         display: flex;
-  //         justify-content: flex-start;
-  //         align-items: center;
-
-  //         @media screen and (max-width: 768px) {
-  //           flex: 1;
-  //         }
-
-  //         img {
-  //           width: 30%;
-  //         }
-  //       }
-  //     }
-  //   }
-
-  //   .card_fan_list {
-  //     width: 70%;
-  //     margin: 0 auto;
-
-  //     @media screen and (max-width: 768px) {
-  //       width: 90%;
-  //     }
-
-  //     .card_fan_wrap {
-  //       flex-wrap: wrap;
-  //       margin-top: 50px;
-  //     }
-
-  //     .card_fan_item {
-  //       display: flex;
-  //       align-items: center;
-  //       background: #fff;
-  //       margin-top: 50px;
-  //       padding: 30px;
-  //       box-shadow: 10px 10px 20px rgba($color: #000, $alpha: 0.1);
-
-  //       @media screen and (max-width: 768px) {
-  //         background: url('../../assets/img/icon2.png') 0 0 no-repeat;
-  //         background-position: 100% 100%;
-  //         background-size: 35%;
-  //         height: 100px;
-
-  //         &:nth-child(n+3) {
-  //           margin-top: 25px;
-  //         }
-  //       }
-
-  //       .card_left {
-  //         width: 20%;
-
-  //         img {
-  //           width: 100%;
-  //         }
-  //       }
-
-  //       .card_right {
-  //         margin-left: 15px;
-
-  //         h1 {
-  //           font-size: 25px;
-
-  //           @media screen and (max-width: 768px) {
-  //             font-size: 14px;
-  //           }
-  //         }
-
-  //         p {
-  //           font-size: 18px;
-  //           margin-top: 10px;
-
-  //           @media screen and (max-width: 768px) {
-  //             font-size: 12px;
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
   .support_wrap {
     padding: 20px 0px 40px 0px;
     margin-bottom: 50px;
