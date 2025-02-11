@@ -2,7 +2,7 @@
   <div class="scroll_wrap_overflow" ref="wrapper">
     <div class="scroll_content" ref="scrollWidth">
       <div class="scroll_wrap">
-        <div class="scroll_item" v-for="(item, index) in showImages.slice(0, 5)" :key="index" @click="showModal(item)">
+        <div class="scroll_item" v-for="(item, index) in showImages.slice(0, 4)" :key="index" @click="showModal(item)">
           <div class="scroll_img">
             <img :src="item.imageUrl" style="user-select: none;pointer-events: none" alt="" ref="curImg" />
           </div>
@@ -40,7 +40,22 @@ export default {
 
   mounted() {
     this.loadNewsData()
-    this.startScroll()
+    this.scroll = new BScroll(this.$refs.wrapper, {
+      disableMouse: false, //启用鼠标拖动
+      disableTouch: false, //启用手指触摸
+      scrollX: true, //X轴滚动启用
+      eventPassthrough: 'vertical'
+    })
+    const scrollXEnd = (4 - 2) * window.innerWidth / 10
+    // console.log(this.showImages.length)
+    // console.log(scrollXEnd)
+    this.$refs.scrollWidth.style.width = 4 * window.innerWidth + 100 + 'px'
+    console.log(this.$refs.scrollWidth.style.width)
+    this.scroll.refresh()
+    this.scroll.scrollTo(scrollXEnd, 0, 10000)
+    setTimeout(() => {
+      this.scroll.scrollTo(0, 0, 10000)
+    }, 10000)
     //创建BScroll对象并设置参数
   },
   methods: {
@@ -49,7 +64,6 @@ export default {
         .then(response => {
           if (response.data.code === 201) {
             this.showImages = response.data.data
-            // this.cardList = response.data.data;
           } else {
             console.error('获取数据失败', response.data.desc);
           }
@@ -57,22 +71,6 @@ export default {
         .catch(error => {
           console.error('请求失败', error);
         });
-    },
-    startScroll() {
-      this.scroll = new BScroll(this.$refs.wrapper, {
-        disableMouse: false, //启用鼠标拖动
-        disableTouch: false, //启用手指触摸
-        scrollX: true, //X轴滚动启用
-        eventPassthrough: 'vertical'
-      })
-      const scrollXEnd = (this.showImages.length - 2) * this.$refs.curImg[0].width
-      console.log(scrollXEnd)
-      this.$refs.scrollWidth.style.width = this.showImages.length * this.$refs.curImg[0].width + 100 + 'px'
-      this.scroll.refresh()
-      this.scroll.scrollTo(-scrollXEnd, 0, 10000)
-      setTimeout(() => {
-        this.scroll.scrollTo(0, 0, 10000)
-      }, 10000)
     },
     // handleToDemo() {
     //   this.$router.push('/demo')
@@ -129,11 +127,11 @@ export default {
           width: 100%;
 
           @media screen and (max-width: 768px) {
-            width: 180PX;
+            width: 100%;
           }
 
           img {
-            width: 100%;
+            // width: 100%;
             height: 250px;
             // width: 100%;
             object-fit: contain;
@@ -141,6 +139,8 @@ export default {
             @media screen and (max-width: 768px) {
               // height: 250px;
               width: 100%;
+              height: 150px;
+              object-fit: cover;
             }
           }
         }
