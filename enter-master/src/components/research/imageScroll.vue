@@ -112,6 +112,7 @@ export default {
         margin-top: 30px;
         margin-right: 30px;
         flex-shrink: 0;
+        cursor: pointer;
 
         @media screen and (max-width: 768px) {
           width: 180px;

@@ -342,6 +342,7 @@ export default {
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
 
             @media screen and (max-width:768px) {
               height: 100%;
