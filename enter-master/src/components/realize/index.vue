@@ -200,17 +200,17 @@ export default {
         {
           tit: '市场合作',
           desc: 'jxzwshuzi@163.com',
-          icon: require('../../assets/img/61.png'),
+          icon: require('../../assets/Z_img/61.png'),
         },
         {
           tit: '销售咨询',
           desc: '189-7914-1505',
-          icon: require('../../assets/img/60.png'),
+          icon: require('../../assets/Z_img/60.png'),
         },
         {
           tit: '简历投递',
           desc: 'jxzwshuzi@163.com',
-          icon: require('../../assets/img/61.png'),
+          icon: require('../../assets/Z_img/61.png'),
         },
       ],
       cardList: [],
@@ -584,57 +584,12 @@ export default {
     }
   }
 
-  .three_box {
-    width: 70%;
-    margin: 0 auto;
-    height: 200px;
-    text-align: center;
-    background: url('../../assets/img/ryzz.bc140e4.jpg') 0 0 no-repeat;
-    background-size: cover;
 
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-
-    h1 {
-      font-size: 40px;
-      line-height: 200px;
-      color: #fff;
-    }
-  }
-
-  .three_box_card {
-    width: 70%;
-    margin: 30px auto;
-
-    @media screen and (max-width: 768px) {
-      width: 100%;
-    }
-
-    .out_card {
-      flex-wrap: wrap;
-
-      .card_item {
-        @media screen and (max-width: 768px) {
-          margin-top: 10px;
-        }
-
-        &:nth-child(n + 4) {
-          margin-top: 10px;
-        }
-
-        img {
-          padding-top: 30px;
-          width: 100%;
-        }
-      }
-    }
-  }
 
   .four_wrap {
     width: 70%;
     margin: 0 auto;
-    background: url('../../assets/img/58.e28b1c0.png') 0 0 no-repeat;
+    background: url('../../assets/Z_img/58.e28b1c0.png') 0 0 no-repeat;
     background-size: cover;
     height: 500px;
     display: flex;

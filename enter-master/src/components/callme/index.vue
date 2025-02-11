@@ -2,7 +2,7 @@
   <div class="callme_total_wrap hidden-xs-only">
     <div class="callme_top_wrap">
 
-      <pre> <img src="../../assets/img/Phone.png" alt=""> 189-7914-1505    |   以匠心筑史，以科技维新</pre>
+      <pre> <img src="../../assets/Z_img/Phone.png" alt=""> 189-7914-1505    |   以匠心筑史，以科技维新</pre>
     </div>
     <div class="callme_bottom_wrap">
       <div class="bottom_container">
