@@ -133,12 +133,12 @@
       <div class="book_list_scroll" ref="listScroll" @wheel.prevent>
         <el-row class="card_list">
           <el-col class="card_item" v-for="(item, index) in industryNews.slice(0, 10)" :key="index">
-            <div class="big_box" @click="handleNewsDetails(item.url)">
+            <div class="big_box" @click="handleNewsDetails(item.text)">
               <div class="item_left">
-                <img :src="item.src" alt="" />
+                <img :src="item.imageUrl" alt="" />
               </div>
               <div class="item_right">
-                <h1>{{ item.tit }}</h1>
+                <h1>{{ item.title }}</h1>
               </div>
             </div>
           </el-col>
@@ -155,6 +155,7 @@
 </template>
 
 <script>
+import http from '@/utils/http.js'
 import BScroll from '@better-scroll/core'
 import Pullup from '@better-scroll/pull-up'
 import MouseWheel from '@better-scroll/mouse-wheel'
@@ -176,56 +177,7 @@ export default {
       ],
       activeIndex: 0,
       industryNews: [
-        {
-          src: require('@/assets/Z_img/news_about/2024-12-13_3.jpg'),
-          tit: '新时代革命文物安全防范建设对策探析——以安源路矿工人补习夜校旧址为例',
-          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-12-13/paperId/21170/id/106776"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-12-13_6.jpg'),
-          tit: '科技助力展陈 "马王堆"汉代文化焕新生 湖南博物院"生命艺术——马王堆汉代文化沉浸式数字大展"的策展实践',
-          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-12-13/paperId/21173/id/106781"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-12-03_7.jpg'),
-          tit: '辉煌文脉 亘古巨制 中华优秀传统文化典籍展',
-          url: "http://www.zhongguowenwubao.com/DigitPager/paper/id/21150/publishdate/2024-12-03"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-11-29_3.jpg'),
-          tit: '推进革命文物保护利用 激活江西人文经济新引擎',
-          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-29/paperId/21138/id/106652"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-11-22_3.jpg'),
-          tit: '从“三个先行”看新修订的文物保护法践',
-          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-22/paperId/21123/id/106592"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-11-19_3.jpg'),
-          tit: '接续奋斗十余载 多方协作谱新篇——写在新修订的《中华人民共和国文物保护法》通过之际',
-          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-19/paperId/21115/id/106563"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-11-15_3.jpg'),
-          tit: '锻造新时代文物保护的法治利器——评文物保护法第七次修改',
-          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-15/paperId/21108/id/106536"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-11-10_3.jpg'),
-          tit: '中华人民共和国文物保护法',
-          url: "http://www.zhongguowenwubao.com/portal/DigitPager/paperDetail/publishdate/2024-11-10/paperId/21100/id/106505"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-11-1.jpg'),
-          tit: '2024年文化遗产保护传承数字化大会暨中国文物学会信息化专业委员会2024年度学术活动在南京举行',
-          url: "http://www.cchicc.org.cn/art/2024/11/1/art_397_37066.html"
-        },
-        {
-          src: require('@/assets/Z_img/news_about/2024-8-25.jpg'),
-          tit: '稳步推进文物数字化 激发文博教育新路径——中国文物信息咨询中心参展第十届中国博物馆及相关产品与技术博览会',
-          url: "http://www.cchicc.org.cn/art/2024/8/25/art_397_37045.html"
-        }
+        1
       ],
       scroll: null,
       scroll2: null,
@@ -253,6 +205,18 @@ export default {
       disableMouse: false, // 确保鼠标事件可以触发
       disableTouch: false, // 确保触摸事件可以触发
     })
+    http.post('/new/getnews', { "type": "行业资讯" })
+      .then(response => {
+        if (response.data.code === 201) {
+          this.industryNews = response.data.data
+          // this.cardList = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
   },
   methods: {
     handleNewsDetails(url) {
