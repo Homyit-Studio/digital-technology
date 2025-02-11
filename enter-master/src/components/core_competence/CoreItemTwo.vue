@@ -1,174 +1,193 @@
 <template>
-  <el-row class="core_two_wrap">
-    <el-col class="two_left">
-      <div class="left_tit">
-        已完成覆盖9大战新产业、70+细分领域的全球公域数据中心建设
+  <div class="production_wrap">
+    <div class="with_center">
+      <div class="bottom_img_wrap">
+        <div
+          class="bottom_img_item"
+          v-for="(item, index) in procardList3"
+          :key="index"
+          @click="openModal(item.imageUrl)"
+        >
+          <div class="bottom_img">
+            <img :src="item.imageUrl" alt="" />
+            <div class="img_desc">{{ item.caseIntroduction }}</div>
+          </div>
+        </div>
       </div>
-      <div class="left_desc">
-        全球<span>10000+</span>官方数据源<span>10万+</span>数据采集点
+    </div>
+
+    <div v-if="isModalOpen" class="modal" @click.self="closeModal">
+      <div class="modal_content">
+        <span class="close_btn" @click="closeModal">X</span>
+        <img :src="currentImage" alt="Large image" />
       </div>
-      <el-row class="icon_wrap">
-        <el-col class="icon_item">
-          <div class="icon_title">9大</div>
-          <div class="icon_desc">工商企业</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">4000万+</div>
-          <div class="icon_desc">专业数据</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">4万+</div>
-          <div class="icon_desc">研究机构</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">800万+</div>
-          <div class="icon_desc">产品数据</div>
-        </el-col>
-      </el-row>
-      <el-row class="icon_wrap">
-        <el-col class="icon_item">
-          <div class="icon_title">100万+</div>
-          <div class="icon_desc">文献数据</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">6200万+</div>
-          <div class="icon_desc">专利数据</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">500万+</div>
-          <div class="icon_desc">统计指标</div>
-        </el-col>
-      </el-row>
-      <el-row class="icon_wrap">
-        <el-col class="icon_item">
-          <div class="icon_title">5万+</div>
-          <div class="icon_desc">投资机构</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">6000+</div>
-          <div class="icon_desc">产业园区</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">100万+</div>
-          <div class="icon_desc">产业政策</div>
-        </el-col>
-        <el-col class="icon_item">
-          <div class="icon_title">1000万+</div>
-          <div class="icon_desc">产业新闻</div>
-        </el-col>
-      </el-row>
-    </el-col>
-    <el-col class="two_right">
-      <img src="@/assets/img/right2.png" alt="" />
-    </el-col>
-  </el-row>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {}
+import http from '@/utils/http.js'
+
+export default {
+  data() {
+    return {
+      procardList3: [],
+      isModalOpen: false,
+      currentImage: '',
+    }
+  },
+  methods: {
+    openModal(image) {
+      this.currentImage = image;
+      this.isModalOpen = true;
+    },
+    closeModal() {
+      this.isModalOpen = false;
+    }
+  },
+  mounted() {
+    http.get('/case/getallcases')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.procardList3 = response.data.data;
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
+  }
+}
 </script>
 
 <style lang="scss" scoped>
-.core_two_wrap {
+.production_wrap {
+  padding: 20px;
+}
+
+.with_center {
   display: flex;
   justify-content: center;
-  text-align: left;
-  @media screen and (max-width: 768px) {
-    flex-wrap: wrap;
-  }
-  .two_left {
-    width: 40%;
-    padding: 20px 50px 20px 50px;
-    @media screen and (max-width: 768px) {
-      width: 95%;
-    }
-    .left_tit {
-      font-size: 23px;
-      font-weight: bold;
-      color: #3e3e3e;
-      @media screen and (max-width: 768px) {
-        font-size: 1.2rem;
-        margin-top: 20PX;
-      }
-    }
-    .left_desc {
-      color: #717171;
-      padding: 30px 40px 20px 40px;
-      line-height: 25px;
-      font-size: 18px;
-      margin-bottom: 20px;
-      @media screen and (max-width: 768px) {
-        padding: 30PX 0;
-        font-size: 1rem;
-        line-height: 1.2rem;
-      }
-      span {
-        color: #ffa400;
-        font-size: 24px;
-        padding: 0 10px;
-        @media screen and (max-width: 768px) {
-          font-size: 1.2rem;
-        }
-      }
-    }
-    .icon_wrap {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      &:nth-child(n+2){
-        margin-top: -20px;
-      }
-      .icon_item {
-        background: url('../../assets/img/types.png') 0 0 no-repeat;
-        background-size: 100% 100%;
-        width: 120px;
-        height: 135px;
+ .bottom_img_wrap {
+        width: 80%;
         display: flex;
         justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin-right: 10px;
+        flex-wrap: wrap;
         @media screen and (max-width: 768px) {
-          width: 20%;
-          height: 73PX;
-          margin-right: 10PX;
+          width: 100%;
         }
-        .icon_title {
-          color: #717171;
-          font-size: 22px;
-          font-weight: bold;
+
+        .bottom_img_item {
+          width: 48%; 
+          display: flex;
+          flex-wrap: wrap;
+          margin-top: 20px;
+          margin: 10px;
           @media screen and (max-width: 768px) {
-            font-size: 0.9rem;
-            white-space: nowrap;
+            width: 45%; 
           }
-        }
-        .icon_desc {
-          color: #717171;
-          font-size: 14px;
-          margin-top: 12px;
-          @media screen and (max-width: 768px) {
-            font-size: 0.7rem;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            text-overflow: ellipsis;
+
+          .bottom_img {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+            &:hover {
+              transform: scale(1.02);
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: transform 0.3s ease;
+            }
+
+            .img_desc {
+              position: absolute;
+              bottom: 0;
+              width: 100%;
+              text-align: center;
+              color: #fff;
+              font-size: 18px;
+              background: rgba(0, 0, 0, 0.6);
+              padding: 10px;
+              font-weight: bold;
+              transition: transform 0.3s ease;
+            }
           }
         }
       }
     }
-  }
-  .two_right {
-    width: 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media screen and (max-width: 768px) {
-      width: 100%;
-      margin-top: 20PX;
+
+/* Modal styling */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+
+  .modal_content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+
+    .close_btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 25px;
+      cursor: pointer;
+      color: #333;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #000;
+      }
     }
+
     img {
-      width: 65%;
-      margin-top: 70px;
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
     }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(0);
   }
 }
 </style>

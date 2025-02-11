@@ -296,7 +296,7 @@ export default {
 
 .product_shows_wrap {
   width: 100%;
-  background: url('../assets/img/witness-bgc369221.png') 0 0 no-repeat;
+  background: url('../assets/L_img/backc.jpg') 0 0 no-repeat;
   background-size: cover;
   padding: 10px 0 50px 0;
   margin-top: 100px;

@@ -46,7 +46,6 @@ export default {
     }
   },
   mounted() {
-    // 发起请求获取合作伙伴数据
     http.get('/case/getallcases')
       .then(response => {
         if (response.data.code === 201) {
