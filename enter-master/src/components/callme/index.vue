@@ -197,7 +197,7 @@ export default {
           span {
             color: hsla(0, 0%, 100%, 0.5);
             font-size: 16px;
-            margin-top: 35px;
+            margin-top: 20px;
             cursor: pointer;
 
             &:hover {

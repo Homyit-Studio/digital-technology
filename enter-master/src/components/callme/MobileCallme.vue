@@ -3,7 +3,7 @@
     <div class="mobile_callme_wrap">
       <p>
         Copyright ©2025 子午数智 . All Rights Reserved .
-        <a href="https://beian.miit.gov.cn" id="beian" target="_blank">赣B2-20050166号-1</a>
+        <a style="color: white;" href="https://beian.miit.gov.cn" id="beian" target="_blank">赣B2-20050166号-1</a>
         <!-- 赣公网安备 xxx号） -->
       </p>
     </div>
@@ -53,7 +53,7 @@ export default {}
 
 <style lang="scss" scoped>
 .bg {
-  background: url('../../assets/Z_img/bg_gugong3.png') 0 0 no-repeat;
+  background: url('../../assets/Z_img/bg_gugong1.png') 0 0 no-repeat;
   background-size: cover;
 }
 
