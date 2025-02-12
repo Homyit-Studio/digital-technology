@@ -105,12 +105,12 @@ export default {
       margin: 10px;
 
       @media screen and (max-width: 768px) {
-        width: 45%;
+        width: 80%;
       }
 
       .bottom_video {
         width: 100%;
-        height: 400px;
+        height: 500px;
         position: relative;
         overflow: hidden;
         border-radius: 10px;

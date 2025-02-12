@@ -318,7 +318,7 @@ export default {
       }
 
       .bottom_img_item {
-        width: 40%;
+        width: 45%;
         display: flex;
         flex-wrap: wrap;
         margin-top: 20px;
@@ -345,7 +345,7 @@ export default {
             width: 100%;
             text-align: center;
             color: #fff;
-            font-size: 20px;
+            font-size: 25px;
             font-weight: bold;
 
             @media screen and (max-width:768px) {
@@ -720,6 +720,18 @@ export default {
         margin: 20PX 0;
       }
     }
+  }
+}
+@media screen and (min-width: 1450px) {
+  .func_wrap_inner,
+  .enter_inner,
+  .consult_inner,
+  .with_center,
+  .enter_card_wrap,
+  .product_shows_wrap {
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 </style>

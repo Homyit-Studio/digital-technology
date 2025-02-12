@@ -85,12 +85,12 @@ export default {
           margin-top: 20px;
           margin: 10px;
           @media screen and (max-width: 768px) {
-            width: 45%; 
+            width: 80%; 
           }
 
           .bottom_img {
             width: 100%;
-            height: 300px;
+            height: 350px;
             position: relative;
             overflow: hidden;
             border-radius: 10px;

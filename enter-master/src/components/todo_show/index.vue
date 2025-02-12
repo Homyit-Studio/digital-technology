@@ -66,6 +66,13 @@ export default {
   padding: 50px 0;
   background: #e8eef2;
   text-align: center;
+
+  @media screen and (min-width: 1450px) {
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .brain_title {
     color: #203040;
     font-size: 40px;
@@ -75,23 +82,32 @@ export default {
       font-size: 1.5rem;
     }
   }
+
   .brain_desc {
     color: rgba(32, 48, 64, 0.75);
     font-size: 22px;
     letter-spacing: 4px;
     @media screen and (max-width: 768px) {
       font-size: 0.8rem;
-      line-height: 40PX;
+      line-height: 40px;
     }
   }
+
   .card_wrap {
     width: 70%;
     flex-wrap: wrap;
     margin: 0px auto;
     justify-content: space-around;
+
+    
+    @media screen and (min-width: 1450px) {
+      max-width: 1450px;
+    }
+
     @media screen and (max-width: 768px) {
       width: 95%;
     }
+
     .brain_item {
       transition: background-color 1s;
       padding: 30px;
@@ -112,6 +128,7 @@ export default {
       box-shadow: 0 0.5rem 1.5rem 0 rgba(0, 135, 168, 0.15);
       margin-top: 40px;
       position: relative;
+
       .item_bg {
         position: absolute;
         top: 0;
@@ -129,15 +146,19 @@ export default {
         border-radius: 20px;
         z-index: 1;
       }
+
       &:hover .item_bg{
         opacity: 1;
       }
+
       &:hover .item_title {
         color: #fff;
       }
+
       &:hover .item_desc {
         color: #fff;
       }
+
       .item_title {
         transition: all 0.5s;
         font-size: 30px;
@@ -152,6 +173,7 @@ export default {
           text-align: center;
         }
       }
+
       .item_desc {
         transition: all 0.5s;
         color: #666;
@@ -167,6 +189,7 @@ export default {
           font-size: 12px;
         }
       }
+
       .item_navigate {
         width: 100PX;
         height: 30PX;

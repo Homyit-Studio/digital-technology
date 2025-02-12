@@ -324,6 +324,7 @@ export default {
     }
     .double_card_wrap {
       width: 70%;
+      max-width: 1450px;
       margin: 0 auto;
       @media screen and (max-width: 768px) {
         width: 90%;
