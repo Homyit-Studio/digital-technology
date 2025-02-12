@@ -37,16 +37,16 @@ export default {
     return {
       procardList3: [
         {
-          videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4', 
+          videoUrl: require('@/assets/L_img/1111.mp4'), 
           caseIntroduction: 'Video 1'
         },
         {
-          videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4', 
-          caseIntroduction: 'Video 1'
+          videoUrl: require('@/assets/L_img/1111.mp4'), 
+          caseIntroduction: 'Video 2'
         },
         {
-          videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4', 
-          caseIntroduction: 'Video 1'
+          videoUrl: require('@/assets/L_img/1111.mp4'), 
+          caseIntroduction: 'Video 3'
         }
       ],
       isModalOpen: false,
@@ -98,7 +98,7 @@ export default {
     }
 
     .bottom_video_item {
-      width: 48%;
+      width: 80%;
       display: flex;
       flex-wrap: wrap;
       margin-top: 20px;
@@ -110,7 +110,7 @@ export default {
 
       .bottom_video {
         width: 100%;
-        height: 300px;
+        height: 400px;
         position: relative;
         overflow: hidden;
         border-radius: 10px;
