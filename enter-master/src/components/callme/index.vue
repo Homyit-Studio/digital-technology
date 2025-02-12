@@ -192,12 +192,12 @@ export default {
         .item_options {
           display: flex;
           flex-direction: column;
-          width: 120px;
+          width: 160px;
 
           span {
             color: hsla(0, 0%, 100%, 0.5);
             font-size: 16px;
-            margin-top: 35px;
+            margin-top: 20px;
             cursor: pointer;
 
             &:hover {
