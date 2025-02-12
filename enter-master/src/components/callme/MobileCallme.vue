@@ -53,7 +53,7 @@ export default {}
 
 <style lang="scss" scoped>
 .bg {
-  background: url('../../assets/img/callme2.jpg') 0 0 no-repeat;
+  background: url('../../assets/Z_img/bg_gugong3.png') 0 0 no-repeat;
   background-size: cover;
 }
 
