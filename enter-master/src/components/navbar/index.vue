@@ -3,8 +3,8 @@
     <div class="navbar_container">
       <div class="navbar_left">
         <!-- 江西子午数智信息科技有限公司 -->
-        <img style="width: 200px;" src="@/assets/img/home/JXZWSZ_logo_icon.png" alt="子午数智..." />
-        <img style="width: 300px;" src="@/assets/img/home/JXZWSZ_logo_name.png" alt="子午数智..." />
+        <img class="logo" src="@/assets/img/home/JXZWSZ_logo_icon.png" alt="子午数智..." />
+        <img class="name" src="@/assets/img/home/JXZWSZ_logo_name.png" alt="子午数智..." />
       </div>
       <div class="navbar_right">
         <el-menu :default-active="activeIndex" class="el_menu_demo" mode="horizontal" :text-color="navTextColor"
@@ -113,8 +113,14 @@ export default {
     font-weight: 700;
     color: #000;
 
-    img {
-      // width: 200px;
+
+    .logo {
+      width: 200px;
+      cursor: pointer;
+    }
+
+    .name {
+      width: 300px;
       cursor: pointer;
     }
   }
