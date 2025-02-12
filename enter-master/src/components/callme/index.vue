@@ -192,7 +192,7 @@ export default {
         .item_options {
           display: flex;
           flex-direction: column;
-          width: 120px;
+          width: 160px;
 
           span {
             color: hsla(0, 0%, 100%, 0.5);
