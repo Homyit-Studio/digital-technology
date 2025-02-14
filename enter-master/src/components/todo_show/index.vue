@@ -67,11 +67,11 @@ export default {
   background: #e8eef2;
   text-align: center;
 
-  @media screen and (min-width: 1450px) {
-    max-width: 1450px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  // @media screen and (min-width: 1450px) {
+  //   max-width: 1450px;
+  //   margin-left: auto;
+  //   margin-right: auto;
+  // }
 
   .brain_title {
     color: #203040;

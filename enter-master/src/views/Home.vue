@@ -726,9 +726,9 @@ export default {
   .func_wrap_inner,
   .enter_inner,
   .consult_inner,
-  .with_center,
-  .enter_card_wrap,
-  .product_shows_wrap {
+  .with_center
+  .enter_card_wrap
+   {
     max-width: 1450px;
     margin-left: auto;
     margin-right: auto;

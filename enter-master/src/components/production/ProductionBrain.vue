@@ -6,7 +6,7 @@
     </div>
 
      <!-- 子午产品优势 -->
-    <div class="func_wrap hidden-xs-only" style="background: #f4f9fc">
+    <div class="func_wrap" style="background: #f4f9fc">
 
       <div class="func_wrap_inner">
         <div class="func_tit"><div class="consult_title_wrap">
@@ -51,9 +51,9 @@
       </div>
     </div>
 
-     <div class="func_wrap_mobile hidden-sm-and-up">
+     <!-- <div class="func_wrap_mobile hidden-sm-and-up">
       <img src="@/assets/img/ys.png" alt="">
-    </div>
+    </div> -->
     
     <div class="product_shows_wrap">
       <div class="production_title_wrap">
@@ -550,6 +550,50 @@ margin-bottom: 50px;
         }
       }
     }
+  }
+}
+@media screen and (max-width: 768px) {
+  .consult_title {
+    font-size: 1.2rem !important;
+  }
+  .consult_desc {
+    font-size: 0.9rem !important;
+  }
+  .inner_left img, .inner_right img {
+    width: 20% !important;
+  }
+  .double_card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .double_card_item {
+    width: 90% !important;
+    margin-bottom: 20px;
+    &:nth-child(n + 2) {
+      margin-top: 20px;
+    }
+  }
+  .double_card_bg {
+    font-size: 1.1rem !important;
+  }
+  .double_card_item p {
+    font-size: 0.9rem !important;
+  }
+  .double_card_item {
+    height: auto !important;
+    padding: 20px !important;
+  }
+  .func_wrap {
+    background-size: auto 100% !important;
+  }
+  .func_wrap_inner {
+    width: 90% !important;
+  }
+  .double_card_wrap {
+    width: 90% !important;
+  }
+  .animate__animated {
+    animation: none !important;
   }
 }
 </style>
