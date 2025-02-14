@@ -307,25 +307,25 @@ export default {
     justify-content: center;
 
     .bottom_img_wrap {
-      width: 80%;
+      width: 75%;
       display: flex;
-      justify-content: center;
+      // justify-content: center;
       flex-wrap: wrap;
 
       @media screen and (max-width: 768px) {
-        width: 100%;
+        width: 80%;
         margin-top: 20px;
       }
 
       .bottom_img_item {
-        width: 45%;
+        width: 31%;
         display: flex;
         flex-wrap: wrap;
-        margin-top: 20px;
-        margin: 20px;
+        margin-top: 10px;
+        margin: 10px;
 
         @media screen and (max-width: 768px) {
-          width: 45%;
+          width: 30%;
         }
 
         .bottom_img {
@@ -349,7 +349,7 @@ export default {
             font-weight: bold;
 
             @media screen and (max-width:768px) {
-              font-size: 12px;
+              font-size: 8px;
             }
           }
         }
@@ -722,16 +722,17 @@ export default {
     }
   }
 }
-@media screen and (min-width: 1450px) {
-  .func_wrap_inner,
-  .enter_inner,
-  .consult_inner,
-  .with_center,
-  .enter_card_wrap,
-  .product_shows_wrap {
-    max-width: 1450px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-</style>
+
+// @media screen and (min-width: 1450px) {
+
+//   .func_wrap_inner,
+//   .enter_inner,
+//   .consult_inner,
+//   .with_center,
+//   .enter_card_wrap,
+//   .product_shows_wrap {
+//     // max-width: 1450px;
+//     margin-left: auto;
+//     margin-right: auto;
+//   }
+// }</style>
