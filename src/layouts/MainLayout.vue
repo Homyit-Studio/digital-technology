@@ -5,12 +5,32 @@
                 <span class="title">子午数智后台</span>
             </div>
             <el-menu class="admin-menu" background-color="#1f2937" text-color="#fff" active-text-color="#409EFF" router>
-                <el-menu-item index="/home/banner" class="admin-menu-item">
+                <!-- <el-menu-item index="/home/banner" class="admin-menu-item">
                     <el-icon>
                         <icon-ep-picture />
                     </el-icon>
                     <span>首页轮播图</span>
-                </el-menu-item>
+                </el-menu-item> -->
+                 <el-sub-menu class="admin-sub-menu">
+                    <template #title>
+                        <el-icon>
+                            <icon-ep-home-filled /> 
+                        </el-icon>
+                        <span>首页</span>
+                    </template>
+                    <el-menu-item index="/home/banner" class="admin-menu-item">
+                        <el-icon>
+                            <icon-ep-picture />
+                        </el-icon>
+                        轮播图
+                    </el-menu-item>
+                    <el-menu-item index="/home/partner" class="admin-menu-item">
+                        <el-icon>
+                            <icon-ep-office-building />
+                        </el-icon>
+                        合作公司
+                    </el-menu-item>
+                </el-sub-menu>
                 <el-sub-menu class="admin-sub-menu">
                     <template #title>
                         <el-icon>
