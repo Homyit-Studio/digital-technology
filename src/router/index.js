@@ -11,8 +11,14 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/MainLayout.vue'),
     meta: { requiresAuth: true },
-    redirect: '/home/banner',
+    redirect: '/home',
     children: [
+      // 首页轮播图
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/index.vue')
+      },
       // 首页轮播图
       {
         path: '/home/banner',

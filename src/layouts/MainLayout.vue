@@ -4,8 +4,15 @@
             <div class="title-container">
                 <span class="title">子午数智后台</span>
             </div>
-            <el-menu class="admin-menu" background-color="#e6ecf3" text-color="#333" active-text-color="#000" router>
-                <el-sub-menu index="/home" class="admin-sub-menu">
+            <el-menu default-active="/home" class="admin-menu" background-color="#e6ecf3" text-color="#333"
+                active-text-color="#000" router>
+                <el-menu-item index="/home" class="admin-menu-item">
+                    <el-icon>
+                        <icon-ep-Postcard />
+                    </el-icon>
+                    子午数智前台
+                </el-menu-item>
+                <el-sub-menu index="/athome" class="admin-sub-menu">
                     <template #title>
                         <el-icon><icon-ep-Notebook /></el-icon>
                         <span>首页</span>
@@ -207,6 +214,7 @@ const logout = () => {
     background-color: #f8fafc;
     padding: 24px;
     position: relative;
+    height: auto;
 }
 
 /* 子菜单标题样式 */
