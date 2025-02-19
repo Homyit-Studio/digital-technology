@@ -19,11 +19,12 @@ const routes = [
         name: 'Banner',
         component: () => import('@/views/home/BannerManage.vue')
       },
+
       // 首页合作伙伴
       {
         path: '/home/partner',
         name: 'Partner',
-        component: () => import('@/views/home/PartnerManage.vue')
+        component: () => import('@/views/home/PartnerCompanys.vue')
       },
       // 文物数字化
       {
