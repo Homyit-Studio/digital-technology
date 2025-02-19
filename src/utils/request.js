@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { ElMessage } from 'element-plus'
+// import { ElMessage } from 'element-plus'
 //获取到token
 import { useAuthStore } from '@/stores/auth'
 //导入路由跳转到登录界面
@@ -45,11 +45,11 @@ instance.interceptors.response.use(
             ElMessage.error('请先登录')
             router.push('/login')
         } else if (err.response?.status === 500) {
-            ElMessage.error('Token过期，请重新登录')
+            ElMessage.error('登录失败')
             router.push('/login')
-        } else if (err.response?.status === 404) ElMessage.error('获取数据失败')
+        } else if (err.response?.status === 404) ElMessage.error('404网页找不到')
         //错误的默认情况=>只要给提示
-        ElMessage.error(err.response.data.desc || '服务异常')
+        else ElMessage.error(err.response.data.desc || '服务异常')
         return Promise.reject(err)
     }
 )

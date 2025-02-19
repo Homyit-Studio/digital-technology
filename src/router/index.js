@@ -19,6 +19,12 @@ const routes = [
         name: 'Banner',
         component: () => import('@/views/home/BannerManage.vue')
       },
+      // 首页合作伙伴
+      {
+        path: '/home/partner',
+        name: 'Partner',
+        component: () => import('@/views/home/PartnerManage.vue')
+      },
       // 文物数字化
       {
         path: '/cases/digital',
@@ -53,13 +59,9 @@ const router = createRouter({
 })
 
 // 路由守卫
-// router.beforeEach((to, from, next) => {
-//   const authStore = useAuthStore()
-//   if (to.meta.requiresAuth && !authStore.token) {
-//     next('/login')
-//   } else {
-//     next()
-//   }
-// })
+router.beforeEach((to) => {
+  const authStore = useAuthStore()
+  if (!authStore.token && to.meta.requiresAuth && to.path !== '/login') return '/login'
+})
 
 export default router

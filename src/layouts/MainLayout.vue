@@ -4,14 +4,30 @@
             <div class="title-container">
                 <span class="title">子午数智后台</span>
             </div>
-            <el-menu class="admin-menu" background-color="#1f2937" text-color="#fff" active-text-color="#409EFF" router>
-                <el-menu-item index="/home/banner" class="admin-menu-item">
-                    <el-icon>
-                        <icon-ep-picture />
-                    </el-icon>
-                    <span>首页轮播图</span>
-                </el-menu-item>
-                <el-sub-menu class="admin-sub-menu">
+            <el-menu class="admin-menu" background-color="#e6ecf3" text-color="#333" active-text-color="#000" router>
+                <el-sub-menu index="/home" class="admin-sub-menu">
+                    <template #title>
+                        <el-icon><icon-ep-Notebook /></el-icon>
+                        <span>首页</span>
+                    </template>
+                    <el-menu-item index="/home/banner" class="admin-menu-item">
+                        <el-icon>
+                            <icon-ep-picture />
+                        </el-icon>
+                        首页轮播图
+                    </el-menu-item>
+                    <el-menu-item index="/home/partner" class="admin-menu-item">
+                        <el-icon> <icon-ep-user /></el-icon>
+                        合作伙伴
+                    </el-menu-item>
+                </el-sub-menu>
+                <el-sub-menu index="/about" class="admin-sub-menu" disabled>
+                    <template #title>
+                        <el-icon><icon-ep-DataAnalysis /></el-icon>
+                        <span>公司概况</span>
+                    </template>
+                </el-sub-menu>
+                <el-sub-menu index="/cases" class="admin-sub-menu">
                     <template #title>
                         <el-icon>
                             <icon-ep-collection />
@@ -29,7 +45,7 @@
                         全景漫游
                     </el-menu-item>
                 </el-sub-menu>
-                <el-sub-menu class="admin-sub-menu">
+                <el-sub-menu index="/news" class="admin-sub-menu">
                     <template #title>
                         <el-icon><icon-ep-Memo /></el-icon>
                         <span>新闻资讯</span>
@@ -44,6 +60,12 @@
                         <el-icon><icon-ep-data-board /></el-icon>
                         行业资讯
                     </el-menu-item>
+                </el-sub-menu>
+                <el-sub-menu index="/contact" class="admin-sub-menu" disabled>
+                    <template #title>
+                        <el-icon><icon-ep-Phone /></el-icon>
+                        <span>联系我们</span>
+                    </template>
                 </el-sub-menu>
             </el-menu>
         </el-aside>
@@ -71,11 +93,36 @@
 
 <script setup>
 import { useAuthStore } from '@/stores/auth'
+import { useRouter } from 'vue-router'
+import request from '@/utils/request'
 const authStore = useAuthStore()
-
+const router = useRouter()
 const logout = () => {
-    authStore.removeToken()
-    router.push('/login')
+    ElMessageBox.confirm(
+        '是否退出登录?',
+        '警告',
+        {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning',
+        }
+    ).then(async () => {
+        try {
+            await request.post('/logout')
+            authStore.removeToken()
+            router.push('/login')
+            ElMessage({
+                type: 'success',
+                message: '退出登录成功',
+            })
+        } catch (error) {
+        }
+    }).catch(() => {
+        ElMessage({
+            type: 'info',
+            message: '已取消',
+        })
+    })
 }
 </script>
 
@@ -83,7 +130,8 @@ const logout = () => {
 /* 侧边栏优化 */
 .admin-sidebar {
     height: 100vh;
-    background-color: #fff;
+    width: 300px;
+    background-color: #e6ecf3;
     box-shadow: 4px 0 6px -1px rgba(0, 0, 0, 0.1);
     z-index: 10;
     /* 确保侧边栏在内容区之上 */
@@ -91,7 +139,7 @@ const logout = () => {
 
 .title-container {
     height: 50px;
-    background-color: #fff;
+    background-color: #e6ecf3;
 
     .title {
         color: #4a5568;
@@ -111,8 +159,8 @@ const logout = () => {
 
 /* 菜单项优化 */
 .admin-menu {
-    --el-menu-active-color: #409EFF;
-    --el-menu-hover-bg-color: rgba(255, 255, 255, 0.1);
+    --el-menu-active-color: #000;
+    --el-menu-hover-bg-color: rgba(255, 255, 255, 0.384);
 }
 
 .admin-menu-item {
@@ -122,8 +170,8 @@ const logout = () => {
 }
 
 .admin-menu-item.is-active {
-    background-color: rgba(66, 153, 225, 0.1) !important;
-    border-left: 3px solid #409EFF;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-left: 3px solid #000;
 }
 
 /* 图标间距统一 */
@@ -171,15 +219,25 @@ const logout = () => {
     gap: 8px;
 }
 
+.items-center {
+    width: 300px;
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
     .admin-sidebar {
-        width: 150px;
+        width: 200px;
         /* 修改宽度为100%以适应屏幕 */
     }
 
     .admin-header {
+        width: 350px;
         padding: 0 16px;
     }
+
+    .items-center {
+        width: 300px;
+    }
+
 }
 </style>

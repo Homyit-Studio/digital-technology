@@ -48,8 +48,8 @@ export default defineConfig({
       '/api': {
         target: 'http://1.15.115.21:8081', // 接口域名
         changeOrigin: true, // 是否跨域
-        ws: true, // 是否代理 websockets
-        secure: true, // 是否htpps接口
+        // ws: true, // 是否代理 websockets
+        // secure: true, // 是否https接口
         rewrite: (path) => path.replace(/^\/api/, '')
       }
     }
