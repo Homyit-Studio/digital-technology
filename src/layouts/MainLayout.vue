@@ -127,9 +127,14 @@ const logout = () => {
 </script>
 
 <style scoped>
+.h-screen {
+    height: 100%;
+}
+
 /* 侧边栏优化 */
 .admin-sidebar {
-    height: 100vh;
+    /* height: 100vh; */
+    height: 100%;
     width: 300px;
     background-color: #e6ecf3;
     box-shadow: 4px 0 6px -1px rgba(0, 0, 0, 0.1);
@@ -138,7 +143,7 @@ const logout = () => {
 }
 
 .title-container {
-    height: 50px;
+    /* height: 50px; */
     background-color: #e6ecf3;
 
     .title {
@@ -239,5 +244,8 @@ const logout = () => {
         width: 300px;
     }
 
+    .el-main {
+        width: 400px;
+    }
 }
 </style>
