@@ -19,7 +19,6 @@ const routes = [
         name: 'Banner',
         component: () => import('@/views/home/BannerManage.vue')
       },
-
       // 首页合作伙伴
       {
         path: '/home/partner',
