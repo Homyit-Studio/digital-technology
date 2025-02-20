@@ -2,7 +2,8 @@
   <div class="scroll_wrap_overflow" ref="wrapper">
     <div class="scroll_content" ref="scrollWidth">
       <div class="scroll_wrap">
-        <div class="scroll_item" v-for="(item, index) in showImages.slice(0, 4)" :key="index" @click="showModal(item)">
+        <div class="scroll_item" v-for="(item, index) in showImages.reverse().slice(0, 4)" :key="index"
+          @click="showModal(item)">
           <div class="scroll_img">
             <img :src="item.imageUrl" style="user-select: none;pointer-events: none" alt="" ref="curImg" />
           </div>

@@ -176,9 +176,7 @@ export default {
         },
       ],
       activeIndex: 0,
-      industryNews: [
-        1
-      ],
+      industryNews: [],
       scroll: null,
       scroll2: null,
     }
@@ -208,8 +206,13 @@ export default {
     http.post('/new/getnews', { "type": "行业资讯" })
       .then(response => {
         if (response.data.code === 201) {
-          this.industryNews = response.data.data
+          this.industryNews = response.data.data.reverse()
           // this.cardList = response.data.data;
+          this.$nextTick(() => {
+            this.scroll.refresh()
+            // 建议增加错误处理
+            this.scroll.options.momentum = true
+          })
         } else {
           console.error('获取数据失败', response.data.desc);
         }
