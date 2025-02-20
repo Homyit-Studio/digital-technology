@@ -30,7 +30,7 @@
                 <el-form-item label="标题" prop="title">
                     <el-input v-model="form.title" />
                 </el-form-item>
-                <el-form-item label="详情" prop="text">
+                <el-form-item label="网址" prop="text">
                     <el-input v-model="form.text" type="textarea" :rows="4" />
                 </el-form-item>
                 <el-form-item label="图片" prop="imageUrl">
@@ -79,8 +79,8 @@ const rules = {
 const fetchNews = async () => {
     try {
         const { data } = await request.post('/new/getnews', { type: '行业资讯' })
-        console.log(data)
-        newsList.value = data.data
+        // console.log(data)
+        newsList.value = data.data.reverse()
     } catch (error) {
         ElMessage.error('获取新闻列表失败')
     }
@@ -136,7 +136,7 @@ const handleEdit = (news) => {
 const handleDelete = async (id) => {
     try {
         await ElMessageBox.confirm('确认删除该新闻？', '提示', { type: 'warning' })
-        await request.post('/new/deletenews', { id })
+        await request.post('/new/deletenews', { "id": id, "imageUrl": imageUrl, "type": "行业资讯" })
         ElMessage.success('删除成功')
         fetchNews()
     } catch (error) {

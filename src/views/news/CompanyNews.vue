@@ -78,9 +78,9 @@ const rules = {
 // 获取新闻列表
 const fetchNews = async () => {
     try {
-        const { data } = await request.post('/new/getnews', { type: '公司新闻' })
-        console.log(data)
-        newsList.value = data.data
+        const { data } = await request.post('/new/getnews', { "type": '公司新闻' })
+        // console.log(data)
+        newsList.value = data.data.reverse()
     } catch (error) {
         ElMessage.error('获取新闻列表失败')
     }
@@ -136,7 +136,7 @@ const handleEdit = (news) => {
 const handleDelete = async (id, imageUrl) => {
     try {
         await ElMessageBox.confirm('确认删除该新闻？', '提示', { type: 'warning' })
-        await request.post('/new/deletenews', { "id": id, "imageUrl": imageUrl })
+        await request.post('/new/deletenews', { "id": id, "imageUrl": imageUrl, "type": '公司新闻' })
         ElMessage.success('删除成功')
         fetchNews()
     } catch (error) {

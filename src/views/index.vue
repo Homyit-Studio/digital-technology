@@ -57,6 +57,6 @@ onMounted(() => {
     width: 100vw;
     /* 视口宽度 */
     min-width: 100%;
-    height: 100vw;
+    height: 85vh;
 }
 </style>
