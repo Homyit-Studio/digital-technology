@@ -1,11 +1,12 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
-//管理员登录模块 token setToken removeToken
+// 管理员登录模块 token setToken removeToken
 export const useAuthStore = defineStore(
   'manager',
   () => {
     const token = ref('')
+    // const someState = ref('hello pinia')
     const setToken = (newToken) => {
       token.value = newToken
     }
@@ -15,12 +16,15 @@ export const useAuthStore = defineStore(
     return {
       token,
       setToken,
-      removeToken
+      removeToken,
+      // someState
     }
   },
   {
-    // 持久化
-    //可以是布尔值，也可以是对象，布尔值就是默认的，对象就是按我们自己的办法来
-    persist: true
+    persist: {
+      key: 'piniaStore', // 存储名称
+      storage: localStorage, // 存储方式
+      paths: ['token'], // 指定 state 中哪些数据需要被持久化。[] 表示不持久化任何状态，undefined 或 null 表示持久化整个 state
+    }
   }
 )

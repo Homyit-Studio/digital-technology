@@ -11,18 +11,24 @@ const routes = [
     path: '/',
     component: () => import('@/layouts/MainLayout.vue'),
     meta: { requiresAuth: true },
-    redirect: '/home/banner',
+    redirect: '/home',
     children: [
+      // 首页轮播图
+      {
+        path: '/home',
+        name: 'Home',
+        component: () => import('@/views/index.vue')
+      },
       // 首页轮播图
       {
         path: '/home/banner',
         name: 'Banner',
         component: () => import('@/views/home/BannerManage.vue')
       },
-      // 首页合作公司
+      // 首页合作伙伴
       {
         path: '/home/partner',
-        name: 'Parterner',
+        name: 'Partner',
         component: () => import('@/views/home/PartnerCompanys.vue')
       },
       // 文物数字化
@@ -36,6 +42,18 @@ const routes = [
         path: '/cases/panorama',
         name: 'Panorama',
         component: () => import('@/views/cases/PanoramaTour.vue')
+      },
+      // 传统数字村落博物馆
+      {
+        path: '/cases/museum',
+        name: 'Museum',
+        component: () => import('@/views/cases/TraditionalDigitalVillageMuseum.vue')
+      },
+      //  数字信息平台
+      {
+        path: '/cases/platform',
+        name: 'Platform',
+        component: () => import('@/views/cases/DigitalInformationPlatform.vue')
       },
       // 公司资讯
       {
@@ -59,13 +77,9 @@ const router = createRouter({
 })
 
 // 路由守卫
-// router.beforeEach((to, from, next) => {
-//   const authStore = useAuthStore()
-//   if (to.meta.requiresAuth && !authStore.token) {
-//     next('/login')
-//   } else {
-//     next()
-//   }
-// })
+router.beforeEach((to) => {
+  const authStore = useAuthStore()
+  if (!authStore.token && to.meta.requiresAuth && to.path !== '/login') return '/login'
+})
 
 export default router

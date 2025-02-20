@@ -4,8 +4,8 @@
             <el-card class="login-box">
                 <h2 class="login-title">子午数智后台管理系统</h2>
                 <el-form :model="form" :rules="rules" ref="loginForm">
-                    <el-form-item prop="username" class="form-item">
-                        <el-input v-model="form.username" prefix-icon="user" placeholder="用户名" class="custom-input" />
+                    <el-form-item prop="name" class="form-item">
+                        <el-input v-model="form.name" prefix-icon="user" placeholder="用户名" class="custom-input" />
                     </el-form-item>
 
                     <el-form-item prop="password" class="form-item">
@@ -31,9 +31,10 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import request from '@/utils/request'
+import { ElMessage } from 'element-plus'
 
 const form = ref({
-    username: '',
+    name: '',
     password: ''
 })
 
@@ -46,32 +47,31 @@ const authStore = useAuthStore()
 onMounted(() => {
     const savedUser = localStorage.getItem('autoLoginUser')
     if (savedUser) {
-        const { username, password } = JSON.parse(savedUser)
-        form.value = { username, password }
+        const { name, password } = JSON.parse(savedUser)
+        form.value = { name, password }
         autoLogin.value = true
     }
 })
 
 const rules = {
-    username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+    name: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
     password: [{ required: true, message: '请输入密码', trigger: 'blur' }]
 }
 const handleLogin = async () => {
     try {
         loading.value = true
         const { data } = await request.post('/login', form.value)
-
-        authStore.setToken(data.token)
-
+        authStore.setToken(data.data.token)
+        // console.log(authStore.token)
         if (autoLogin.value) {
             localStorage.setItem('autoLoginUser', JSON.stringify(form.value))
         } else {
             localStorage.removeItem('autoLoginUser')
         }
-
+        ElMessage.success('登录成功')
         router.push('/')
-    } catch (error) {
-        ElMessage.error(error.response?.data?.message || '登录失败')
+    } catch (e) {
+        // ElMessage.error(error.response?.data?.message || '登录失败')
     } finally {
         loading.value = false
     }
