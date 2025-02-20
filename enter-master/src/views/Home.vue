@@ -307,25 +307,25 @@ export default {
     justify-content: center;
 
     .bottom_img_wrap {
-      width: 75%;
+      width: 80%;
       display: flex;
-      // justify-content: center;
+      justify-content: center;
       flex-wrap: wrap;
 
       @media screen and (max-width: 768px) {
-        width: 80%;
+        width: 100%;
         margin-top: 20px;
       }
 
       .bottom_img_item {
-        width: 31%;
+        width: 45%;
         display: flex;
         flex-wrap: wrap;
-        margin-top: 10px;
-        margin: 10px;
+        margin-top: 20px;
+        margin: 20px;
 
         @media screen and (max-width: 768px) {
-          width: 30%;
+          width: 45%;
         }
 
         .bottom_img {
@@ -349,7 +349,7 @@ export default {
             font-weight: bold;
 
             @media screen and (max-width:768px) {
-              font-size: 8px;
+              font-size: 12px;
             }
           }
         }
@@ -722,17 +722,16 @@ export default {
     }
   }
 }
-
-// @media screen and (min-width: 1450px) {
-
-//   .func_wrap_inner,
-//   .enter_inner,
-//   .consult_inner,
-//   .with_center,
-//   .enter_card_wrap,
-//   .product_shows_wrap {
-//     // max-width: 1450px;
-//     margin-left: auto;
-//     margin-right: auto;
-//   }
-// }</style>
+@media screen and (min-width: 1450px) {
+  .func_wrap_inner,
+  .enter_inner,
+  .consult_inner,
+  .with_center
+  .enter_card_wrap
+   {
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+</style>
