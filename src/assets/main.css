@@ -9,3 +9,13 @@ body,
     display: none;
     /* Chrome Safari */
 }
+
+.el-upload.el-upload--text {
+    --el-upload-dragger-padding-horizontal: 40px;
+    --el-upload-dragger-padding-vertical: 10px;
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    outline: none;
+}

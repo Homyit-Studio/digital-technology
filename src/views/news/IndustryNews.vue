@@ -2,7 +2,7 @@
     <div class="company-news">
         <!-- 操作栏 -->
         <div class="operation-bar">
-            <el-button type="primary" @click="handleAdd">添加行业资讯（页面只展示前10个行业最新资讯）</el-button>
+            <el-button type="success" @click="handleAdd">添加行业资讯（页面只展示前10个行业最新资讯）</el-button>
         </div>
 
         <!-- 新闻列表 -->
@@ -35,8 +35,7 @@
                     <el-input v-model="form.text" type="textarea" :rows="4" />
                 </el-form-item>
                 <el-form-item label="图片" prop="imageUrl">
-                    <el-upload action="#" :auto-upload="false" :show-file-list="false" :limit="1"
-                        :on-exceed="() => ElMessage.warning('每次只能上传一张图片')" :on-change="handleImageChange">
+                    <el-upload action="#" :auto-upload="false" :show-file-list="false" :on-change="handleImageChange">
                         <el-button type="primary">点击上传</el-button>
                         <template v-if="form.imageUrl">
                             <img :src="form.imageUrl" class="preview-image" alt="预览" />
