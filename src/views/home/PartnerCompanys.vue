@@ -52,7 +52,7 @@ import { ref, onMounted } from 'vue'
 import { ElMessage, ElMessageBox } from 'element-plus'
 import request from '@/utils/request' 
 
-// 轮播图列表数据
+// 合作公司列表数据
 const newsList = ref([])
 const dialogVisible = ref(false)
 const isEdit = ref(false)
@@ -74,10 +74,10 @@ const rules = {
 const fetchNews = async () => {
     try {
         const { data } = await request.get('/collaboratingcompany/getallcollaboratingcompanies')
-        // console.log(data)
+        console.log(data)
         newsList.value = data.data.reverse()
     } catch (error) {
-        ElMessage.error('获取轮播图列表失败')
+        ElMessage.error('获取合作公司列表失败')
     }
 }
 
@@ -142,8 +142,8 @@ const handleEdit = (news) => {
 // 删除
 const handleDelete = async (news) => {
     try {
-        await ElMessageBox.confirm('确认删除该轮播图？', '提示', { type: 'warning' })
-        await request.post('/image/deleteimage', news)
+        await ElMessageBox.confirm('确认删除该合作公司？', '提示', { type: 'warning' })
+        await request.post('/collaboratingcompany/deletecollaboratingcompany', news)
         ElMessage.success('删除成功')
         fetchNews()
     } catch (error) {
