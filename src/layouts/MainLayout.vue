@@ -51,6 +51,16 @@
                         <el-icon><icon-ep-video-play /></el-icon>
                         全景漫游
                     </el-menu-item>
+                    <el-menu-item index="/cases/museum" class="admin-menu-item">
+                        <el-icon>
+                            <icon-ep-MessageBox />
+                        </el-icon>
+                        传统数字村落博物馆
+                    </el-menu-item>
+                    <el-menu-item index="/cases/platform" class="admin-menu-item">
+                        <el-icon><icon-ep-Message /></el-icon>
+                        数字信息平台
+                    </el-menu-item>
                 </el-sub-menu>
                 <el-sub-menu index="/news" class="admin-sub-menu">
                     <template #title>
@@ -237,7 +247,7 @@ const logout = () => {
 }
 
 /* 响应式调整 */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .admin-sidebar {
         width: 200px;
         /* 修改宽度为100%以适应屏幕 */

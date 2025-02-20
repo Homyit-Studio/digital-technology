@@ -43,6 +43,18 @@ const routes = [
         name: 'Panorama',
         component: () => import('@/views/cases/PanoramaTour.vue')
       },
+      // 传统数字村落博物馆
+      {
+        path: '/cases/museum',
+        name: 'Museum',
+        component: () => import('@/views/cases/TraditionalDigitalVillageMuseum.vue')
+      },
+      //  数字信息平台
+      {
+        path: '/cases/platform',
+        name: 'Platform',
+        component: () => import('@/views/cases/DigitalInformationPlatform.vue')
+      },
       // 公司资讯
       {
         path: '/news/company',

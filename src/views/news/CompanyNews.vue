@@ -133,10 +133,10 @@ const handleEdit = (news) => {
 }
 
 // 删除
-const handleDelete = async (id) => {
+const handleDelete = async (id, imageUrl) => {
     try {
         await ElMessageBox.confirm('确认删除该新闻？', '提示', { type: 'warning' })
-        await request.post('/new/deletenews', { id })
+        await request.post('/new/deletenews', { "id": id, "imageUrl": imageUrl })
         ElMessage.success('删除成功')
         fetchNews()
     } catch (error) {

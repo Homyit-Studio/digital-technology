@@ -47,6 +47,10 @@ instance.interceptors.response.use(
         } else if (err.response?.status === 500) {
             ElMessage.error('登录失败')
             router.push('/login')
+
+        } else if (err.response?.status === 403) {
+            ElMessage.error('登录过期，请刷新页面重新登录')
+            router.push('/login')
         } else if (err.response?.status === 404) ElMessage.error('404网页找不到')
         //错误的默认情况=>只要给提示
         else ElMessage.error(err.response.data.desc || '服务异常')
