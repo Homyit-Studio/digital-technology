@@ -17,7 +17,7 @@
                         <el-checkbox v-model="autoLogin">自动登录</el-checkbox>
                     </el-form-item>
 
-                    <el-button type="primary" class="w-full login-btn" @click="handleLogin" :loading="loading">
+                    <el-button type="primary" class="login-btn" @click="handleLogin" :loading="loading">
                         登 录
                     </el-button>
                 </el-form>
@@ -86,7 +86,6 @@ const handleLogin = async () => {
     justify-content: center;
     align-items: center;
     background-image: url('../../public/bg_buttom.jpg');
-    /* 古风背景图 */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -100,8 +99,6 @@ const handleLogin = async () => {
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: rgba(0, 0, 0, 0.4); */
-    /* backdrop-filter: blur(2px); */
 }
 
 .login-glass {
@@ -164,17 +161,44 @@ const handleLogin = async () => {
 
 .login-btn {
     background: linear-gradient(45deg, #409EFF, #3375e0) !important;
+    width: 80%;
     border: none !important;
-    border-radius: 8px !important;
-    padding: 20px 20px !important;
-    font-size: 2rem;
-    letter-spacing: 4px;
+    border-radius: 10px !important;
+    padding: 10px 0;
+    font-size: 1rem;
+    letter-spacing: 2px;
     transition: all 0.3s ease !important;
+    display: block;
+    margin: 0 auto;
 }
 
 .login-btn:hover {
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
     box-shadow: 0 5px 15px rgba(64, 158, 255, 0.4) !important;
+}
+
+:deep(.el-form-item:last-child) {
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.form-item {
+    margin-bottom: 24px;
+}
+
+.remember-item {
+    margin-left: 5px;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+:deep(.el-checkbox__label) {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+:deep(.el-checkbox__inner) {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 @media (max-width: 480px) {
@@ -183,33 +207,5 @@ const handleLogin = async () => {
         height: auto;
         padding: 2rem;
     }
-}
-
-/* 调整间距 */
-.form-item {
-    margin-bottom: 24px;
-}
-
-.remember-item {
-    margin-bottom: 32px;
-}
-
-/* 优化输入框样式 */
-:deep(.custom-input) {
-    height: 48px;
-}
-
-:deep(.custom-input .el-input__inner) {
-    height: 100%;
-}
-
-/* 自动登录复选框样式 */
-:deep(.el-checkbox__label) {
-    color: rgba(255, 255, 255, 0.8);
-}
-
-:deep(.el-checkbox__inner) {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(255, 255, 255, 0.3);
 }
 </style>

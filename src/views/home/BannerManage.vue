@@ -1,217 +1,223 @@
 <template>
-  <div class="carousel-management">
-    <div class="header">
-      <h1>轮播图管理</h1>
-      <button @click="showAddModal = true" class="add-button">添加轮播图</button>
-    </div>
-
-    <div class="image-list">
-      <div v-for="(image, index) in images" :key="index" class="image-item">
-        <img :src="image.url" alt="轮播图" class="image" />
-        <div class="image-text">{{ image.text }}</div>
-        <div class="actions">
-          <button @click="editImage(index)" class="edit-button">编辑</button>
-          <button @click="deleteImage(index)" class="delete-button">删除</button>
+    <div class="company-news">
+        <!-- 操作栏 -->
+        <div class="operation-bar">
+            <el-button type="primary" @click="handleAdd">添加新的轮播图</el-button>
         </div>
-      </div>
-    </div>
 
-    <!-- 添加/编辑轮播图模态框 -->
-    <div v-if="showAddModal || showEditModal" class="modal">
-      <div class="modal-content">
-        <span @click="closeModal" class="close">&times;</span>
-        <h2>{{ isEditing ? '编辑轮播图' : '添加轮播图' }}</h2>
-        <input type="file" @change="handleFileUpload" accept="image/*" />
-        <input v-model="currentImage.text" placeholder="输入图片描述" />
-        <button @click="submitImage" class="submit-button">{{ isEditing ? '更新' : '添加' }}</button>
-      </div>
+        <!-- 轮播图列表 -->
+        <div class="news-list">
+            <el-card v-for="news, index in newsList" :key="news.id" class="news-item">
+                <template #header>
+                    <div class="card-header">
+                        <span style="font-weight: bolder;">第 {{ index + 1 }} 张轮播图内容</span>
+                        <div class="card-div">
+                            <el-button type="primary" size="small" @click="handleEdit(news)">编辑</el-button>
+                            <el-button type="danger" size="small" @click="handleDelete(news)">删除</el-button>
+                        </div>
+                    </div>
+                </template>
+                <div class="news-content">
+                    <img v-if="news.imageUrl" :src="news.imageUrl" class="news-image" alt="轮播图图片" />
+                    <div class="news-text">{{ news.imageWord }}</div>
+                </div>
+            </el-card>
+        </div>
+
+        <!-- 编辑/添加对话框 -->
+        <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑轮播图' : '新增轮播图'">
+            <el-form :model="form" :rules="rules" ref="formRef">
+                <el-form-item label="文字内容" prop="text">
+                    <el-input v-model="form.imageWord" type="textarea" :rows="4" />
+                </el-form-item>
+                <el-form-item label="图片" prop="imageUrl">
+                    <el-upload action="#" :auto-upload="false" :show-file-list="false" :on-change="handleImageChange">
+                        <el-button type="primary">点击上传</el-button>
+                        <template v-if="form.imageUrl">
+                            <img :src="form.imageUrl" class="preview-image" alt="预览" />
+                        </template>
+                    </el-upload>
+                </el-form-item>
+            </el-form>
+            <template #footer>
+                <el-button @click="dialogVisible = false">取消</el-button>
+                <el-button type="primary" @click="submitForm">确认</el-button>
+            </template>
+        </el-dialog>
     </div>
-  </div>
 </template>
 
-<script>
-import axios from 'axios';
+<script setup>
+import { ref, onMounted } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import request from '@/utils/request' 
 
-export default {
-  data() {
-    return {
-      images: [],
-      showAddModal: false,
-      showEditModal: false,
-      isEditing: false,
-      currentImage: {
-        url: '',
-        text: '',
-        file: null
-      },
-      editIndex: -1
-    };
-  },
-  created() {
-    this.fetchImages();
-  },
-  methods: {
-    async fetchImages() {
-      try {
-        const response = await axios.get('/image/getallimages');
-        this.images = response.data;
-      } catch (error) {
-        console.error('获取图片失败:', error);
-      }
-    },
-    handleFileUpload(event) {
-      this.currentImage.file = event.target.files[0];
-    },
-    async submitImage() {
-      const formData = new FormData();
-      formData.append('image', this.currentImage.file);
-      formData.append('text', this.currentImage.text);
+// 轮播图列表数据
+const newsList = ref([])
+const dialogVisible = ref(false)
+const isEdit = ref(false)
+const formRef = ref(null)
 
-      try {
-        if (this.isEditing) {
-          await axios.put(`/image/update/${this.editIndex}`, formData);
-        } else {
-          await axios.post('/image/upload', formData);
-        }
-        this.fetchImages();
-        this.closeModal();
-      } catch (error) {
-        console.error('上传图片失败:', error);
-      }
-    },
-    editImage(index) {
-      this.currentImage = { ...this.images[index] };
-      this.editIndex = index;
-      this.isEditing = true;
-      this.showEditModal = true;
-    },
-    async deleteImage(index) {
-      try {
-        await axios.delete(`/image/delete/${index}`);
-        this.fetchImages();
-      } catch (error) {
-        console.error('删除图片失败:', error);
-      }
-    },
-    closeModal() {
-      this.showAddModal = false;
-      this.showEditModal = false;
-      this.isEditing = false;
-      this.currentImage = { url: '', text: '', file: null };
-      this.editIndex = -1;
+// 表单数据
+const form = ref({
+    id: '',
+    imageUrl: '',
+    imageName: '',
+    imageWord: ''
+})
+
+// 验证规则
+const rules = {
+    imageWord: [{ required: true, message: '请输入图片上的文字', trigger: 'blur' }]
+}
+
+// 获取轮播图列表
+const fetchNews = async () => {
+    try {
+        const { data } = await request.get('/image/getallimages')
+        // console.log(data)
+        newsList.value = data.data.reverse()
+    } catch (error) {
+        ElMessage.error('获取轮播图列表失败')
     }
-  }
-};
+}
+
+// 图片处理
+const handleImageChange = (file) => {
+    form.value.imageUrl = file.raw // 直接使用文件对象
+}
+
+// 提交表单
+const submitForm = async () => {
+    try {
+        await formRef.value.validate()
+    } catch (error) {
+        ElMessage.error('请检查表单内容是否正确')
+        return
+    }
+
+    const formData = new FormData()
+    formData.append('imageWord', form.value.imageWord)
+    formData.append('imageFile', form.value.imageUrl) 
+
+    try {
+        if (isEdit.value) {
+            await request.post('/image/updateimage', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+        } else {
+            await request.post('/image/uploadimage', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            })
+        }
+        ElMessage.success('操作成功')
+        dialogVisible.value = false
+        fetchNews()
+    } catch (error) {
+        ElMessage.error('操作失败')
+    }
+}
+
+// 新增
+const handleAdd = () => {
+    isEdit.value = false
+    form.value = {
+      id: '',
+      imageUrl: '',
+      imageName: '',
+      imageWord: ''
+    }
+    dialogVisible.value = true
+}
+
+// 编辑
+const handleEdit = (news) => {
+    isEdit.value = true
+    form.value = { ...news }
+    dialogVisible.value = true
+}
+
+// 删除
+const handleDelete = async (news) => {
+    try {
+        await ElMessageBox.confirm('确认删除该轮播图？', '提示', { type: 'warning' })
+        await request.post('/image/deleteimage', news)
+        ElMessage.success('删除成功')
+        fetchNews()
+    } catch (error) {
+        // 取消删除不处理
+    }
+}
+
+onMounted(() => {
+    fetchNews()
+})
 </script>
 
 <style scoped>
-.carousel-management {
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
+.news-list {
+    display: grid;
+    gap: 20px;
+    padding: 20px 0;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+.news-item {
+    margin-bottom: 20px;
 }
 
-.add-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+
+    .card-div {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        width: 200px;
+    }
+
+    @media (max-width: 768px) {
+        width: 250px;
+
+        .card-div {
+            flex-wrap: wrap;
+            width: 100px;
+            /* margin-top: 20px; */
+        }
+    }
 }
 
-.image-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
+.news-image {
+    max-width: 400px;
+    max-height: 200px;
+    margin-right: 20px;
 }
 
-.image-item {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  overflow: hidden;
-  text-align: center;
+.preview-image {
+    max-width: 200px;
+    margin-top: 10px;
 }
 
-.image {
-  width: 100%;
-  height: auto;
-}
+.news-content {
+    display: flex;
+    align-items: flex-start;
+    font-size: 20px;
+    /* font-weight: bold; */
 
-.image-text {
-  padding: 10px;
-  font-size: 16px;
-}
 
-.actions {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-}
+    @media (max-width: 768px) {
+        flex-direction: column;
+        
 
-.edit-button, .delete-button {
-  padding: 5px 10px;
-  border: none;
-  cursor: pointer;
-  border-radius: 3px;
-}
+        .news-text {
+            font-size: 15px;
+        }
+    }
 
-.edit-button {
-  background-color: #2196F3;
-  color: white;
-}
-
-.delete-button {
-  background-color: #f44336;
-  color: white;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 300px;
-  text-align: center;
-}
-
-.close {
-  float: right;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-.submit-button {
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-@media (max-width: 768px) {
-  .image-list {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  }
 }
 </style>
