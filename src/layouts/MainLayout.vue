@@ -221,7 +221,7 @@ const logout = () => {
 
 /* 主内容区优化 */
 .admin-main {
-    background-color: #f8fafc;
+    background-color: #edf0f2;
     padding: 24px;
     position: relative;
     height: auto;
@@ -238,7 +238,7 @@ const logout = () => {
     font-size: 16px;
     color: #4a5568;
     display: flex;
-    align-items: center;
+    align-items:center;
     gap: 8px;
 }
 

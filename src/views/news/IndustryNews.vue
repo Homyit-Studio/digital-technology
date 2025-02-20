@@ -7,13 +7,14 @@
 
         <!-- 新闻列表 -->
         <div class="news-list">
-            <el-card v-for="news in newsList" :key="news.id" class="news-item">
+            <el-card v-for="news, index in newsList" :key="news.id" class="news-item">
                 <template #header>
                     <div class="card-header">
-                        <span>{{ news.title }}</span>
+                        <span>{{ index + 1 }}. {{ news.title }}</span>
                         <div class="card-div">
                             <el-button type="primary" size="small" @click="handleEdit(news)">编辑</el-button>
-                            <el-button type="danger" size="small" @click="handleDelete(news.id)">删除</el-button>
+                            <el-button type="danger" size="small"
+                                @click="handleDelete(news.id, news.imageUrl)">删除</el-button>
                         </div>
                     </div>
                 </template>
@@ -34,7 +35,8 @@
                     <el-input v-model="form.text" type="textarea" :rows="4" />
                 </el-form-item>
                 <el-form-item label="图片" prop="imageUrl">
-                    <el-upload action="#" :auto-upload="false" :show-file-list="false" :on-change="handleImageChange">
+                    <el-upload action="#" :auto-upload="false" :show-file-list="false" :limit="1"
+                        :on-exceed="() => ElMessage.warning('每次只能上传一张图片')" :on-change="handleImageChange">
                         <el-button type="primary">点击上传</el-button>
                         <template v-if="form.imageUrl">
                             <img :src="form.imageUrl" class="preview-image" alt="预览" />
@@ -87,7 +89,10 @@ const fetchNews = async () => {
 }
 
 // 图片处理
+const currentFile = ref(null) // 存储当前选中的文件
+
 const handleImageChange = (file) => {
+    currentFile.value = file.raw // 存储文件对象
     const reader = new FileReader()
     reader.onload = (e) => {
         form.value.imageUrl = e.target.result
@@ -98,20 +103,29 @@ const handleImageChange = (file) => {
 // 提交表单
 const submitForm = async () => {
     await formRef.value.validate()
-
-    const payload = {
-        ...form.value,
-        type: '行业资讯'
+    let formData = new FormData();
+    // 用户对象
+    let parameterAdd = { text: form.value.text, title: form.value.title, type: '行业资讯' };
+    let parameterEdit = { text: form.value.text, title: form.value.title, type: '行业资讯', id: form.value.id, imageUrl: form.value.imageUrl };
+    formData.append('file', currentFile.value);
+    if (isEdit.value) {
+        const blobEdit = new Blob([JSON.stringify(parameterEdit)], { type: 'application/json;charset=utf-8' });
+        formData.append('news', blobEdit);
+    } else {
+        const blobAdd = new Blob([JSON.stringify(parameterAdd)], { type: 'application/json;charset=utf-8' });
+        formData.append('news', blobAdd);
     }
-
     try {
-        if (isEdit.value) {
-            await request.post('/new/updatenews', payload)
-        } else {
-            await request.post('/new/insertnews', payload)
-        }
+        const endpoint = isEdit.value ? '/new/updatenews' : '/new/insertnews'
+        await request.post(endpoint, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+
+        })
         ElMessage.success('操作成功')
         dialogVisible.value = false
+        currentFile.value = null
         fetchNews()
     } catch (error) {
         ElMessage.error('操作失败')
@@ -122,9 +136,9 @@ const submitForm = async () => {
 const handleAdd = () => {
     isEdit.value = false
     form.value = { id: '', title: '', text: '', imageUrl: '' }
+    currentFile.value = null // 新增时清空文件缓存
     dialogVisible.value = true
 }
-
 // 编辑
 const handleEdit = (news) => {
     isEdit.value = true
@@ -133,10 +147,10 @@ const handleEdit = (news) => {
 }
 
 // 删除
-const handleDelete = async (id) => {
+const handleDelete = async (id, imageUrl) => {
     try {
         await ElMessageBox.confirm('确认删除该新闻？', '提示', { type: 'warning' })
-        await request.post('/new/deletenews', { "id": id, "imageUrl": imageUrl, "type": "行业资讯" })
+        await request.post('/new/deletenews', { "id": id, "imageUrl": imageUrl, "type": '行业资讯' })
         ElMessage.success('删除成功')
         fetchNews()
     } catch (error) {
