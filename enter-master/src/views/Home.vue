@@ -98,11 +98,7 @@
         <img src="@/assets/img/bbb111.png" alt="" />
       </div>
     </div>
-    <!-- 核心能力 -->
-    <!-- <CoreCompetence/> -->
-    <!-- 合作伙伴 -->
-    <!-- <CooperationCustomer/> -->
-    <!-- 客户见证部分 -->
+    <!-- 合作伙伴部分 -->
     <div class="product_shows_wrap">
       <div class="consult_title_wrap">
         <div class="consult_inner">
@@ -311,6 +307,7 @@ export default {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      gap: 10px;
 
       @media screen and (max-width: 768px) {
         width: 100%;
@@ -319,10 +316,8 @@ export default {
 
       .bottom_img_item {
         width: 45%;
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 20px;
-        margin: 20px;
+        height: 200px;
+        margin: 10px;
 
         @media screen and (max-width: 768px) {
           width: 45%;
@@ -330,6 +325,7 @@ export default {
 
         .bottom_img {
           width: 100%;
+          height: 100%;
           position: relative;
 
           img {
@@ -345,11 +341,11 @@ export default {
             width: 100%;
             text-align: center;
             color: #fff;
-            font-size: 25px;
+            font-size: 30px;
             font-weight: bold;
 
-            @media screen and (max-width:768px) {
-              font-size: 12px;
+            @media screen and (max-width: 768px) {
+              font-size: 10px;
             }
           }
         }
