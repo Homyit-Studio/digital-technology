@@ -185,6 +185,12 @@ onMounted(() => {
         width: 200px;
     }
 
+    span {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+    }
+
     @media (max-width: 768px) {
         width: 250px;
 

@@ -112,7 +112,6 @@ const submitForm = async () => {
         formData.append('news', blobEdit);
     } else {
         const blobAdd = new Blob([JSON.stringify(parameterAdd)], { type: 'application/json;charset=utf-8' });
-
         formData.append('news', blobAdd);
     }
     try {
@@ -176,7 +175,13 @@ onMounted(() => {
 .card-header {
     display: flex;
     justify-content: space-between;
+
     /* align-items: center; */
+    span {
+        font-size: 16px;
+        font-weight: 600;
+        color: #000;
+    }
 
     .card-div {
         display: flex;
