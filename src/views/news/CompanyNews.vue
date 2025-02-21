@@ -67,7 +67,8 @@ const form = ref({
     id: '',
     title: '',
     text: '',
-    imageUrl: ''
+    imageUrl: '',
+    baseImageURL: ""
 })
 
 // 验证规则
@@ -105,8 +106,9 @@ const submitForm = async () => {
     let formData = new FormData();
     // 用户对象
     let parameterAdd = { text: form.value.text, title: form.value.title, type: '公司新闻' };
-    let parameterEdit = { text: form.value.text, title: form.value.title, type: '公司新闻', id: form.value.id, imageUrl: form.value.imageUrl };
+    let parameterEdit = { text: form.value.text, title: form.value.title, type: '公司新闻', id: form.value.id, imageUrl: form.value.baseImageURL };
     formData.append('file', currentFile.value);
+
     if (isEdit.value) {
         const blobEdit = new Blob([JSON.stringify(parameterEdit)], { type: 'application/json;charset=utf-8' });
         formData.append('news', blobEdit);
@@ -116,13 +118,16 @@ const submitForm = async () => {
     }
     try {
         const endpoint = isEdit.value ? '/new/updatenews' : '/new/insertnews'
-        await request.post(endpoint, formData, {
+        const { data } = await request.post(endpoint, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             },
 
         })
-        ElMessage.success('操作成功')
+        console.log(data)
+        if (data.code == 607) ElMessage.error('添加失败')
+        else if (data.code == 609) ElMessage.error('修改失败')
+        else ElMessage.success('操作成功')
         dialogVisible.value = false
         currentFile.value = null
         fetchNews()
@@ -141,6 +146,7 @@ const handleAdd = () => {
 const handleEdit = (news) => {
     isEdit.value = true
     form.value = { ...news }
+    form.value.baseImageURL = news.imageUrl
     dialogVisible.value = true
 }
 

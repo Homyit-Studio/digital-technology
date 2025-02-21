@@ -31,7 +31,6 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/auth'
 import request from '@/utils/request'
-import { ElMessage } from 'element-plus'
 
 const form = ref({
     name: '',
@@ -60,16 +59,23 @@ const rules = {
 const handleLogin = async () => {
     try {
         loading.value = true
+        authStore.removeToken()
         const { data } = await request.post('/login', form.value)
+        // console.log(data)
         authStore.setToken(data.data.token)
-        // console.log(authStore.token)
-        if (autoLogin.value) {
-            localStorage.setItem('autoLoginUser', JSON.stringify(form.value))
+        if (data.data.code == 603) {
+            ElMessage.error('登录失败')
         } else {
-            localStorage.removeItem('autoLoginUser')
+            if (autoLogin.value) {
+                localStorage.setItem('autoLoginUser', JSON.stringify(form.value))
+            } else {
+                localStorage.removeItem('autoLoginUser')
+            }
+            ElMessage.success('登录成功')
+            router.push('/')
         }
-        ElMessage.success('登录成功')
-        router.push('/')
+        // console.log(authStore.token)
+
     } catch (e) {
         // ElMessage.error(error.response?.data?.message || '登录失败')
     } finally {

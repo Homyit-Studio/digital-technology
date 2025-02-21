@@ -67,7 +67,8 @@ const form = ref({
     id: '',
     title: '',
     text: '',
-    imageUrl: ''
+    imageUrl: '',
+    baseImageURL: ""
 })
 
 // 验证规则
@@ -105,8 +106,9 @@ const submitForm = async () => {
     let formData = new FormData();
     // 用户对象
     let parameterAdd = { text: form.value.text, title: form.value.title, type: '行业资讯' };
-    let parameterEdit = { text: form.value.text, title: form.value.title, type: '行业资讯', id: form.value.id, imageUrl: form.value.imageUrl };
+    let parameterEdit = { text: form.value.text, title: form.value.title, type: '行业资讯', id: form.value.id, imageUrl: form.value.baseImageURL };
     formData.append('file', currentFile.value);
+    console.log(currentFile.value)
     if (isEdit.value) {
         const blobEdit = new Blob([JSON.stringify(parameterEdit)], { type: 'application/json;charset=utf-8' });
         formData.append('news', blobEdit);
@@ -142,6 +144,7 @@ const handleAdd = () => {
 const handleEdit = (news) => {
     isEdit.value = true
     form.value = { ...news }
+    form.value.baseImageURL = news.imageUrl
     dialogVisible.value = true
 }
 

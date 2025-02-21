@@ -90,9 +90,9 @@
         <el-container>
             <el-header class="admin-header">
                 <div class="items-center">
-                    <el-icon class="mr-2">
-                        <user />
-                    </el-icon>
+                    <!-- <el-icon>
+                        <icon-ep-user />
+                    </el-icon> -->
                     <span>欢迎，管理员！</span>
                 </div>
                 <el-button type="danger" @click="logout">
@@ -238,7 +238,7 @@ const logout = () => {
     font-size: 16px;
     color: #4a5568;
     display: flex;
-    align-items:center;
+    align-items: center;
     gap: 8px;
 }
 
