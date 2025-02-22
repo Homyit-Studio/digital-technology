@@ -1,173 +1,168 @@
 <template>
-<div class="company-news">
-<!-- 操作栏 -->
-<div class="operation-bar">
-<el-button type="primary" @click="handleAdd">添加新的轮播图</el-button>
-</div>
+    <div class="company-news">
+        <!-- 操作栏 -->
+        <div class="operation-bar">
+            <el-button type="primary" @click="handleAdd">添加新的轮播图</el-button>
+        </div>
 
-    <!-- 轮播图列表 -->
-    <div class="news-list">
-        <el-card v-for="news, index in newsList" :key="news.id" class="news-item">
-            <template #header>
-                <div class="card-header">
-                    <span style="font-weight: bolder;">第 {{ index + 1 }} 张轮播图内容</span>
-                    <div class="card-div">
-                        <el-button type="primary" size="small" @click="handleEdit(news)">编辑</el-button>
-                        <el-button type="danger" size="small" @click="handleDelete(news)">删除</el-button>
+        <!-- 新闻列表 -->
+        <div class="news-list">
+            <el-card v-for="news, index in newsList" :key="news.id" class="news-item">
+                <template #header>
+                    <div class="card-header">
+                        <span style="font-weight: bolder;">第 {{ index + 1 }} 张轮播图内容</span>
+                        <div class="card-div">
+                            <el-button type="primary" size="small" @click="handleEdit(news)">编辑</el-button>
+                            <el-button type="danger" size="small"
+                                @click="handleDelete(news)">删除</el-button>
+                        </div>
                     </div>
+                </template>
+                <div class="news-content">
+                    <img v-if="news.imageUrl" :src="news.imageUrl" class="news-image" alt="轮播图" />
+                    <div class="news-text">{{ news.imageWord }}</div>
                 </div>
-            </template>
-            <div class="news-content">
-                <img v-if="news.imageUrl" :src="news.imageUrl" class="news-image" alt="轮播图图片" />
-                <div class="news-text">{{ news.imageWord }}</div>
-            </div>
-        </el-card>
-    </div>
+            </el-card>
+        </div>
 
-    <!-- 编辑/添加对话框 -->
-    <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑轮播图' : '新增轮播图'">
-        <el-form :model="form" :rules="rules" ref="formRef">
-            <el-form-item label="文字内容" prop="text">
-                <el-input v-model="form.imageWord" type="textarea" :rows="4" />
-            </el-form-item>
-            <el-form-item label="图片" prop="imageUrl">
-                <el-upload action="#" :auto-upload="false" :show-file-list="false" :on-change="handleImageChange">
-                    <el-button type="primary">点击上传</el-button>
-                    <template v-if="form.imageUrl">
-                        <img :src="form.imageUrl" class="preview-image" alt="预览" />
-                    </template>
-                </el-upload>
-            </el-form-item>
-        </el-form>
-        <template #footer>
-            <el-button @click="dialogVisible = false">取消</el-button>
-            <el-button type="primary" @click="submitForm">确认</el-button>
-        </template>
-    </el-dialog>
-</div>
+        <!-- 编辑/添加对话框 -->
+        <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑轮播图' : '新增轮播图'">
+            <el-form :model="form" :rules="rules" ref="formRef">
+                <el-form-item label="图片上的文字" prop="imageWord">
+                    <el-input v-model="form.imageWord" />
+                </el-form-item>
+                <el-form-item label="图片" prop="imageUrl">
+                    <el-upload action="#" :auto-upload="false" :show-file-list="false" :on-change="handleImageChange">
+                        <el-button type="primary">点击上传</el-button>
+                        <template v-if="form.imageUrl">
+                            <img :src="form.imageUrl" class="preview-image" alt="预览" />
+                        </template>
+                    </el-upload>
+                </el-form-item>
+            </el-form>
+            <template #footer>
+                <el-button @click="dialogVisible = false">取消</el-button>
+                <el-button type="primary" @click="submitForm">确认</el-button>
+            </template>
+        </el-dialog>
+    </div>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
-import { ElMessage, ElMessageBox } from 'element-plus';
-import request from '@/utils/request';
+import { ref, onMounted } from 'vue'
+import { ElMessage, ElMessageBox } from 'element-plus'
+import request from '@/utils/request' 
 
-// 轮播图列表数据
-const newsList = ref([]);
-const dialogVisible = ref(false);
-const isEdit = ref(false);
-const formRef = ref(null);
+// 新闻列表数据
+const newsList = ref([])
+const dialogVisible = ref(false)
+const isEdit = ref(false)
+const formRef = ref(null)
 
 // 表单数据
 const form = ref({
-id: '',
-imageUrl: '',
-imageName: '',
-imageWord: '',
-imageFile: null,
-});
+    id: '',
+    imageUrl: '',
+    imageName: '',
+    imageWord: '',
+    baseImageURL: ""
+})
 
 // 验证规则
 const rules = {
-imageWord: [{ required: true, message: '请输入图片上的文字', trigger: 'blur' }],
-};
+    imageWord: [{ required: true, message: '请输入图片上的文字', trigger: 'blur' }],
+}
 
 // 获取轮播图列表
 const fetchNews = async () => {
-try {
-const { data } = await request.get('/image/getallimages');
-newsList.value = data.data.reverse();
-} catch (error) {
-ElMessage.error('获取轮播图列表失败');
+    try {
+        const { data } = await request.get('/image/getallimages');
+        newsList.value = data.data.reverse();
+    } catch (error) {
+        ElMessage.error('获取轮播图列表失败');
+    }
 }
-};
 
 // 图片处理
-const handleImageChange = (file) => {
-if (!file || !file.raw) {
-return false; // 防止没有文件或者文件不完整时的操作
-}
+const currentFile = ref(null) // 存储当前选中的文件
 
-form.value.imageUrl = URL.createObjectURL(file.raw);
-form.value.imageFile = file;
-return true;
-};
+const handleImageChange = (file) => {
+    currentFile.value = file.raw // 存储文件对象
+    const reader = new FileReader()
+    reader.onload = (e) => {
+        form.value.imageUrl = e.target.result
+    }
+    reader.readAsDataURL(file.raw)
+}
 
 // 提交表单
 const submitForm = async () => {
-try {
-await formRef.value.validate();
-} catch (error) {
-ElMessage.error('请检查表单内容是否正确');
-return;
-}
+    await formRef.value.validate()
+    let formData = new FormData();
+    // 用户对象
+    let parameterAdd = { imageName: form.value.imageName,imageWord: form.value.imageWord };
+    let parameterEdit = {id:form.value.id, imageUrl: form.value.baseImageURL,imageName: form.value.imageName,imageWord: form.value.imageWord };
+    formData.append('file', currentFile.value);
 
-let formData = new FormData();
-if (form.value.imageFile !== null) {
-    formData.append("file", form.value.imageFile.raw);
-}
-
-const jsonStr = JSON.stringify({
-    id: form.value.id,
-    imageUrl: form.value.imageUrl,
-    imageName: form.value.imageName,
-    imageWord: form.value.imageWord,
-});
-
-const blob = new Blob([jsonStr], { type: 'application/json' });
-formData.append("form", blob);
-
-try {
     if (isEdit.value) {
-        formData.append('id', form.value.id);
-        await request.post('/image/updateimage', formData);
+        const blobEdit = new Blob([JSON.stringify(parameterEdit)], { type: 'application/json;charset=utf-8' });
+        formData.append('image', blobEdit);
     } else {
-        await request.post('/image/uploadimage', formData);
+        const blobAdd = new Blob([JSON.stringify(parameterAdd)], { type: 'application/json;charset=utf-8' });
+        formData.append('image', blobAdd);
     }
-    ElMessage.success('操作成功');
-    dialogVisible.value = false;
-    fetchNews();
-} catch (error) {
-    console.error('操作失败:', error);
-    ElMessage.error('操作失败');
+    console.log(formData)
+    try {
+        const endpoint = isEdit.value ? '/image/updateimage' : '/image/uploadimage'
+        const { data } = await request.post(endpoint, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            },
+
+        })
+        console.log(data)
+        if (data.code == 607) ElMessage.error('添加失败')
+        else if (data.code == 609) ElMessage.error('修改失败')
+        else ElMessage.success('操作成功')
+        dialogVisible.value = false
+        currentFile.value = null
+        fetchNews()
+    } catch (error) {
+        ElMessage.error('操作失败')
+    }
 }
-};
 
 // 新增
 const handleAdd = () => {
-isEdit.value = false;
-form.value = {
-id: '',
-imageUrl: '',
-imageName: '',
-imageWord: '',
-imageFile: null,
-};
-dialogVisible.value = true;
-};
+    isEdit.value = false
+    form.value = { id: '', imageWord: '', imageName:'',imageUrl: '' }
+    currentFile.value = null // 新增时清空文件缓存
+    dialogVisible.value = true
+}
 
 // 编辑
 const handleEdit = (news) => {
-isEdit.value = true;
-form.value = { ...news };
-dialogVisible.value = true;
-};
+    isEdit.value = true
+    form.value = { ...news }
+    form.value.baseImageURL = news.imageUrl
+    dialogVisible.value = true
+}
 
 // 删除
 const handleDelete = async (news) => {
-try {
-await ElMessageBox.confirm('确认删除该轮播图？', '提示', { type: 'warning' });
-await request.post('/image/deleteimage', news);
-ElMessage.success('删除成功');
-fetchNews();
-} catch (error) {
-// 取消删除不处理
+    try {
+        await ElMessageBox.confirm('确认删除该轮播图？', '提示', { type: 'warning' });
+        await request.post('/image/deleteimage', news);
+        ElMessage.success('删除成功');
+        fetchNews();
+    } catch (error) {
+        // 取消删除不处理
+    }
 }
-};
 
 onMounted(() => {
-fetchNews();
-});
+    fetchNews()
+})
 </script>
 
 <style scoped>
