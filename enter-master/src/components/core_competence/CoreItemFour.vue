@@ -49,7 +49,7 @@ export default {
     http.get('/case/getallcases')
       .then(response => {
         if (response.data.code === 201) {
-          this.procardList3 = response.data.data;
+          this.procardList3 = response.data.data.filter(item => item.type === '数字信息平台').reverse();
         } else {
           console.error('获取数据失败', response.data.desc);
         }

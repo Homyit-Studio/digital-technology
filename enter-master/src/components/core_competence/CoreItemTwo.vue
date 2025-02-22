@@ -6,10 +6,10 @@
           class="bottom_video_item"
           v-for="(item, index) in procardList3"
           :key="index"
-          @click="openModal(item.videoUrl)"
+          @click="openModal(item.imageUrlUrl)"
         >
           <div class="bottom_video">
-            <video :src="item.videoUrl" controls>
+            <video :src="item.imageUrl" controls>
               Your browser does not support the video tag.
             </video>
             <div class="video_desc">{{ item.caseIntroduction }}</div>
@@ -30,24 +30,13 @@
 </template>
 
 <script>
-// import http from '@/utils/http.js'
+import http from '@/utils/http.js'
 
 export default {
   data() {
     return {
       procardList3: [
-        {
-          videoUrl: require('@/assets/L_img/1111.mp4'), 
-          caseIntroduction: 'Video 1'
-        },
-        {
-          videoUrl: require('@/assets/L_img/1111.mp4'), 
-          caseIntroduction: 'Video 2'
-        },
-        {
-          videoUrl: require('@/assets/L_img/1111.mp4'), 
-          caseIntroduction: 'Video 3'
-        }
+       
       ],
       isModalOpen: false,
       currentVideo: '',
@@ -62,19 +51,19 @@ export default {
       this.isModalOpen = false;
     }
   },
-  // mounted() {
-  //   http.get('/case/getallcases')
-  //     .then(response => {
-  //       if (response.data.code === 201) {
-  //         // this.procardList3 = response.data.data;
-  //       } else {
-  //         console.error('获取数据失败', response.data.desc);
-  //       }
-  //     })
-  //     .catch(error => {
-  //       console.error('请求失败', error);
-  //     });
-  // }
+  mounted() {
+    http.get('/case/getallcases')
+      .then(response => {
+        if (response.data.code === 201) {
+          this.procardList3 = response.data.data.filter(item => item.type === '全景漫游').reverse();
+        } else {
+          console.error('获取数据失败', response.data.desc);
+        }
+      })
+      .catch(error => {
+        console.error('请求失败', error);
+      });
+  }
 }
 </script>
 
