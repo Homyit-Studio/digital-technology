@@ -47,10 +47,10 @@ export default {
       scrollX: true, //X轴滚动启用
       eventPassthrough: 'vertical'
     })
-    const scrollXEnd = (4 - 2) * window.innerWidth / 10
+    const scrollXEnd = window.innerWidth / 4
     // console.log(this.showImages.length)
     // console.log(scrollXEnd)
-    this.$refs.scrollWidth.style.width = 4 * window.innerWidth + 100 + 'px'
+    this.$refs.scrollWidth.style.width = window.innerWidth + 'px'
     console.log(this.$refs.scrollWidth.style.width)
     this.scroll.refresh()
     this.scroll.scrollTo(scrollXEnd, 0, 10000)
@@ -133,9 +133,10 @@ export default {
 
           img {
             // width: 100%;
+            width: 100%;
             height: 250px;
             // width: 100%;
-            object-fit: contain;
+            object-fit: cover;
 
             @media screen and (max-width: 768px) {
               // height: 250px;
