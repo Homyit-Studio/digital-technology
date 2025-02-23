@@ -2,7 +2,7 @@
     <div class="company-news">
         <!-- 操作栏 -->
         <div class="operation-bar">
-            <el-button type="primary" @click="handleAdd">添加新的数字信息化平台</el-button>
+            <el-button type="primary" @click="handleAdd">添加新的数字信息平台</el-button>
         </div>
 
         <!-- 数字信息化平台列表 -->
@@ -10,7 +10,7 @@
             <el-card v-for="news, index in newsList" :key="news.id" class="news-item">
                 <template #header>
                     <div class="card-header">
-                        <span style="font-weight: bolder;">第 {{ index + 1 }} 个数字信息化平台项目</span>
+                        <span style="font-weight: bolder;">第 {{ index + 1 }} 个数字信息平台项目</span>
                         <div class="card-div">
                             <el-button type="primary" size="small" @click="handleEdit(news)">编辑</el-button>
                             <el-button type="danger" size="small"
@@ -19,16 +19,16 @@
                     </div>
                 </template>
                 <div class="news-content">
-                    <img v-if="news.imageUrl" :src="news.imageUrl" class="news-image" alt="数字信息化平台项目" />
+                    <img v-if="news.imageUrl" :src="news.imageUrl" class="news-image" alt="数字信息平台项目" />
                     <div class="news-text">{{ news.caseIntroduction }}</div>
                 </div>
             </el-card>
         </div>
 
         <!-- 编辑/添加对话框 -->
-        <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑数字信息化平台项目' : '新增数字信息化平台项目'">
+        <el-dialog v-model="dialogVisible" :title="isEdit ? '编辑数字信息平台项目' : '新增数字信息平台项目'">
             <el-form :model="form" :rules="rules" ref="formRef">
-                <el-form-item label="数字信息化平台的简要描述" prop="caseIntroduction">
+                <el-form-item label="数字信息平台的简要描述" prop="caseIntroduction">
                     <el-input v-model="form.caseIntroduction" />
                 </el-form-item>
                 <el-form-item label="图片" prop="imageUrl">
@@ -69,7 +69,7 @@ const form = ref({
 
 // 验证规则
 const rules = {
-    caseIntroduction: [{ required: true, message: '请输入数字信息化平台简要描述', trigger: 'blur' }],
+    caseIntroduction: [{ required: true, message: '请输入数字信息平台简要描述', trigger: 'blur' }],
 }
 
 // 获取数字信息化平台列表
@@ -77,10 +77,10 @@ const fetchNews = async () => {
     try {
         const { data } = await request.get('/case/getallcases');
         // 过滤出 type 为 "数字信息化平台" 的项目
-        newsList.value = data.data.filter(item => item.type === '数字信息化平台').reverse();
+        newsList.value = data.data.filter(item => item.type === '数字信息平台').reverse();
         console.log(newsList.value)
     } catch (error) {
-        ElMessage.error('获取数字信息化平台列表失败');
+        ElMessage.error('获取数字信息平台列表失败');
     }
 }
 
@@ -101,8 +101,8 @@ const submitForm = async () => {
     await formRef.value.validate()
     let formData = new FormData();
     // 用户对象
-    let parameterAdd = { caseIntroduction: form.value.caseIntroduction,type: '数字信息化平台' };
-    let parameterEdit = {id:form.value.id, imageUrl: form.value.baseImageURL,caseIntroduction: form.value.caseIntroduction,type: '数字信息化平台' };
+    let parameterAdd = { caseIntroduction: form.value.caseIntroduction,type: '数字信息平台' };
+    let parameterEdit = {id:form.value.id, imageUrl: form.value.baseImageURL,caseIntroduction: form.value.caseIntroduction,type: '数字信息平台' };
     formData.append('file', currentFile.value);
 
     if (isEdit.value) {
@@ -152,7 +152,7 @@ const handleEdit = (news) => {
 // 删除
 const handleDelete = async (news) => {
     try {
-        await ElMessageBox.confirm('确认删除该数字信息化平台项目？', '提示', { type: 'warning' });
+        await ElMessageBox.confirm('确认删除该数字信息平台项目？', '提示', { type: 'warning' });
         await request.post('/case/deletecase', news);
         ElMessage.success('删除成功');
         fetchNews();
