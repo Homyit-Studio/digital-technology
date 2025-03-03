@@ -1,7 +1,7 @@
 <template>
     <div :show="loading">
         <div class="frame">
-            <iframe src="http://homyit2023.online:81/" class="frame-iframe" ref="frameRef"></iframe>
+            <iframe src="http://106.14.106.91/" class="frame-iframe" ref="frameRef"></iframe>
         </div>
     </div>
 </template>
