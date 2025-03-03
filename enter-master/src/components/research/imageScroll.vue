@@ -2,8 +2,7 @@
   <div class="scroll_wrap_overflow" ref="wrapper">
     <div class="scroll_content" ref="scrollWidth">
       <div class="scroll_wrap">
-        <div class="scroll_item" v-for="(item, index) in showImages.reverse().slice(0, 4)" :key="index"
-          @click="showModal(item)">
+        <div class="scroll_item" v-for="(item, index) in reversedImages" :key="index" @click="showModal(item)">
           <div class="scroll_img">
             <img :src="item.imageUrl" style="user-select: none;pointer-events: none" alt="" ref="curImg" />
           </div>
@@ -27,7 +26,7 @@
 </template>
 
 <script>
-import BScroll from 'better-scroll'
+import BScroll from '@better-scroll/core'
 import http from '@/utils/http.js'
 export default {
   data() {
@@ -40,37 +39,39 @@ export default {
   },
 
   mounted() {
-    this.loadNewsData()
-    this.scroll = new BScroll(this.$refs.wrapper, {
-      disableMouse: false, //启用鼠标拖动
-      disableTouch: false, //启用手指触摸
-      scrollX: true, //X轴滚动启用
-      eventPassthrough: 'vertical'
-    })
-    const scrollXEnd = window.innerWidth / 4
-    // console.log(this.showImages.length)
-    // console.log(scrollXEnd)
-    this.$refs.scrollWidth.style.width = window.innerWidth + 'px'
-    console.log(this.$refs.scrollWidth.style.width)
-    this.scroll.refresh()
-    this.scroll.scrollTo(scrollXEnd, 0, 10000)
-    setTimeout(() => {
-      this.scroll.scrollTo(0, 0, 10000)
-    }, 10000)
+    this.loadNewsData().then(() => { // 确保数据加载完成
+      this.$nextTick(() => { // 等待 DOM 更新
+        this.initScroll();
+        // 设置宽度和滚动逻辑
+        const scrollXEnd = window.innerWidth / 4;
+        this.$refs.scrollWidth.style.width = window.innerWidth + 'px';
+        this.scroll?.refresh();
+        this.scroll.scrollTo(scrollXEnd, 0, 10000);
+        setTimeout(() => {
+          this.scroll.scrollTo(0, 0, 10000);
+        }, 10000);
+      });
+    });
     //创建BScroll对象并设置参数
   },
   methods: {
+    initScroll() {
+      if (this.scroll) {
+        this.scroll.destroy(); // 销毁旧实例
+      }
+      this.scroll = new BScroll(this.$refs.wrapper, {
+        scrollX: true,
+        disableMouse: false,
+        disableTouch: false,
+        eventPassthrough: 'vertical'
+      });
+    },
     loadNewsData() {
-      http.post('/new/getnews', { "type": "公司新闻" })
+      return http.post('/new/getnews', { "type": "公司新闻" }) // 返回 Promise
         .then(response => {
           if (response.data.code === 201) {
-            this.showImages = response.data.data
-          } else {
-            console.error('获取数据失败', response.data.desc);
+            this.showImages = response.data.data;
           }
-        })
-        .catch(error => {
-          console.error('请求失败', error);
         });
     },
     // handleToDemo() {
@@ -88,6 +89,11 @@ export default {
       this.scroll.enable()
     }
   },
+  computed: {
+    reversedImages() {
+      return [...this.showImages].reverse().slice(0, 4); // 创建副本再反转
+    }
+  }
 }
 </script>
 

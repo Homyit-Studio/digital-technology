@@ -9,11 +9,11 @@
         <div class="items_wrap">
           <div class="item_tit">公司概况</div>
           <div class="item_options">
-            <span @click="handleToRouter('/fournav/1')">项目团队</span>
-            <span @click="handleToRouter('/fournav/1')">研究平台</span>
-            <span @click="handleToRouter('/fournav/1')">条件设备</span>
-            <!-- <span @click="handleToRouter('/fournav/2')">精选文章</span>
-            <span @click="handleToRouter('/fournav/3')">媒体报道</span> -->
+            <span @click="handleToRouter('/introduction/1')">项目团队</span>
+            <span @click="handleToRouter('/introduction/1')">研究平台</span>
+            <span @click="handleToRouter('/introduction/1')">条件设备</span>
+            <!-- <span @click="handleToRouter('/introduction/2')">精选文章</span>
+            <span @click="handleToRouter('/introduction/3')">媒体报道</span> -->
           </div>
         </div>
         <div class="items_wrap">
@@ -32,11 +32,11 @@
         <div class="items_wrap">
           <div class="item_tit">新闻资讯</div>
           <div class="item_options">
-            <span @click="handleToRouter('/threenav')">公司资讯</span>
-            <span @click="handleToRouter('/threenav')">政策支持</span>
-            <span @click="handleToRouter('/threenav')">行业资讯</span>
-            <!-- <span @click="handleToRouter('/fournav/2')">精选文章</span>
-            <span @click="handleToRouter('/fournav/3')">媒体报道</span> -->
+            <span @click="handleToRouter('/news/1')">公司资讯</span>
+            <span @click="handleToRouter('/news/1')">政策支持</span>
+            <span @click="handleToRouter('/news/1')">行业资讯</span>
+            <!-- <span @click="handleToRouter('/introduction/2')">精选文章</span>
+            <span @click="handleToRouter('/introduction/3')">媒体报道</span> -->
           </div>
         </div>
         <div class="items_wrap">

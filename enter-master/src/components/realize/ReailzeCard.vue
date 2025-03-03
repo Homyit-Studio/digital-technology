@@ -20,32 +20,32 @@ export default {
     return {
       activeIndex: 0,
       desc: '地址：江西省南昌市南昌高新技术产业开发区瑶湖西大道888号东方豪庭小区1#0803室',
-      reailzeImgList: [
-        {
-          src: 'el-icon-picture-outline-round',
-          txt: '一企一档',
-        },
-        {
-          src: 'el-icon-picture-outline-round',
-          txt: '一企一档',
-        },
-        {
-          src: 'el-icon-picture-outline-round',
-          txt: '一企一档',
-        },
-        {
-          src: 'el-icon-picture-outline-round',
-          txt: '一企一档',
-        },
-        {
-          src: 'el-icon-picture-outline-round',
-          txt: '一企一档',
-        },
-        {
-          src: 'el-icon-picture-outline-round',
-          txt: '一企一档',
-        },
-      ],
+      // reailzeImgList: [
+      //   {
+      //     src: 'el-icon-picture-outline-round',
+      //     txt: '一企一档',
+      //   },
+      //   {
+      //     src: 'el-icon-picture-outline-round',
+      //     txt: '一企一档',
+      //   },
+      //   {
+      //     src: 'el-icon-picture-outline-round',
+      //     txt: '一企一档',
+      //   },
+      //   {
+      //     src: 'el-icon-picture-outline-round',
+      //     txt: '一企一档',
+      //   },
+      //   {
+      //     src: 'el-icon-picture-outline-round',
+      //     txt: '一企一档',
+      //   },
+      //   {
+      //     src: 'el-icon-picture-outline-round',
+      //     txt: '一企一档',
+      //   },
+      // ],
     }
   },
   props: {

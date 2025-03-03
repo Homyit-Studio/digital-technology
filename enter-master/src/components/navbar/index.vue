@@ -67,13 +67,13 @@ export default {
           this.$router.push('/production/1').catch(() => { })
           break
         case '3':
-          this.$router.push('/threenav').catch(() => { })
+          this.$router.push('/news/1').catch(() => { })
           break
         case '4':
-          this.$router.push('/fournav/2').catch(() => { })
+          this.$router.push('/introduction/1').catch(() => { })
           break
         case '5':
-          this.$router.push('/fivenav/2').catch(() => { })
+          this.$router.push('/aboutme/1').catch(() => { })
           break
         default:
           break

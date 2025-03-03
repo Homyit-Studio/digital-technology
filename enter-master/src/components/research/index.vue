@@ -76,8 +76,6 @@
       </div>
       <imageScroll />
     </div>
-
-
     <div class="support_wrap">
       <div class="research_title_wrap">
         <div class="research_inner">
@@ -157,9 +155,9 @@
 <script>
 import http from '@/utils/http.js'
 import BScroll from '@better-scroll/core'
-import Pullup from '@better-scroll/pull-up'
+// import Pullup from '@better-scroll/pull-up'
 import MouseWheel from '@better-scroll/mouse-wheel'
-BScroll.use(Pullup)
+// BScroll.use(Pullup)
 BScroll.use(MouseWheel)
 
 import CallMe from '@/components/callme/index'
@@ -176,7 +174,7 @@ export default {
         },
       ],
       activeIndex: 0,
-      industryNews: [],
+      industryNews: [""],
       scroll: null,
       scroll2: null,
     }
@@ -186,54 +184,55 @@ export default {
       this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
   },
   mounted() {
-    this.scroll = new BScroll(this.$refs.listScroll, {
-      scrollX: true, // X轴滚动启用
-      eventPassthrough: 'vertical',
-      snap: {
-        loop: false,
-        threshold: 0.3, // 滚动到下一个卡片的阈值
-        // stepX: this.$refs.cardItem.clientWidth, // 每个卡片的宽度
-      },
-      mouseWheel: {
-        speed: 20,
-        invert: false,
-        easeTime: 300,
-      },
-      click: true, // 确保点击事件可以触发
-      disableMouse: false, // 确保鼠标事件可以触发
-      disableTouch: false, // 确保触摸事件可以触发
-    })
+    window.addEventListener('resize', this.handleResize);
     http.post('/new/getnews', { "type": "行业资讯" })
       .then(response => {
         if (response.data.code === 201) {
-          this.industryNews = response.data.data.reverse()
-          // this.cardList = response.data.data;
+          this.industryNews = response.data.data.reverse();
           this.$nextTick(() => {
-            this.scroll.refresh()
-            // 建议增加错误处理
-            this.scroll.options.momentum = true
-          })
-        } else {
-          console.error('获取数据失败', response.data.desc);
+            this.initScroll(); // 数据加载完成后初始化滚动
+          });
         }
-      })
-      .catch(error => {
-        console.error('请求失败', error);
       });
   },
+
   methods: {
-    handleNewsDetails(url) {
-      window.open(url)
-    },
-    changeOptionIndex(index) {
-      this.optionActive = index
-      if (index === 1) {
-        this.$nextTick(() => {
-          this.scroll.refresh()
-          this.scroll2.refresh()
-        })
+    handleResize() {
+      if (this.scroll) {
+        this.scroll.refresh();
       }
     },
+    initScroll() {
+      if (this.scroll) {
+        this.scroll.destroy(); // 销毁旧实例
+      }
+
+      this.scroll = new BScroll(this.$refs.listScroll, {
+        scrollX: true,
+        eventPassthrough: 'vertical',
+        probeType: 3, // 实时派发滚动事件
+        click: true,
+        momentum: false, // 关闭动量滚动提升性能
+        mouseWheel: {
+          speed: 10, // 降低滚动速度
+          invert: false,
+          easeTime: 400
+        }
+      });
+
+      // 图片加载完成后刷新滚动
+      const images = this.$el.querySelectorAll('.card_item img');
+      images.forEach(img => {
+        img.onload = () => this.scroll?.refresh();
+      });
+    }
+  },
+  beforeDestroy() {
+    if (this.scroll) {
+      this.scroll.destroy();
+      this.scroll = null;
+    }
+    window.removeEventListener('resize', this.handleResize);
   },
   watch: {
     $route() {

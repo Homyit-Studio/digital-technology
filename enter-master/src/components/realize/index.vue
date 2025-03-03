@@ -150,7 +150,7 @@
 </template>
 
 <script>
-import http from '@/utils/http.js'
+// import http from '@/utils/http.js'
 //import PersonCard from './PersonCard.vue'
 import CallMe from '@/components/callme/index'
 import MobileCallme from '@/components/callme/MobileCallme.vue'
@@ -170,7 +170,7 @@ export default {
           name: '4',
         },
       ],
-      tabSelectIndex: 0,
+      // tabSelectIndex: 0,
       advantageList: [
         {
           icon: '',
@@ -216,39 +216,39 @@ export default {
       cardList: [],
     }
   },
-  methods: {
-    changeTabIndex(index) {
-      this.tabSelectIndex = index
-    },
-  },
+  // methods: {
+  //   changeTabIndex(index) {
+  //     this.tabSelectIndex = index
+  //   },
+  // },
   components: {
     CallMe,
     MobileCallme,
     ReailzeCard,
   },
-  created() {
-    this.tabSelectIndex = this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
-  },
-  watch: {
-    $route() {
-      this.tabSelectIndex =
-        this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
-    },
-  },
-  mounted() {
-    // 发起请求获取合作伙伴数据
-    http.get('/collaboratingcompany/getallcollaboratingcompanies')
-      .then(response => {
-        if (response.data.code === 201) {
-          this.cardList = response.data.data;
-        } else {
-          console.error('获取数据失败', response.data.desc);
-        }
-      })
-      .catch(error => {
-        console.error('请求失败', error);
-      });
-  }
+  // created() {
+  //   this.tabSelectIndex = this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
+  // },
+  // watch: {
+  //   $route() {
+  //     this.tabSelectIndex =
+  //       this.$route.path.substr(this.$route.path.length - 1) * 1 - 1
+  //   },
+  // },
+  // mounted() {
+  //   // 发起请求获取合作伙伴数据
+  //   http.get('/collaboratingcompany/getallcollaboratingcompanies')
+  //     .then(response => {
+  //       if (response.data.code === 201) {
+  //         this.cardList = response.data.data;
+  //       } else {
+  //         console.error('获取数据失败', response.data.desc);
+  //       }
+  //     })
+  //     .catch(error => {
+  //       console.error('请求失败', error);
+  //     });
+  // }
 }
 </script>
 
